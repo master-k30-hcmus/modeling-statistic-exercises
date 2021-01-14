@@ -119,28 +119,40 @@ Dựa vào kết quả mô hình, ta tìm được 95\% khoảng tin cậy cho g
 Nhận thấy giá trị 1 thuộc khoảng tin cậy của $\beta_1$, vì vậy có thể xem $\beta_1 = 1$.
 
 \textbf{(b) Test the null hypothesis $H_0: \beta_0 = 10000$ against a two-sided alternative.}
+
+Kiểm định giả thuyết thống kê 2 phía:
+$$H_0: \beta_0 = 10000$$
+$$H_1: \beta_0 \neq 10000$$
+
 \begin{center}
 \includegraphics[scale = 0.8]{1b.PNG} 
 \end{center}
+
 Với $p_{value} = 0.75 \nless \alpha_{default}=0.05 $ chúng ta không đủ cơ sở để bác bỏ giả thuyết $H_0$.
 
-\textbf{(c) Find a 95\% prediction interval for the gross box office results for the current week (in \$) for a production with \$400,000 in gross
-box office the previous week. Is \$450,000 a feasible value for the gross box
-office results in the current week, for a production with \$400,000 in gross
-box office the previous week? }
+\textbf{(c) Find a 95\% prediction interval for the gross box office results for the current week (in \$) for a production with \$400,000 in gross box office the previous week. Is \$450,000 a feasible value for the gross box office results in the current week, for a production with \$400,000 in gross box office the previous week?}
+
 \begin{center}
 \includegraphics[scale = 0.8]{1c.PNG} 
 \end{center}
+
 Dễ nhận thấy $450000$ không thuộc khoảng dự đoán $[359832.8; 439442.2]$ của mô hình, nên nó không là giá trị phù hợp.
 
 \textbf{(d) Some promoters of Broadway plays use the prediction rule that next week’s gross box office results will be equal to this week’s gross box office results.}
+
+Chiến thuật dự đoán doanh số tuần hiện tại so với tuần trước có được mô hình hồi quy đơn là: $$Y = x$$
+
+Nhận xét: với kết quả có từ câu (a), ta có $\beta_1 = 1$ là một giá trị hợp lý, và nhận thấy $\beta_0 = 0$ cũng là một giá trị chấp nhận được với khoảng tin cậy 95\% của mô hình. Vậy chiến thuật này được xây dựng hợp lý.
+
 \begin{center}
 \includegraphics[scale = 0.8]{1d.PNG} 
 \end{center}
-Dựa vào biểu đồ Residuals vs Fitted, ta thấy rằng chiến thuật dự đoán doanh số tuần hiện tại so với tuần trước là một chiến lược khá hợp lý. \\
-Tuy nhiên, có ít nhất 3 điểm bị lệch khỏi đường hồi quy.\\
+
+Tuy nhiên nhìn vào biểu đồ, Residuals vs Fitted, ta thấy có ít nhất 3 điểm bị lệch khỏi đường hồi quy.
+
 Vì vậy, họ cần thêm dữ liệu để có cái nhìn khách quan hơn hoặc dùng một mô hình khác có thể tạo ra quy tắc dự đoán tốt hơn, giảm thiểu rủi ro.
 
+\newpage
 \section*{Exercise 2 (2.8.2 page 38)}
 $Y = \beta_0 + \beta_1 x + e$ where 
 $Y$ = Percentage change in average price from July 2006 to July 2007; and $x$ = Percentage of mortgage loans 30 days or more overdue in latest quarter.
@@ -163,6 +175,7 @@ Dựa vào mô hình tổng quát mối liên hệ giữa 2 biến $x$ và $Y$ t
 Tương tự ta tính được 95\% độ tin cậy của $Y$ khi  $x = 4$ nằm trong khoảng $[-6.6;-2.3] $\\
 Vì 95\% độ tin cậy của y khi $x = 4$ nằm trong khoảng  $[-6.6;-2.3]$ nên 0\% không phải là giá trị mong đợi phù hợp khi $x = 4$.
 
+\newpage
 \section*{Exercise 3 (2.8.3 page 38)}
 $Y = \beta_0 + \beta_1 x + e$ where 
 $Y$ is the processing time and $x$ is the
@@ -178,6 +191,10 @@ Dựa vào kết quả mô hình, ta tìm được 95\% khoảng tin cậy cho g
 
 \textbf{(b) Test the null hypothesis
 $H_0: \beta_1 = 0.01$ against a two-sided alternative.}
+
+Kiểm định giả thuyết thống kê 2 phía:
+$$H_0: \beta_0 = 0.01$$
+$$H_1: \beta_0 \neq 0.01$$
 
 \begin{center}
 \includegraphics[scale = 0.8]{3b.PNG} 

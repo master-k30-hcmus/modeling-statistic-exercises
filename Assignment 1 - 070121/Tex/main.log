@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.14)  14 JAN 2021 15:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.14)  14 JAN 2021 20:39
 entering extended mode
 **./main.tex
 (main.tex
@@ -1204,8 +1204,7 @@ Package: fancyhdr 2021/01/04 v4.0 Extensive control of page headers and footers
 \f@nch@O@erf=\skip140
 \f@nch@O@olf=\skip141
 \f@nch@O@orf=\skip142
-)
-No file main.aux.
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
@@ -1267,6 +1266,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 51.
 LaTeX Info: Redefining \pageref on input line 51.
 LaTeX Info: Redefining \nameref on input line 51.
+ (main.out) (main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
@@ -1305,29 +1305,12 @@ LaTeX Info: Redefining \nameref on input line 51.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-LaTeX Warning: File `Logo-Math-CS.png' not found on input line 62.
-
-
-! Package pdftex.def Error: File `Logo-Math-CS.png' not found: using draft sett
-ing.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.62 \includegraphics[scale=0.8]{Logo-Math-CS.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 6
-2.
-(C:\Users\thidang\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
-File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
+<Logo-Math-CS.png, id=6, 205.35255pt x 177.44342pt>
+File: Logo-Math-CS.png Graphic file (type png)
+<use Logo-Math-CS.png>
+Package pdftex.def Info: Logo-Math-CS.png  used on input line 62.
+(pdftex.def)             Requested size: 164.28224pt x 141.95491pt.
 LaTeX Font Info:    Calculating math sizes for size <13> on input line 70.
-
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available
 (Font)              size <12> substituted on input line 70.
@@ -1384,7 +1367,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-{C:/Users/thidang/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+{C:/Users/thidang/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Logo-Math-C
+S.png>]
 Overfull \hbox (11.54718pt too wide) in paragraph at lines 85--106
  [][] 
  []
@@ -1395,65 +1379,21 @@ been already used, duplicate ignored
                    \relax 
 l.108 \newpage
                [1]
-
-LaTeX Warning: File `1a.PNG' not found on input line 115.
-
-
-! Package pdftex.def Error: File `1a.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.115 \includegraphics[scale = 0.8]{1a.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `1b.PNG' not found on input line 123.
-
-
-! Package pdftex.def Error: File `1b.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 \includegraphics[scale = 0.8]{1b.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `1c.PNG' not found on input line 132.
-
-
-! Package pdftex.def Error: File `1c.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.132 \includegraphics[scale = 0.8]{1c.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `1d.PNG' not found on input line 138.
-
-
-! Package pdftex.def Error: File `1d.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.138 \includegraphics[scale = 0.8]{1d.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<1a.PNG, id=21, 221.628pt x 92.14426pt>
+File: 1a.PNG Graphic file (type png)
+<use 1a.PNG>
+Package pdftex.def Info: 1a.PNG  used on input line 115.
+(pdftex.def)             Requested size: 177.30263pt x 73.71548pt.
+<1b.PNG, id=22, 337.86224pt x 50.589pt>
+File: 1b.PNG Graphic file (type png)
+<use 1b.PNG>
+Package pdftex.def Info: 1b.PNG  used on input line 128.
+(pdftex.def)             Requested size: 270.29015pt x 40.47124pt.
+<1c.PNG, id=23, 447.47176pt x 49.3845pt>
+File: 1c.PNG Graphic file (type png)
+<use 1c.PNG>
+Package pdftex.def Info: 1c.PNG  used on input line 136.
+(pdftex.def)             Requested size: 357.97789pt x 39.50764pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1463,36 +1403,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.42429pt}.
 
-[2]
-
-LaTeX Warning: File `2a.PNG' not found on input line 150.
-
-
-! Package pdftex.def Error: File `2a.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.150 \includegraphics[scale = 0.8]{2a.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `2b.PNG' not found on input line 159.
-
-
-! Package pdftex.def Error: File `2b.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.159 \includegraphics[scale = 0.8]{2b.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[2 <./1a.PNG> <./1b.PNG> <./1c.PNG>]
+<1d.PNG, id=37, 354.123pt x 222.23026pt>
+File: 1d.PNG Graphic file (type png)
+<use 1d.PNG>
+Package pdftex.def Info: 1d.PNG  used on input line 148.
+(pdftex.def)             Requested size: 283.29877pt x 177.78444pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1502,56 +1418,47 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.42429pt}.
 
-[3]
-
-LaTeX Warning: File `3a.PNG' not found on input line 174.
-
-
-! Package pdftex.def Error: File `3a.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.174 \includegraphics[scale = 0.8]{3a.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[3 <./1d.PNG>]
+<2a.PNG, id=43, 268.00125pt x 59.0205pt>
+File: 2a.PNG Graphic file (type png)
+<use 2a.PNG>
+Package pdftex.def Info: 2a.PNG  used on input line 162.
+(pdftex.def)             Requested size: 214.40128pt x 47.21643pt.
+<2b.PNG, id=44, 523.9575pt x 59.62276pt>
+File: 2b.PNG Graphic file (type png)
+<use 2b.PNG>
+Package pdftex.def Info: 2b.PNG  used on input line 171.
+(pdftex.def)             Requested size: 419.16656pt x 47.69826pt.
 
 
-LaTeX Warning: File `3b.PNG' not found on input line 183.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.42429pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.42429pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
+(fancyhdr)                \addtolength{\topmargin}{-0.42429pt}.
 
-! Package pdftex.def Error: File `3b.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.183 \includegraphics[scale = 0.8]{3b.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `3c.PNG' not found on input line 190.
-
-
-! Package pdftex.def Error: File `3c.PNG' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.190 \includegraphics[scale = 0.8]{3c.PNG}
-                                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+[4 <./2a.PNG> <./2b.PNG>]
+<3a.PNG, id=51, 384.2355pt x 46.9755pt>
+File: 3a.PNG Graphic file (type png)
+<use 3a.PNG>
+Package pdftex.def Info: 3a.PNG  used on input line 187.
+(pdftex.def)             Requested size: 307.38881pt x 37.58043pt.
+<3b.PNG, id=52, 495.65175pt x 50.589pt>
+File: 3b.PNG Graphic file (type png)
+<use 3b.PNG>
+Package pdftex.def Info: 3b.PNG  used on input line 200.
+(pdftex.def)             Requested size: 396.52193pt x 40.47124pt.
+<3c.PNG, id=53, 552.26324pt x 58.41824pt>
+File: 3c.PNG Graphic file (type png)
+<use 3c.PNG>
+Package pdftex.def Info: 3c.PNG  used on input line 207.
+(pdftex.def)             Requested size: 441.81119pt x 46.73465pt.
 \tf@thm=\write7
 \openout7 = `main.thm'.
 
 
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.42429pt, for example:
 (fancyhdr)                \setlength{\headheight}{12.42429pt}.
@@ -1559,28 +1466,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-0.42429pt}.
 
-[4] (main.aux)
+[5 <./3a.PNG> <./3b.PNG> <./3c.PNG>] (main.aux)
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 23977 strings out of 479697
- 422073 string characters out of 2866183
- 729198 words of memory out of 3000000
- 40626 multiletter control sequences out of 15000+200000
- 417489 words of font info for 58 fonts, out of 3000000 for 9000
+ 23852 strings out of 479697
+ 420954 string characters out of 2866183
+ 729381 words of memory out of 3000000
+ 40509 multiletter control sequences out of 15000+200000
+ 417178 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,11n,111p,468b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 106i,11n,111p,468b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmmi12.pfb><C:/Users/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmmi9.pfb><C:/Users/thidang/AppData/Local/Programs/MiKTeX/fonts/ty
@@ -1591,11 +1493,10 @@ Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/
 thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/User
 s/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Use
 rs/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Us
-ers/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr17.pfb><C:/U
-sers/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on main.pdf (5 pages, 131354 bytes).
+ers/thidang/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr17.pfb>
+Output written on main.pdf (6 pages, 214785 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 94 PDF objects out of 1000 (max. 8388607)
+ 6 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 
