@@ -27,7 +27,7 @@ B0_hat = summary(lm_fit)$coefficients["(Intercept)", "Estimate"]
 B0_se = summary(lm_fit)$coefficients["(Intercept)", "Std. Error"]
 
 t_obs = (B0_hat - B0) / B0_se; t_obs
-p_value = 2 * pt(t_obs, nrow(playbill) - 2); p_value
+p_obs = 2 * pt(abs(t_obs), nrow(playbill) - 2, lower.tail = FALSE); p_obs
 
 ### c
 predict(lm_fit, data.frame(LastWeek = 400000), interval = "prediction")
@@ -54,7 +54,7 @@ linearModel2
 ### a - Find 95% confident interval of B1
 confint(linearModel2, level = 0.95)
 
-### b - Predict Y with X = 4
+### b - Predict Y with X = 4 
 result <- predict(linearModel2,data.frame(loanPayment = 4),interval = 'confidence')
 result
 
