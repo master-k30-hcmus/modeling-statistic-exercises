@@ -1,0 +1,10 @@
+.Rhistory
+.RData
+
+.aux
+.dvi
+.log
+.out
+.ps
+.synctex*
+.thm
