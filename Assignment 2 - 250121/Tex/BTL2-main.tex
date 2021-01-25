@@ -1,0 +1,107 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{scrextend}
+\changefontsizes{13pt}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage[amsmath,standard,thmmarks]{ntheorem}
+\usepackage{amssymb}
+\usepackage{exscale}
+\usepackage{amsfonts}
+\usepackage{eucal}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\newmdenv[linecolor=black,skipabove=\topsep,skipbelow=\topsep,
+leftmargin=-5pt,rightmargin=-5pt,
+innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
+\setlength{\parindent}{0pt}
+ \usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\heva}[1]{\left\{ 
+\begin{aligned}#1\end{aligned}\right.}
+
+\theoremstyle{nonumberplain} 
+\theoremheaderfont{\itseries\slshape} 
+\theorembodyfont{\normalfont}
+\theoremsymbol{\ensuremath{_\blacksquare}} 
+\renewtheorem{proof}{Chứng minh:}
+\newcommand{\chm}[1]{\begin{proof}#1\end{proof}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{BTL1 - Mô hình hóa thống kê}
+\cfoot{\thepage}
+\rhead{Nhóm 4}
+\title{BÀI TẬP LẦN 2 - MHHTK}
+
+\author{NHÓM 4}
+
+\date{\today}%
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\textbf{\large{TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN TP.HCM}\\
+CAO HỌC KHÓA 30}\\
+---------------*---------------
+\end{center}
+\vspace{0.3cm}
+\begin{center}
+\includegraphics[scale=0.8]{Logo-Math-CS.png} 
+\end{center}
+\vspace{0.7cm}
+\begin{center}
+\textbf{\Large{\textcolor[rgb]{1.0,0.0,0.0}{Bài tập lần 1}}}\\
+\vspace{0.5cm}
+\textbf{\Large{\textcolor[rgb]{1.0,0.0,0.0}{MÔ HÌNH HÓA THỐNG KÊ}}}\\
+\vspace*{4cm}
+$\begin{array}{rl}
+\text{\large{Giảng viên hướng dẫn:}} &\text{\large{\bf TS. Nguyễn Thị Mộng Ngọc}}  \\
+\vspace*{1cm}
+\text{\large{Nhóm thực hiện:}}     & \text{\large{\textbf{Nhóm 4}}}
+\end{array}$\\
+\vspace{4cm}
+\normalsize{TP. Hồ Chí Minh $-$ Tháng 01, 2021}
+\end{center}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\begin{center}
+\textbf{\large{BẢNG PHÂN CÔNG CÔNG VIỆC}\\}
+\vspace{1cm}
+\begin{tabular}{|m{4.5cm}||m{8cm}|m{3.5cm}|} 
+\hline
+\textbf{Thành viên} & \centering{\textbf{Công việc}} & \textbf{Mã số học viên}\\
+\hline
+1. Đặng Khánh Thi & $-$ Code R bài 1& \\
+& $-$ Kiểm tra code R bài 2, bài 3 & 20C29038 \\
+& $-$ Thảo luận ghi nhận xét 3 bài & \\
+\hline
+2. Đinh Thị Nữ  & $-$ Code R bài 2& \\
+& $-$ Kiểm tra code R bài 1, bài 3& 20C29013\\
+& $-$ Thảo luận ghi nhận xét 3 bài& \\
+\hline 
+3. Lý Phi Long & $-$ Code R bài 3& \\
+& $-$ Kiểm tra code R bài 1, bài 2& 20C29028\\
+& $-$ Thảo luận ghi nhận xét 3 bài& \\
+\hline
+4. Phan Thị Thùy An & $-$ Tổng hợp, kiểm tra code R bài 1,2,3 & \\
+Nhóm trưởng & $-$ Thảo luận ghi nhận xét 3 bài & 20C29002 \\
+& $-$ Trình bày file nhận xét bằng Latex & \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
