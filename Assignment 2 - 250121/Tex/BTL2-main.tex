@@ -116,17 +116,56 @@ Bảng ANOVA:
 \end{center}
 \subsubsection*{1. Tính tổng bình phương hồi quy trên $X_1, X_2$ và $X_3$?}
 $SSR = SSR_{X_1} + SSR_{X_2|X_1} + SSR_{X_3|X_1,X_2} = 981.326 + 190.232 + 129.431 = 1299.989$
-\subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của mức độ lo lắng được giải thích bởi các biến
-độc lập.}
+\subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập.}
+\[R^2 = \dfrac{SSR}{SST} = \dfrac{1299.989}{1743.281} = 0.7462876\]
+Sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập có tỉ lệ phần trăm là 74\%.
 
-\subsubsection*{3. Có thể kết luận rằng trong tất cả ba biến giải thích đều có ảnh hưởng đáng kể đến mức
-độ lo lắng hay không? Chỉ rõ kiểm định nào được dùng.}
+\subsubsection*{3. Có thể kết luận rằng trong tất cả ba biến giải thích đều có ảnh hưởng đáng kể đến mức độ lo lắng hay không? Chỉ rõ kiểm định nào được dùng.}
+
+Đặt giả thuyết kiểm định:
+\[\begin{cases}
+	H_0: \beta_1 = \beta_2 = \beta_3 = 0\\
+	H_1: \beta_1 \neq 0 \vee \beta_2 \neq 0 \vee \beta_3 \neq 0
+\end{cases}\]
+
+Với giả thuyết trên, không thể kết luận cả ba biến đều ảnh hưởng đáng kể đến mức độ lo lắng, mà chỉ có thể kết luận rằng tồn tại ít nhất một biến có ảnh hưởng đến mức độ lo lắng nếu giả thiết $H_0$ sai.
+
+Ta tính được kiểm định Fisher cho quan trắc:
+\[F_{obs} = \dfrac{SSR/p}{SSE/(n-p-1)} = 17.64882\]
+
+Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
+\[F_{1-\alpha}(p,n-p-1) = F_{0.95}(3,18) = 3.609\]
+
+Vì $F_{obs} > F_{0.95}(3,18)$ nên ta bác bỏ $H_0$.
+
+Vậy tồn tại ít nhất một biến có ảnh hưởng đến mức độ lo lắng.
 
 \subsubsection*{4. Nếu chúng ta chỉ xét biến giải thích $X_1$, hãy lập bảng ANOVA ?}
 
+Khi chỉ xét $X_1$, mô hình hồi quy trở thành:
+\[Y = \beta_0 + \beta_1X_1\]
+
+Vậy tổng sai số của biến giải thích $X_1$ là:
+\[SSE_{X_1} = SST - SSR_{X_1} = 761.955\]
+
+Với số mẫu $n=22$, ta lập được bảng ANOVA với biến giải thích $X_1$ như sau:
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Biến thiên & SS & DF & MS & Fisher\\
+		\hline
+		$R_{X_1}$ & $SSR_{X_1} = 981.326$ & 1 &$SSR_{X_1}/1 = 981.326$ & \\
+		\hline
+		$E_{X_1}$ & $SSE_{X_1} = 761.955$ & $n-2 = 20$ & $SSE_{X_1}/20 = 38.09775$ & $MSR_{X_1}/MSE_{X_1} = 25.75811$\\
+		\hline
+		Total & 1743.281 & $n-1 = 21$ & & \\
+		\hline
+	\end{tabular}
+\end{center}
+
 
 \subsubsection*{5. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
-
 
 \textbf{(a)} $H_0 : \beta_1 = 0$ \textbf{cho mô hình } $Y = \beta_0 + \beta_1 X_1 + \epsilon $
 
@@ -194,6 +233,5 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 \subsubsection*{9. Với độ tin cậy 95\%, tìm khoảng tin cậy cho $\mathbb{V}(\epsilon)$. }
 
 
-\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất
-lượng ước lượng cao hơn không?}
+\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất lượng ước lượng cao hơn không?}
 \end{document}
