@@ -61,5 +61,5 @@ sprintf("Cau 4: He so xac dinh: R2''=%s", format(R2))
 
 ## Cau 5
 
-sprintf("Ta co cac he so xac dinh R2'' < R2' < R2")
-sprintf("Vay mo hinh y duoc giai thich tot nhat voi 2 bien x1, x2")
+sprintf("Ta co cac he so xac dinh theo thu tu tang dan R2'' < R2' < R2")
+sprintf("Vay voi R2, mo hinh y duoc giai thich tot nhat voi hai bien doc lap x1, x2")
