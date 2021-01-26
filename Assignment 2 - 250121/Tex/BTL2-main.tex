@@ -183,6 +183,7 @@ Với số mẫu $n=22$, ta lập được bảng ANOVA với biến giải thí
 
 \newpage
 \section*{BÀI 2}
+
 - $Y$ : mức độ bền dẻo của nhựa\\
 - $X_1$: độ dày của vật liệu\\
 - $X_2$: mật độ của vật liệu
@@ -208,18 +209,103 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 
 \subsubsection*{1. Viết các mô hình tuyến tính với 2 biến độc lập (có thể).}
 
+\begin{itemize}
+	\item Mô hình với hai biến $x_1, x_2$
+	\begin{equation}\label{model:12}
+		y = \beta_0 + \beta_1x_1 + \beta_2x_2
+	\end{equation}
+	\item Mô hình với hai biến $x_1, x_3$
+	\begin{equation}\label{model:13}
+		y = \beta_0' + \beta_1'x_1 + \beta_3'x_3
+	\end{equation}
+	\item Mô hình với hai biến $x_2, x_3$
+	\begin{equation}\label{model:23}
+		y = \beta_0'' + \beta_2''x_2 + \beta_3''x_3
+	\end{equation}
+\end{itemize}
 
 \subsubsection*{2. Ước lượng các hệ số hồi quy trong từng mô hình tuyến tính ở câu 1.}
 
+\begin{itemize}
+	\item Mô hình \ref{model:12}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-model-1}
+		\caption{Thông số mô hình \ref{model:12}}
+		\label{fig:bai-3-5-model-1}
+	\end{figure}
+	
+	Hệ số hồi quy:
+	\[\beta_0=25.84214, \beta_1=0.7148959, \beta_2=-0.3281129\]
+	
+	\item Mô hình \ref{model:13}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-model-2}
+		\caption{Thông số mô hình \ref{model:13}}
+		\label{fig:bai-3-5-model-2}
+	\end{figure}
+	
+	Hệ số hồi quy:
+	\[\beta_0'=8.609241, \beta_1'=0.9272087, \beta_3'=0.02323681\]
+	
+	\item Mô hình \ref{model:23}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-model-3}
+		\caption{Thông số mô hình \ref{model:23}}
+		\label{fig:bai-3-5-model-3}
+	\end{figure}
+
+	Hệ số hồi quy:
+	\[\beta_0''=31.97642, \beta_2''=-0.4538954, \beta_3''=0.01996295\]
+\end{itemize}
 
 \subsubsection*{3. Với độ tin cậy 95\%, tìm khoảng tin cậy cho các tham số trong mô hình với 2 biến độc lập $x_1$ và $x_2$.}
 
 
 \subsubsection*{4. Xác định hệ số xác định cho mỗi mô hình trong câu 1.}
 
+\begin{itemize}
+	\item Mô hình \ref{model:12} có bảng ANOVA:
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-anova-1}
+		\caption{Bảng ANOVA của mô hình \ref{model:12}}
+		\label{fig:bai-3-5-anova-1}
+	\end{figure}
+	
+	Hệ số xác định:
+	\[R^2 = \dfrac{SSR}{SST} = 0.6875395\]
+	
+	\item Mô hình \ref{model:13} có bảng ANOVA:
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-anova-2}
+		\caption{Bảng ANOVA của mô hình \ref{model:13}}
+		\label{fig:bai-3-5-anova-2}
+	\end{figure}
+	
+	Hệ số xác định:
+	\[R'^2 = \dfrac{SSR}{SST} = 0.5263211\]
+	
+	\item Mô hình \ref{model:23} có bảng ANOVA:
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{bai-3-5-anova-3}
+		\caption{Bảng ANOVA của mô hình \ref{model:23}}
+		\label{fig:bai-3-5-anova-3}
+	\end{figure}
+	
+	Hệ số xác định:
+	\[R''^2 = \dfrac{SSR}{SST} = 0.4880253\]
+\end{itemize}
 
 \subsubsection*{5. Trong các mô hình trên, mô hình nào thích hợp nhất để giải thích sự biến thiên của $Y$ ?}
 
+Với kết quả từ câu 4, ta có được thứ tự tăng dần các hệ số xác định từ các mô hình của $Y$ là \[R''^2 < R'^2 < R^2 \]
+
+Vậy với hệ số $R^2$ cao nhất thì mô hình hai biến độc lập $x_1, x_2$ là phù hợp nhất để giải thích sự biến thiên của $Y$.
 
 \subsubsection*{6. Viết mô hình tuyến tính dưới dạng ma trận với số biến độc lập nhiều nhất có thể, và xác định kích thước của ma trận.}
 
