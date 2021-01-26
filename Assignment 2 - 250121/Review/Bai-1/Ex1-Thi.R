@@ -16,7 +16,7 @@ SST = SSR1 + SSR2 + SSR3 + SSE
 
 ## Cau 1: Tong binh phuong hoi quy tren X1, X2, X3
 SSR = SSR1 + SSR2 + SSR3
-sprintf("Tong binh phuong hoi quy tren X1, X2, X3 la %s",format(SSR))
+sprintf("Tong binh phuong hoi quy tren X1, X2, X3 la %s", format(SSR))
 
 ## Cau 2: He so xac dinh cua Y (muc do lo lang)
 R2 = SSR/SST
@@ -25,15 +25,15 @@ sprintf("Su bien thien cua muc do lo lang duoc giai thich boi cac bien doc lap c
 ## Cau 3: Dat gia thuyet H0: B1=B2=B3=0
 sprintf("Dat gia thuyet H0: B1=B2=B3=0")
 F_obs = (SSR/p)/(SSE/SSE_df); F_obs
-p_value = 2 * pf(F_obs, n, n - p - 1); p_value
-sprintf("Vi p_value = %s < F_obs = %s",format(p_value), format(F_obs))
-sprintf("Suy ra bac bo H0, ket luan ca ba bien deu anh huong den muc do lo lang.")
+p_value = pf(F_obs, p, n - p - 1, lower.tail = FALSE); p_value
+sprintf("Vi p_value = %s < alpha = %s",format(p_value), format(0.05))
+sprintf("Suy ra bac bo H0, ket luan ton tai it nhat mot bien anh huong den muc do lo lang.")
 
 ## Cau 4: Bang ANOVA neu chi xet bien giai thich X1
 MSR1 = SSR1/1; MSR1
 
 SSE1 = SST - SSR1; SSE1
-MSE1 = SSE1/(n-2); MSE1
+MSE1 = SSE1/(n - 2); MSE1
 
 F1 =  MSR1/MSE1; F1
 
