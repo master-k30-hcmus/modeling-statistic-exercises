@@ -20,6 +20,33 @@ lm_sum = summary(lm_fit); lm_sum
 F_obs = lm_sum$fstatistic["value"]
 p_value = pf(F_obs, p, n - p - 1, lower.tail = FALSE); p_value
 
-sprintf("Vi p_value = %s < alpha = %s",format(p_value), format(0.05))
-sprintf("Suy ra bac bo H0 voi7 muc y nghia 0.05.")
+sprintf("Vi p_value = %s < alpha = %s", format(p_value), format(0.05))
+sprintf("Suy ra bac bo H0 voi muc y nghia 0.05.")
 
+## Cau 5: Xac dinh khoang tin cay B1 voi muc y nghia 5% voi mo hinh chi co bien la X1
+lmX1_fit = lm(Y ~ X1)
+
+confintB1 = confint(lmX1_fit)[2, ]; confintB1
+
+sprintf("Khoang tin cay B1 voi mo hinh Y ~ X1 la [%s,%s]",
+        format(confintB1[1]),
+        format(confintB1[2]))
+
+## Cau 6:
+## Kiem dinh cho gia thuyet:
+## H_0 : B2 = 0 hay Y = B0 + B1X1 + e
+## H_1 : B2 != 0 hay Y = B0 + B1X1 + B2X2 + e
+
+lm_anova = anova(lm_fit); lm_anova
+
+SST = sum(lm_anova$`Sum Sq`); SST
+SSR1 = lm_anova$`Sum Sq`[1]; SSR1
+SSR2 = lm_anova$`Sum Sq`[2]; SSR2
+
+SSE1 = SST - SSR1; SSE1
+SSE2 = SST - SSR1 - SSR2; SSE2
+
+F_obs = ((SSE1 - SSE2) / 1) / (SSE2 / (n - p - 1)); F_obs
+
+sprintf("Vi F_obs = %s < F_{0.95}(1,9) = %s", format(F_obs), format(5.1174))
+sprintf("Suy ra bac bo H0 voi muc y nghia 0.05.")
