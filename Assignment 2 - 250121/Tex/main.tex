@@ -447,7 +447,7 @@ Từ kết luận của các giả thuyết trên, ta suy ra được mức đ�
 	\end{figure}
 	
 	Hệ số hồi quy:
-	\[\beta_0=25.84214, \beta_1=0.7148959, \beta_2=-0.3281129\]
+	\[\hat{\beta_0}=25.84214, \hat{\beta_1}=0.7148959, \hat{\beta_2}=-0.3281129\]
 	
 	\item Mô hình \ref{model:13}
 	\begin{figure}[h]
@@ -458,7 +458,7 @@ Từ kết luận của các giả thuyết trên, ta suy ra được mức đ�
 	\end{figure}
 	
 	Hệ số hồi quy:
-	\[\beta_0'=8.609241, \beta_1'=0.9272087, \beta_3'=0.02323681\]
+	\[\hat{\beta_0'}=8.609241, \hat{\beta_1'}=0.9272087, \hat{\beta_3'}=0.02323681\]
 	
 	\item Mô hình \ref{model:23}
 	\begin{figure}[h]
@@ -469,11 +469,22 @@ Từ kết luận của các giả thuyết trên, ta suy ra được mức đ�
 	\end{figure}
 
 	Hệ số hồi quy:
-	\[\beta_0''=31.97642, \beta_2''=-0.4538954, \beta_3''=0.01996295\]
+	\[\hat{\beta_0''}=31.97642, \hat{\beta_2''}=-0.4538954, \hat{\beta_3''}=0.01996295\]
 \end{itemize}
 
 \subsubsection*{3. Với độ tin cậy 95\%, tìm khoảng tin cậy cho các tham số trong mô hình với 2 biến độc lập $x_1$ và $x_2$.}
+Viết lại mô hình: $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$
+\begin{center}
+\includegraphics{bai3_3.PNG} 
+\end{center}
 
+Dựa vào kết quả mô hình:
+
+\begin{itemize}
+    \item 95\% Khoảng tin cậy của $\beta_0$ là $(12.4939;39.1904)$
+    \item 95\% Khoảng tin cậy của $\beta_1$ là $(0.1289;1.3009)$
+    \item 95\% Khoảng tin cậy của $\beta_2$ là $(-0.6243;-0.0319)$
+\end{itemize}
 
 \subsubsection*{4. Xác định hệ số xác định cho mỗi mô hình trong câu 1.}
 
@@ -515,13 +526,12 @@ Từ kết luận của các giả thuyết trên, ta suy ra được mức đ�
 
 \subsubsection*{5. Trong các mô hình trên, mô hình nào thích hợp nhất để giải thích sự biến thiên của $Y$ ?}
 
-Với kết quả từ câu 4, ta có được thứ tự tăng dần các hệ số xác định từ các mô hình của $Y$ là \[R''^2 < R'^2 < R^2 \]
+Do các mô hình đều có cùng số lượng biến độc lập, ta so sánh hệ số xác định ($R^2$) để xét xem mô hình nào thích hợp nhất. Với kết quả từ câu 4, ta có được thứ tự tăng dần các hệ số xác định từ các mô hình của $Y$ là \[R''^2 < R'^2 < R^2 \]
 
 Vậy với hệ số $R^2$ cao nhất thì mô hình hai biến độc lập $x_1, x_2$ là phù hợp nhất để giải thích sự biến thiên của $Y$.
 
-
 \subsubsection*{6. Viết mô hình tuyến tính dưới dạng ma trận với số biến độc lập nhiều nhất có thể, và xác định kích thước của ma trận.}
-
+Dựa vào dữ liệu đề bài, số biến độc lập nhiều nhất có thể là 3 biến $(X_1,X_2,X_3)$
 $$\mathbf{Y}_{14\times1} = \mathbf{X}_{14\times4}\beta_{4\times1} + \epsilon_{14\times1}$$
 
 \[{Y_{14 \times 1}} = \left[ {\begin{array}{*{20}{c}}
@@ -542,6 +552,22 @@ $$\mathbf{Y}_{14\times1} = \mathbf{X}_{14\times4}\beta_{4\times1} + \epsilon_{14
   {{\varepsilon _{14}}} 
 \end{array}} \right]\]
 
+Với dữ liệu đề bài, một số dòng đầu và dòng cuối của ma trận $\mathbf{X}$ và vec-tơ $\mathbf{Y}$ là:
+
+\[{Y_{14 \times 1}} = \left[ {\begin{array}{*{20}{c}}
+  {{12}} \\
+  {{14}}  \\
+   \vdots  \\ 
+  {{25}} \\
+  {{21}}
+\end{array}} \right];{X_{14 \times 4}} = \left[ {\begin{array}{*{20}{c}}
+  1&{{2}}&{{45}}&{{121}} \\ 
+  1&{{1}}&{{43}}&{{132}} \\ 
+  \vdots & \vdots & \vdots & \vdots  \\ 
+  1&{{12}}&{{35}}&{{174}} \\ 
+  1&{{7}}&{{29}}&{{180}} 
+\end{array}} \right]\]
+
 \subsubsection*{7. Ước lượng các hệ số hồi quy trong mô hình tuyến tính ở câu 6.}
 Viết lại mô hình: $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon$
 
@@ -552,6 +578,22 @@ Dựa vào kết quả mô hình, ta có các hệ số hồi quy:
 $$\hat{\beta_0} = 32.89132, \hat{\beta_1} = 0.8019, \hat{\beta_2} = -0.38136, \hat{\beta_3} = -0.03713$$
 \subsubsection*{8. Trong mô hình tuyến tính ở câu 6, tính ước lượng của $\mathbb{V}(\epsilon)$ và $\mathbb{V}(\hat{\beta})$.}
 
+Ước lượng phương sai $\sigma^2$ của sai số, $\mathbb{V}(\epsilon)$, được ước lượng bởi 
+$$\mathbb{V}(\epsilon) \sim MSE = \displaystyle \frac{SSE}{n-4}$$
+
+Ước lượng phương sai của $\hat{\beta}$:
+
+\[\mathbb{V}(\hat{\beta}) = \left[ {\begin{array}{*{20}{c}}
+  var(\hat{\beta_0}) \\
+  var(\hat{\beta_1})  \\
+   var(\hat{\beta_2})\\
+ var(\hat{\beta_3})
+\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+  \mathbf{Se}^2(\hat{\beta_0}) \\
+  \mathbf{Se}^2(\hat{\beta_1})  \\
+   \mathbf{Se}^2(\hat{\beta_2})\\
+ \mathbf{Se}^2(\hat{\beta_3})
+\end{array}} \right]\]
 
 \subsubsection*{9. Với độ tin cậy 95\%, tìm khoảng tin cậy cho $\mathbb{V}(\epsilon)$. }
 
