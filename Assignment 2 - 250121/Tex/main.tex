@@ -15,7 +15,6 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{commath}
-\usepackage[dvips]{color}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
 \usepackage{url}
@@ -304,14 +303,83 @@ $$Y =   \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2 = -30.081 + 4.905 
 \includegraphics{bai2_3.PNG} 
 \end{center}
 
-\subsubsection*{4. Kiểm định giả thuyết sau với mức ý nghĩa 5\%}
-$$H_0 : \beta_1 = \beta_2= 0 $$
+\subsubsection*{4. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
+\[H_0 : \beta_1 = \beta_2= 0\]
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bai-2-4-summary}
+	\label{fig:bai-2-4-summary}
+\end{figure}
+
+Từ hình trên, ta có giá trị thống kê Fisher $F_{obs} = 25.12 \sim F_{0,95}(2,9)$, tính được $p\_value = 0.0002075386$ qua hàm \textbf{pf}:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bai-2-4-p_value}
+	\label{fig:bai-2-4-pvalue}
+\end{figure}
+
+Vì $p\_value = 0.0002075386 < \alpha = 0.05$, suy ra bác bỏ giả thiết $H_0$.
 
 \subsubsection*{5. Xác định khoảng tin cậy với mức ý nghĩa 5\% cho $\beta_1$ trong trường hợp mô hình chỉ có biến độc lập là độ dày của vật liệu ($X_1$).}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bai-2-5-confint-beta1}
+	\label{fig:bai-2-5-confint-beta1}
+\end{figure}
+
+Khoảng tin cậy $\beta_1$ với mức ý nghĩa 5\% của mô hình có một biến độc lập $X_1$ là $[3.187036,8.88479]$.
 
 \subsubsection*{6. Với khoảng tin cậy vừa tìm được ở câu 5, chúng ta có thể khẳng địng rằng hồi quy tuyến tính là có ý nghĩa giữa mức độ bền dẻo của nhựa và độ dày của vật liệu và mật độ của vật liệu không? Chứng minh điều khẳng định của bạn.}
 
+Nếu chỉ dựa vào khoảng tin cậy của $\beta_1$ ở câu 5, chúng ta \textbf{không} thể khẳng định được điều trên, vì kết quả ở câu 5 chỉ cho ta biết mối quan hệ tuyến tính giữa mức độ bền dẻo ($Y$) với độ dày của vật liệu ($X_1$).
+
+Để chứng minh, ta lần lượt thực hiện kiểm định các giả thuyết sau:
+\begin{enumerate}
+	\item[i)] $H_0 : \beta_1 = \beta_2 = 0$ cho mô hình $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon $
+	
+	Với kết quả từ câu 4, $H_0$ cũng bị bác bỏ do chứng minh trên, nghĩa là tồn tại tham số $\beta_1$ hoặc $\beta_2$ trong mô hình hồi quy hai biến $X_1, X_2$.
+	
+	\item[ii)] $H_0 : \beta_1 = 0$ cho mô hình $Y = \beta_0 + \beta_1 X_1 + \epsilon $
+	
+	Với kết quả từ câu 5, $H_0$ bị bác bỏ do $\beta_1 = 0$ không thuộc khoảng tin cậy $[3.187036,8.88479]$, nghĩa là tồn tại tham số $\beta_1$ trong mô hình hồi quy hai biến $X_1, X_2$.
+	
+	\item[iii)] $H_0 : \beta_2 = 0$ cho mô hình $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon $
+	
+	Ta thực hiện kiểm định sự tồn tại tham số $\beta_2$ trong mô hình hồi quy hai biến $X_1, X_2$ khi đã có $X_1$.
+	
+	Đặt giả thuyết kiểm định:
+	\[\begin{cases}
+		H_0 : \beta_2 = 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \epsilon \\
+		H_1 : \beta_2 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon 
+	\end{cases}\]
+	
+	Thực hiện kiểm định Fisher từng phần, ta có thống kê của kiểm định: 
+	
+	$$F_{obs} = \displaystyle \frac{\left [ SSE (H_0) - SSE(H_1) \right ] / r}{SSE(H_1)/(n-p)}  \sim F_{(r,n-p)} \text{ khi } H_0 \text{ đúng},$$
+	trong đó $r = 1, n = 12, p = 3$.
+	
+	Từ bảng ANOVA ở câu 3, ta có được các giá trị sau:
+	\begin{align}
+		SST &= 1420.667\\
+		SSR_{X_1} &= 980.63\\
+		SSR_{X_2|X_1} &= 224.22 \\
+	\end{align}
+	
+	Trước tiên, ta cần tính $SSE (H_0)$ và $SSE(H_1)$:
+	$$SSE(H_0) = SSE_{X_1} = SST - SSR_{X_1} = 440.032$$
+	$$SSE(H_1) = SSE_{X_2|X_1} = SST - SSR_{X_1} - SSR_{X_2|X_1} = 215.81$$
+	
+	Giá trị thống kê $$F_{obs} = 9.350885$$
+	
+	Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
+	$$F_{1-\alpha}(r,n-p) = F_{0.95}(1,9) = 5.1174$$
+	
+	Vì $F_{obs} > F_{0.95}(1,9)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%, vậy tồn tại tham số $\beta_2$ trong mô hình hồi quy hai biến $X_1, X_2$.
+\end{enumerate}
+
+Từ kết luận của các giả thuyết trên, ta suy ra được mức độ bền dẻo ($Y$) có quan hệ tuyến tính chặt chẽ với cả hai biến độc lập là độ dày của vật liệu ($X_1$) và mật độ của vật liệu ($X_2$).
 
 \newpage
 \section*{BÀI 3}
@@ -340,7 +408,7 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bai-3-5-model-1}
-		\caption{Thông số mô hình \ref{model:12}}
+		\caption{Tham số mô hình \ref{model:12}}
 		\label{fig:bai-3-5-model-1}
 	\end{figure}
 	
@@ -351,7 +419,7 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bai-3-5-model-2}
-		\caption{Thông số mô hình \ref{model:13}}
+		\caption{Tham số mô hình \ref{model:13}}
 		\label{fig:bai-3-5-model-2}
 	\end{figure}
 	
@@ -362,7 +430,7 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bai-3-5-model-3}
-		\caption{Thông số mô hình \ref{model:23}}
+		\caption{Tham số mô hình \ref{model:23}}
 		\label{fig:bai-3-5-model-3}
 	\end{figure}
 
@@ -410,12 +478,12 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 	\[R''^2 = \dfrac{SSR}{SST} = 0.4880253\]
 \end{itemize}
 
+
 \subsubsection*{5. Trong các mô hình trên, mô hình nào thích hợp nhất để giải thích sự biến thiên của $Y$ ?}
 
 Với kết quả từ câu 4, ta có được thứ tự tăng dần các hệ số xác định từ các mô hình của $Y$ là \[R''^2 < R'^2 < R^2 \]
 
 Vậy với hệ số $R^2$ cao nhất thì mô hình hai biến độc lập $x_1, x_2$ là phù hợp nhất để giải thích sự biến thiên của $Y$.
-
 
 
 \subsubsection*{6. Viết mô hình tuyến tính dưới dạng ma trận với số biến độc lập nhiều nhất có thể, và xác định kích thước của ma trận.}
