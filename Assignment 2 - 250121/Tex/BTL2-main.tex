@@ -15,6 +15,7 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{commath}
+\usepackage[dvips]{color}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
 \usepackage{url}
@@ -117,6 +118,7 @@ Bảng ANOVA:
 \subsubsection*{1. Tính tổng bình phương hồi quy trên $X_1, X_2$ và $X_3$?}
 $SSR = SSR_{X_1} + SSR_{X_2|X_1} + SSR_{X_3|X_1,X_2} = 981.326 + 190.232 + 129.431 = 1299.989$
 \subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập.}
+
 \[R^2 = \dfrac{SSR}{SST} = \dfrac{1299.989}{1743.281} = 0.7462876\]
 Sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập có tỉ lệ phần trăm là 74\%.
 
@@ -131,14 +133,14 @@ Sự biến thiên của mức độ lo lắng được giải thích bởi các
 Với giả thuyết trên, không thể kết luận cả ba biến đều ảnh hưởng đáng kể đến mức độ lo lắng, mà chỉ có thể kết luận rằng tồn tại ít nhất một biến có ảnh hưởng đến mức độ lo lắng nếu giả thiết $H_0$ sai.
 
 Ta tính được kiểm định Fisher cho quan trắc:
-\[F_{obs} = \dfrac{SSR/p}{SSE/(n-p-1)} = 17.64882\]
+\[F_{obs} = \dfrac{SSR/(p-1)}{SSE/(n-p)} = 17.64882\]
 
 Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
-\[F_{1-\alpha}(p,n-p-1) = F_{0.95}(3,18) = 3.609\]
+\[F_{1-\alpha}(p-1,n-p) = F_{0.95}(3,18) = 3.609\]
 
-Vì $F_{obs} > F_{0.95}(3,18)$ nên ta bác bỏ $H_0$.
+Vì $F_{obs} > F_{0.95}(3,18)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.
 
-Vậy tồn tại ít nhất một biến có ảnh hưởng đến mức độ lo lắng.
+Vậy tồn tại \textbf{ít nhất} một biến có ảnh hưởng đến mức độ lo lắng.
 
 \subsubsection*{4. Nếu chúng ta chỉ xét biến giải thích $X_1$, hãy lập bảng ANOVA ?}
 
@@ -164,37 +166,145 @@ Với số mẫu $n=22$, ta lập được bảng ANOVA với biến giải thí
 	\end{tabular}
 \end{center}
 
+\subsubsection*{5. Kiểm định giả thuyết sau với mức ý nghĩa 5\%}
 
-\subsubsection*{5. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
+\textbf{(a)} $H_0 : \beta_1 = 0$ \textbf{cho mô hình } $Y = \beta_0 + \beta_1 X_1 + \epsilon $ 
 
-\textbf{(a)} $H_0 : \beta_1 = 0$ \textbf{cho mô hình } $Y = \beta_0 + \beta_1 X_1 + \epsilon $
+Đặt giả thuyết kiểm định:
+\[\begin{cases}
+	H_0 : \beta_1 = 0\\
+	H_1 : \beta_1 \ne 0
+\end{cases}\]
+Thống kê của kiểm định: 
+
+$$F =  \displaystyle \frac{MSR}{MSE} \sim F_{(1,20)} \text{ khi } H_0 \text{ đúng},$$ 
+với $F_{(1,20)}$ là phân phối Fisher có bậc tự do 1 và 20.
+
+Dựa vào bảng ANOVA ở câu 4, ta tính được giá trị thống kê:
+$$F_{obs} = \displaystyle \frac{981.326}{38.09775} = 25.7581$$
+
+Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
+$$F_{1-\alpha}(1,n-2) = F_{0.95}(1,20) = 4.3512$$
+
+Vì $F_{obs}>F_{0.95}(1,20)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.\\
 
 
 \textbf{(b)} $H_0 : \beta_2 = 0$ \textbf{cho mô hình } $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon $
 
+Đặt giả thuyết kiểm định:
+\[\begin{cases}
+	H_0 : \beta_2 = 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \epsilon \\
+	H_1 : \beta_2 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon
+\end{cases}\]
+Thực hiện kiểm định Fisher từng phần, ta có thống kê của kiểm định: 
+
+$$F = \displaystyle \frac{\left [ SSE (H_0) - SSE(H_1) \right ] / r}{SSE(H_1)/(n-p)} \sim F_{(r,n-p)} \text{ khi } H_0 \text{ đúng},$$
+trong đó $r = 1, n = 22, p = 3$.
+
+Trước tiên, ta cần tính $SSE (H_0)$ và $SSE(H_1)$:
+$$SSE(H_0) = SST - SSR_{X_1} = 761.955 \text{, (đặt là } SSE_{X_1})$$
+$$SSE(H_1) = SST - SSR_{X_1} - SSR_{X_2|X_1} = 571.723 \text{, (đặt là }  SSE_{X_1,X_2})$$
+Giá trị thống kê $$F_{obs} = 6.3219$$
+Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
+$$F_{1-\alpha}(r,n-p) = F_{0.95}(1,19) = 4.3807$$
+
+Vì $F_{obs}>F_{0.95}(1,19)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.\\
+
 
 \textbf{(c)} $H_0 : \beta_3 = 0$ \textbf{cho mô hình } $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon $
 
+Đặt giả thuyết kiểm định:
+\[\begin{cases}
+	H_0 : \beta_3 = 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon \\
+	H_1 : \beta_3 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon 
+\end{cases}\]
+Thực hiện kiểm định Fisher từng phần, ta có thống kê của kiểm định: 
+
+$$F = \displaystyle \frac{\left [ SSE (H_0) - SSE(H_1) \right ] / r}{SSE(H_1)/(n-p)}  \sim F_{(r,n-p)} \text{ khi } H_0 \text{ đúng},$$
+trong đó $r = 1, n = 22, p = 4$.
+
+Trước tiên, ta cần tính $SSE (H_0)$ và $SSE(H_1)$:
+$$SSE(H_0) = SST - SSR_{X_1} - SSR_{X_2|X_1} = 571.723 \text{, (đặt là }  SSE_{X_1,X_2}) $$
+$$SSE(H_1) = SST - SSR_{X_1} - SSR_{X_2|X_1} - SSR_{X_3|X_1,X_2} = 442.292 \text{, (đặt là }  SSE_{X_1,X_2,X_3})$$
+Giá trị thống kê $$F_{obs} = 5.2675$$
+Với mức ý nghĩa $\alpha = 0.05$, tra bảng thống kê Fisher ta được:
+$$F_{1-\alpha}(r,n-p) = F_{0.95}(1,18) = 4.4138$$
+
+Vì $F_{obs}>F_{0.95}(1,18)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.
+
 \subsubsection*{6. Xác định hệ số xác định cho mỗi mô hình trong câu 5.}
 
+\textbf{Mô hình 1:} $Y = \beta_0 + \beta_1 X_1 + \epsilon $ có hệ số xác định là
+$$R^2_1 = 1 - \displaystyle \frac{SSE_{X_1}}{SST} = 0.5629$$
+
+
+\textbf{Mô hình 2:} $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon $ có hệ số xác định là
+$$R^2_2 = 1 - \displaystyle \frac{SSE_{X_1,X_2}}{SST} = 0.6720$$
+\textbf{Mô hình 3:} $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon $ có hệ số xác định là
+$$R^2_3 = 1 - \displaystyle \frac{SSE_{X_1,X_2,X_3}}{SST} = 0.7463$$
+
+
+
 \subsubsection*{7. Trong các mô hình trên, mô hình nào thích hợp nhất để giải thích sự biến động mức độ lo lắng của các giám đốc ?}
+Để so sánh độ thích hợp của các mô hình, ta cần so sánh các hệ số xác định hiệu chỉnh theo công thức:
+$$R^2_{adj} = 1 - \displaystyle \frac{SSE/(n-p)}{SST/(n-1)} \text{ với } n = 22$$
+\textbf{Mô hình 1:} với $p=2$ ta có $$R^2_{adj_1}  = 1 - \displaystyle \frac{SSE_{X_1}/20}{SST/21} = 0.5411$$ 
 
+\textbf{Mô hình 2:} với $p=3$ ta có $$R^2_{adj_2} = 1 - \displaystyle \frac{SSE_{X_1,X_2}/19}{SST/21} = 0.6375$$
 
+\textbf{Mô hình 3:} với $p=4$ ta có $$R^2_{adj_3} = 1 - \displaystyle \frac{SSE_{X_1,X_2,X_3}/18}{SST/21} = 0.7040$$
 
+Dựa vào các giá trị $R^2$ hiệu chỉnh vừa tính, có thể kết luận \textbf{mô hình 3} là mô hình thích hợp nhất để giải thích sự biến động mức độ lo lắng của các giám đốc.
 \newpage
 \section*{BÀI 2}
-
 - $Y$ : mức độ bền dẻo của nhựa\\
 - $X_1$: độ dày của vật liệu\\
 - $X_2$: mật độ của vật liệu
 \subsubsection*{1. Tìm 2 phương trình đường thẳng hồi quy và 1 phương trình siêu phẳng (nếu có) ?}
 
+Ta xây dựng các mô hình hồi quy như sau:
+
+\textbf{Mô hình 1:} $Y= \beta_0 + \beta_1 X_1 + \epsilon$\\
+Mô hình đường thẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_1} X_1$
+\begin{center}
+\includegraphics[scale =0.9]{bai2_1i.PNG} 
+\end{center}
+Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = 3.523$ và $\hat{\beta_1} = 6.036$, do đó ta có phương trình đường thẳng hồi quy theo độ dày của vật liệu ($X_1$) là:
+$$Y =   \hat{\beta_0} + \hat{\beta_1} X_1 = 3.523 + 6.036 X_1$$
+
+\textbf{Mô hình 2:} $Y= \beta_0 + \beta_2 X_2 + \epsilon$\\
+Mô hình đường thẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_2} X_2$
+\begin{center}
+\includegraphics[scale =0.9]{bai2_1ii.PNG} 
+\end{center}
+Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = -36.373$ và $\hat{\beta_2} = 17.464$, do đó ta có phương trình đường thẳng hồi quy theo mật độ của vật liệu ($X_2$) là:
+$$Y =   \hat{\beta_0} + \hat{\beta_2} X_2 = -36.373 + 17.464 X_2$$
+
+\textbf{Mô hình 3:} $Y= \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \epsilon$\\
+Mô hình mặt phẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2$
+\begin{center}
+\includegraphics[scale =0.9]{bai2_1iii.PNG} 
+\end{center}
+Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = -30.081$, $\hat{\beta_1} = 4.905$ và $\hat{\beta_2} = 11.072$ , do đó ta có phương trình mặt phẳng hồi quy theo độ dày của vật liệu ($X_1$) và mật độ của vật liệu ($X_2$) là:
+$$Y =   \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2 = -30.081 + 4.905 X_1 + 11.072 X_2$$
+
 \subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của biến phụ thuộc cho từng mô hình có thể có trên.}
 
+\textbf{Mô hình 1:} Dựa vào kết quả mô hình 1, hệ số xác định $R^2= 0.6903$ cho biết có 69.03\% sự thay
+đổi của mức độ bền dẻo của nhựa được giải thích bởi độ dày của vật liệu ($X_1$).
+
+\textbf{Mô hình 2:} Dựa vào kết quả mô hình 2, hệ số xác định $R^2= 0.453$ cho biết có 45.3\% sự thay
+đổi của mức độ bền dẻo của nhựa được giải thích bởi mật độ của vật liệu  ($X_2$).
+
+\textbf{Mô hình 3:} Dựa vào kết quả mô hình 3, hệ số xác định $R^2= 0,8481$ cho biết có 84.81\% sự thay
+đổi của mức độ bền dẻo của nhựa được giải thích bởi hai yếu tố là độ dày vật liệ ($X_1$) và mật độ của vật liệu  ($X_2$).
 
 \subsubsection*{3. Nếu chúng ta chỉ quan tâm đến cả 2 biến giải thích, hãy lập bảng ANOVA?}
+\begin{center}
+\includegraphics{bai2_3.PNG} 
+\end{center}
 
-\subsubsection*{4. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
+\subsubsection*{4. Kiểm định giả thuyết sau với mức ý nghĩa 5\%}
 $$H_0 : \beta_1 = \beta_2= 0 $$
 
 \subsubsection*{5. Xác định khoảng tin cậy với mức ý nghĩa 5\% cho $\beta_1$ trong trường hợp mô hình chỉ có biến độc lập là độ dày của vật liệu ($X_1$).}
@@ -205,7 +315,6 @@ $$H_0 : \beta_1 = \beta_2= 0 $$
 
 \newpage
 \section*{BÀI 3}
-
 
 \subsubsection*{1. Viết các mô hình tuyến tính với 2 biến độc lập (có thể).}
 
@@ -307,17 +416,49 @@ Với kết quả từ câu 4, ta có được thứ tự tăng dần các hệ 
 
 Vậy với hệ số $R^2$ cao nhất thì mô hình hai biến độc lập $x_1, x_2$ là phù hợp nhất để giải thích sự biến thiên của $Y$.
 
+
+
 \subsubsection*{6. Viết mô hình tuyến tính dưới dạng ma trận với số biến độc lập nhiều nhất có thể, và xác định kích thước của ma trận.}
 
+$$\mathbf{Y}_{14\times1} = \mathbf{X}_{14\times4}\beta_{4\times1} + \epsilon_{14\times1}$$
+
+\[{Y_{14 \times 1}} = \left[ {\begin{array}{*{20}{c}}
+  {{y_1}} \\ 
+   \vdots  \\ 
+  {{y_{14}}} 
+\end{array}} \right];{X_{14 \times 4}} = \left[ {\begin{array}{*{20}{c}}
+  1&{{x_{1,1}}}&{{x_{1,2}}}&{{x_{1,3}}} \\ 
+  1& \vdots & \vdots & \vdots  \\ 
+  1&{{x_{14,1}}}&{{x_{14,2}}}&{{x_{14,3}}} 
+\end{array}} \right];{\beta _{4 \times 1}} = \left[ {\begin{array}{*{20}{c}}
+  {{\beta _0}} \\ 
+   \vdots  \\ 
+  {{\beta _3}} 
+\end{array}} \right];{\varepsilon _{14 \times 1}} = \left[ {\begin{array}{*{20}{c}}
+  {{\varepsilon _1}} \\ 
+   \vdots  \\ 
+  {{\varepsilon _{14}}} 
+\end{array}} \right]\]
 
 \subsubsection*{7. Ước lượng các hệ số hồi quy trong mô hình tuyến tính ở câu 6.}
+Viết lại mô hình: $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon$
 
-
+\begin{center}
+\includegraphics{bai3_6.PNG} 
+\end{center}
+Dựa vào kết quả mô hình, ta có các hệ số hồi quy:
+$$\hat{\beta_0} = 32.89132, \hat{\beta_1} = 0.8019, \hat{\beta_2} = -0.38136, \hat{\beta_3} = -0.03713$$
 \subsubsection*{8. Trong mô hình tuyến tính ở câu 6, tính ước lượng của $\mathbb{V}(\epsilon)$ và $\mathbb{V}(\hat{\beta})$.}
+
+Ước lượng phương sai $\sigma^2$ của sai số, $\mathbb{V}(\epsilon)$, được ước lượng bởi 
+$$\mathbb{V}(\epsilon) \sim MSE = \displaystyle \frac{SSE}{n-4}$$
+
+
 
 
 \subsubsection*{9. Với độ tin cậy 95\%, tìm khoảng tin cậy cho $\mathbb{V}(\epsilon)$. }
 
 
-\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất lượng ước lượng cao hơn không?}
+\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất
+lượng ước lượng cao hơn không?}
 \end{document}
