@@ -21,9 +21,9 @@ summary(linearMod3)$coefficient
 confint(linearMod1, level=0.95)
 
 ## 4
-Rsquare_1 = summary(linearMod1)$r.squared
-Rsquare_2 = summary(linearMod2)$r.squared
-Rsquare_3 = summary(linearMod3)$r.squared
+Rsquare_1 = summary(linearMod1)$r.squared; Rsquare_1
+Rsquare_2 = summary(linearMod2)$r.squared; Rsquare_2
+Rsquare_3 = summary(linearMod3)$r.squared; Rsquare_3
 
 ## 5
 if (max(Rsquare_1,Rsquare_2,Rsquare_3) == Rsquare_1){
@@ -34,14 +34,13 @@ if (max(Rsquare_1,Rsquare_2,Rsquare_3) == Rsquare_1){
   print("Mo hinh voi 2 bien doc lap X2 va X3 tot nhat") 
 }
 
-## 6
-
 ## 7
 linearMod4 <- lm(Y ~ X1 + X2 + X3)
 summary(linearMod4)$coefficients
+anova(linearMod4)
 
 ## 8
-s = sqrt(sum(linearMod4$residuals^2)/14-3)
+s = sqrt(sum(linearMod4$residuals^2)/14-4)
 var_epsilon = diag(3)*s
 X <- matrix(c(X1,X2,X3), nrow=14)
 var_beta = var_epsilon*solve(t(X)%*%X)

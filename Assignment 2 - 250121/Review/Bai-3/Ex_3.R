@@ -45,6 +45,7 @@ summary(modelx1)
 #  R2_2 bien = 0.3949
 # R2_1 bien = 0.4785 => Mo hinh 1 bien cho ket qua tot hon.
 
-
+anova(modelX2X3)
+anova(modelx1)
 
 
