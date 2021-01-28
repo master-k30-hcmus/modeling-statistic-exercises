@@ -13,7 +13,6 @@
 \usepackage{amsfonts}
 \usepackage{eucal}
 \usepackage{enumerate}
-\usepackage{enumitem}
 \usepackage{commath}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
@@ -42,6 +41,8 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 \cfoot{\thepage}
 \rhead{Nhóm 4}
 \title{BÀI TẬP LẦN 2 - MHHTK}
+
+\allowdisplaybreaks
 
 \author{NHÓM 4}
 
@@ -256,64 +257,95 @@ $$R^2_{adj} = 1 - \displaystyle \frac{SSE/(n-p)}{SST/(n-1)} \text{ với } n = 2
 Dựa vào các giá trị $R^2$ hiệu chỉnh vừa tính, có thể kết luận \textbf{mô hình 3} là mô hình thích hợp nhất để giải thích sự biến động mức độ lo lắng của các giám đốc.
 \newpage
 \section*{BÀI 2}
-- $Y$ : mức độ bền dẻo của nhựa\\
-- $X_1$: độ dày của vật liệu\\
-- $X_2$: mật độ của vật liệu
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{bai-2-data}
+	\caption{Bảng số liệu bài 2}
+	\label{fig:bai-2-data}
+\end{figure}
+
+\begin{enumerate}[-]
+	\item $Y$: mức độ bền dẻo của nhựa
+	\item $X_1$: độ dày của vật liệu
+	\item $X_2$: mật độ của vật liệu
+\end{enumerate}
+
 \subsubsection*{1. Tìm 2 phương trình đường thẳng hồi quy và 1 phương trình siêu phẳng (nếu có) ?}
 
 Ta xây dựng các mô hình hồi quy như sau:
 
 \textbf{Mô hình 1:} $Y= \beta_0 + \beta_1 X_1 + \epsilon$\\
 Mô hình đường thẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_1} X_1$
-\begin{center}
-\includegraphics[scale =0.9]{bai2_1i.PNG} 
-\end{center}
-Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = 3.523$ và $\hat{\beta_1} = 6.036$, do đó ta có phương trình đường thẳng hồi quy theo độ dày của vật liệu ($X_1$) là:
-$$Y =   \hat{\beta_0} + \hat{\beta_1} X_1 = 3.523 + 6.036 X_1$$
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale =0.9]{bai2_1i.PNG}
+	\caption{Tham số mô hình 1}
+	\label{ex2:model:11}
+\end{figure}
+
+Dựa vào kết quả của phần mềm R ở hình \ref{ex2:model:11}, ta có $\hat{\beta_0} = 3.523$ và $\hat{\beta_1} = 6.036$, do đó ta có phương trình đường thẳng hồi quy theo độ dày của vật liệu ($X_1$) là:
+\[Y = \hat{\beta_0} + \hat{\beta_1} X_1 = 3.523 + 6.036 X_1\]
+
 
 \textbf{Mô hình 2:} $Y= \beta_0 + \beta_2 X_2 + \epsilon$\\
 Mô hình đường thẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_2} X_2$
-\begin{center}
-\includegraphics[scale =0.9]{bai2_1ii.PNG} 
-\end{center}
-Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = -36.373$ và $\hat{\beta_2} = 17.464$, do đó ta có phương trình đường thẳng hồi quy theo mật độ của vật liệu ($X_2$) là:
-$$Y =   \hat{\beta_0} + \hat{\beta_2} X_2 = -36.373 + 17.464 X_2$$
 
-\textbf{Mô hình 3:} $Y= \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \epsilon$\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale =0.9]{bai2_1ii.PNG} 
+	\caption{Tham số mô hình 2}
+	\label{ex2:model:12}
+\end{figure}
+
+Dựa vào kết quả của phần mềm R ở hình \ref{ex2:model:12}, ta có $\hat{\beta_0} = -36.373$ và $\hat{\beta_2} = 17.464$, do đó ta có phương trình đường thẳng hồi quy theo mật độ của vật liệu ($X_2$) là:
+\[Y = \hat{\beta_0} + \hat{\beta_2} X_2 = -36.373 + 17.464 X_2\]
+
+\textbf{Mô hình 3:} $Y= \beta_0 + \beta_1 X_1 + \beta_2 X_2+ \epsilon$
+
 Mô hình mặt phẳng hồi quy tương ứng: $Y= \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2$
-\begin{center}
-\includegraphics[scale =0.9]{bai2_1iii.PNG} 
-\end{center}
-Dựa vào kết quả của phần mềm R, ta có $\hat{\beta_0} = -30.081$, $\hat{\beta_1} = 4.905$ và $\hat{\beta_2} = 11.072$ , do đó ta có phương trình mặt phẳng hồi quy theo độ dày của vật liệu ($X_1$) và mật độ của vật liệu ($X_2$) là:
-$$Y =   \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2 = -30.081 + 4.905 X_1 + 11.072 X_2$$
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bai2_1iii.PNG} 
+	\caption{Tham số mô hình 3}
+	\label{ex2:model:13}
+\end{figure}
+
+Dựa vào kết quả của phần mềm R ở hình \ref{ex2:model:13}, ta có $\hat{\beta_0} = -30.081$, $\hat{\beta_1} = 4.905$ và $\hat{\beta_2} = 11.072$, do đó ta có phương trình mặt phẳng hồi quy theo độ dày của vật liệu ($X_1$) và mật độ của vật liệu ($X_2$) là:
+\[Y = \hat{\beta_0} + \hat{\beta_1} X_1 + \hat{\beta_2} X_2 = -30.081 + 4.905 X_1 + 11.072 X_2\]
 
 \subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của biến phụ thuộc cho từng mô hình có thể có trên.}
 
-\textbf{Mô hình 1:} Dựa vào kết quả mô hình 1, hệ số xác định $R^2= 0.6903$ cho biết có 69.03\% sự thay
-đổi của mức độ bền dẻo của nhựa được giải thích bởi độ dày của vật liệu ($X_1$).
+\textbf{Mô hình 1:} Dựa vào kết quả mô hình 1 (hình \ref{ex2:model:11}), hệ số xác định $R^2= 0.6903$ cho biết có 69.03\% sự thay đổi của mức độ bền dẻo của nhựa được giải thích bởi độ dày của vật liệu ($X_1$).
 
-\textbf{Mô hình 2:} Dựa vào kết quả mô hình 2, hệ số xác định $R^2= 0.453$ cho biết có 45.3\% sự thay
-đổi của mức độ bền dẻo của nhựa được giải thích bởi mật độ của vật liệu  ($X_2$).
+\textbf{Mô hình 2:} Dựa vào kết quả mô hình 2 (hình \ref{ex2:model:12}), hệ số xác định $R^2= 0.453$ cho biết có 45.3\% sự thay đổi của mức độ bền dẻo của nhựa được giải thích bởi mật độ của vật liệu ($X_2$).
 
-\textbf{Mô hình 3:} Dựa vào kết quả mô hình 3, hệ số xác định $R^2= 0,8481$ cho biết có 84.81\% sự thay
-đổi của mức độ bền dẻo của nhựa được giải thích bởi hai yếu tố là độ dày vật liệ ($X_1$) và mật độ của vật liệu  ($X_2$).
+\textbf{Mô hình 3:} Dựa vào kết quả mô hình 3 (hình \ref{ex2:model:13}), hệ số xác định $R^2= 0,8481$ cho biết có 84.81\% sự thay đổi của mức độ bền dẻo của nhựa được giải thích bởi hai yếu tố là độ dày vật liệu ($X_1$) và mật độ của vật liệu ($X_2$).
 
 \subsubsection*{3. Nếu chúng ta chỉ quan tâm đến cả 2 biến giải thích, hãy lập bảng ANOVA?}
-\begin{center}
-\includegraphics{bai2_3.PNG} 
-\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bai2_3.PNG}
+	\caption{Bảng ANOVA cho hai biến $X_1,X_2$}
+	\label{ex2:model:anova3}
+\end{figure}
+
+Bảng ANOVA được biểu diễn trong hình \ref{ex2:model:anova3}.
 
 \subsubsection*{4. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
 \[H_0 : \beta_1 = \beta_2= 0\]
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bai-2-4-summary}
 	\label{fig:bai-2-4-summary}
 \end{figure}
 
 Từ hình trên, ta có giá trị thống kê Fisher $F_{obs} = 25.12 \sim F_{0,95}(2,9)$, tính được $p\_value = 0.0002075386$ qua hàm \textbf{pf}:
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bai-2-4-p_value}
 	\label{fig:bai-2-4-pvalue}
@@ -323,7 +355,7 @@ Vì $p\_value = 0.0002075386 < \alpha = 0.05$, suy ra bác bỏ giả thiết $H
 
 \subsubsection*{5. Xác định khoảng tin cậy với mức ý nghĩa 5\% cho $\beta_1$ trong trường hợp mô hình chỉ có biến độc lập là độ dày của vật liệu ($X_1$).}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bai-2-5-confint-beta1}
 	\label{fig:bai-2-5-confint-beta1}
@@ -405,7 +437,7 @@ Từ kết luận của các giả thuyết trên, ta suy ra được mức đ�
 
 \begin{itemize}
 	\item Mô hình \ref{model:12}
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bai-3-5-model-1}
 		\caption{Tham số mô hình \ref{model:12}}
