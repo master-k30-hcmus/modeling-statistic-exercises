@@ -16,7 +16,6 @@ anova(lm_fit)
 n = length(Y)
 p = 2
 
-lm_fit = lm(Y ~ X1 + X2)
 lm_sum = summary(lm_fit); lm_sum
 F_obs = lm_sum$fstatistic["value"]
 p_value = pf(F_obs, p, n - p - 1, lower.tail = FALSE); p_value
