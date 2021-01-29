@@ -6,6 +6,7 @@
 \usepackage{titlesec}
 \usepackage{mdframed}
 \usepackage{amsmath}
+\usepackage{placeins}
 \usepackage{array}
 \usepackage[amsmath,standard,thmmarks]{ntheorem}
 \usepackage{amssymb}
@@ -82,25 +83,30 @@ $\begin{array}{rl}
 \begin{center}
 \textbf{\large{BẢNG PHÂN CÔNG CÔNG VIỆC}\\}
 \vspace{1cm}
-\begin{tabular}{|m{4.5cm}||m{8cm}|m{3.5cm}|} 
+\begin{tabular}{|m{3.7cm}||m{10cm}|m{1.8cm}|} 
 \hline
-\textbf{Thành viên} & \centering{\textbf{Công việc}} & \textbf{Mã số học viên}\\
+\textbf{Thành viên} & \centering{\textbf{Công việc}} & \textbf{MSHV}\\
 \hline
-1. Đặng Khánh Thi & $-$ & \\
-& $-$  & \hspace{0.75cm}20C29038 \\
-& $-$ & \\
+Đặng Khánh Thi & $-$ Bài 1: làm các ý 1, 2, 3, 4; kiếm tra các ý 5, 6, 7 & \\
+& $-$ Bài 2: Làm các ý 4, 5, 6; kiểm tra các ý 1, 2, 3 & 20C29038 \\
+& $-$ Bài 3: Làm các ý 1, 2, 3, 4, 5; kiểm tra các ý 6, 7, 8, 9, 10 & \\
+& $-$ Kiểm tra và tổng hợp code R của bài 2 & \\
+& $-$ Trình bày file bài tập & \\
 \hline
-2. Đinh Thị Nữ  & $-$ & \\
-& $-$ & \hspace{0.75cm}20C29013\\
-& $-$ & \\
+Đinh Thị Nữ  & $-$ Bài 1: làm các ý  5, 6, 7; kiếm tra các ý 1, 2, 3, 4& \\
+& $-$ Bài 2: Làm các ý 1, 2, 3; kiểm tra các ý 4, 5, 6 &  20C29013\\
+& $-$ Bài 3: Làm các ý  6, 7, 8, 9, 10; kiểm tra các ý 1, 2, 3, 4, 5 & \\
 \hline 
-3. Lý Phi Long & $-$ & \\
-& $-$ & \hspace{0.75cm}20C29028\\
-& $-$ & \\
+Lý Phi Long & $-$ Bài 1: làm các ý 1, 2, 3, 4; kiếm tra các ý 5, 6, 7 & \\
+& $-$ Bài 2: Làm các ý 4, 5, 6; kiểm tra các ý 1, 2, 3 & 20C29028\\
+& $-$ Bài 3: Làm các ý 1, 2, 3, 4, 5; kiểm tra các ý 6, 7, 8, 9, 10 & \\
+& $-$ Kiểm tra và tổng hợp code R của bài 3 &\\
 \hline
-4. Phan Thị Thùy An & & \\
-\hspace{1cm}(Nhóm trưởng) & $-$  & \hspace{0.75cm}20C29002 \\
-& $-$  & \\
+Phan Thị Thùy An & $-$ Bài 1: làm các ý  5, 6, 7; kiếm tra các ý 1, 2, 3, 4& \\
+(Nhóm trưởng) & $-$ Bài 2: Làm các ý 1, 2, 3; kiểm tra các ý 4, 5, 6 & 20C29002 \\
+& $-$ Bài 3: Làm các ý  6, 7, 8, 9, 10; kiểm tra các ý 1, 2, 3, 4, 5 & \\
+& $-$ Kiểm tra và tổng hợp code R của bài 1 & \\
+& $-$ Trình bày file bài tập & \\
 \hline
 \end{tabular}
 \end{center}
@@ -110,17 +116,19 @@ $\begin{array}{rl}
 - $X_1$: áp lực công việc\\
 - $X_2$: kỹ năng quản lý\\
 - $X_3$: mức độ hài lòng với chức vụ của mình\\
-- $Y$: mức độ lo lắng (biến phụ thuộc)\\
-Bảng ANOVA:
-\begin{center}
-\includegraphics[scale =0.5]{anova1.PNG} 
-\end{center}
+- $Y$: mức độ lo lắng (biến phụ thuộc)
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale =0.5]{anova1.PNG}  
+	\caption{Bảng ANOVA bài 1}
+	\label{ex1:model:1}
+\end{figure}
 \subsubsection*{1. Tính tổng bình phương hồi quy trên $X_1, X_2$ và $X_3$?}
 $SSR = SSR_{X_1} + SSR_{X_2|X_1} + SSR_{X_3|X_1,X_2} = 981.326 + 190.232 + 129.431 = 1299.989$
 \subsubsection*{2. Xác định tỷ lệ phần trăm sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập.}
 
 \[R^2 = \dfrac{SSR}{SST} = \dfrac{1299.989}{1743.281} = 0.7462876\]
-Sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập có tỉ lệ phần trăm là 74\%.
+Sự biến thiên của mức độ lo lắng được giải thích bởi các biến độc lập có tỉ lệ phần trăm là 74.63\%.
 
 \subsubsection*{3. Có thể kết luận rằng trong tất cả ba biến giải thích đều có ảnh hưởng đáng kể đến mức độ lo lắng hay không? Chỉ rõ kiểm định nào được dùng.}
 
@@ -233,7 +241,6 @@ $$F_{1-\alpha}(r,n-p) = F_{0.95}(1,18) = 4.4138$$
 Vì $F_{obs}>F_{0.95}(1,18)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.
 
 \subsubsection*{6. Xác định hệ số xác định cho mỗi mô hình trong câu 5.}
-
 \textbf{Mô hình 1:} $Y = \beta_0 + \beta_1 X_1 + \epsilon $ có hệ số xác định là
 $$R^2_1 = 1 - \displaystyle \frac{SSE_{X_1}}{SST} = 0.5629$$
 
@@ -246,7 +253,7 @@ $$R^2_3 = 1 - \displaystyle \frac{SSE_{X_1,X_2,X_3}}{SST} = 0.7463$$
 
 
 \subsubsection*{7. Trong các mô hình trên, mô hình nào thích hợp nhất để giải thích sự biến động mức độ lo lắng của các giám đốc ?}
-Để so sánh độ thích hợp của các mô hình, ta cần so sánh các hệ số xác định hiệu chỉnh theo công thức:
+Để so sánh độ thích hợp của các mô hình có số lượng biến độc lập khác nhau, ta cần so sánh các hệ số xác định hiệu chỉnh theo công thức:
 $$R^2_{adj} = 1 - \displaystyle \frac{SSE/(n-p)}{SST/(n-1)} \text{ với } n = 22$$
 \textbf{Mô hình 1:} với $p=2$ ta có $$R^2_{adj_1}  = 1 - \displaystyle \frac{SSE_{X_1}/20}{SST/21} = 0.5411$$ 
 
@@ -325,7 +332,6 @@ Dựa vào kết quả của phần mềm R ở hình \ref{ex2:model:13}, ta có
 \textbf{Mô hình 3:} Dựa vào kết quả mô hình 3 (hình \ref{ex2:model:13}), hệ số xác định $R^2= 0,8481$ cho biết có 84.81\% sự thay đổi của mức độ bền dẻo của nhựa được giải thích bởi hai yếu tố là độ dày vật liệu ($X_1$) và mật độ của vật liệu ($X_2$).
 
 \subsubsection*{3. Nếu chúng ta chỉ quan tâm đến cả 2 biến giải thích, hãy lập bảng ANOVA?}
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bai2_3.PNG}
@@ -333,11 +339,25 @@ Dựa vào kết quả của phần mềm R ở hình \ref{ex2:model:13}, ta có
 	\label{ex2:model:anova3}
 \end{figure}
 
-Bảng ANOVA được biểu diễn trong hình \ref{ex2:model:anova3}.
+Bảng ANOVA cho cả hai biến giải thích:
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Biến thiên & SS & DF & MS & Fisher\\
+		\hline
+		$R_{X_1,X_2}$ & $SSR = 980.63+224.22 = 1204.85$ & 1 &$SSR/2 = 602.425$ & $MSR/MSE $\\
+		\hline
+		$E$ & $SSE = 215.81$ & $n-2 = 9$ & $SSE/9 = 23.9789$ & $= 25.123 $\\
+		\hline
+		Total & 980.63+224.22+215.81 = 1420.66& $n-1 = 11$ & & \\
+		\hline
+	\end{tabular}
+\end{center}
 
-\subsubsection*{4. Kiểm định giả thiết sau với mức ý nghĩa 5\%}
-\[H_0 : \beta_1 = \beta_2= 0\]
 
+\subsubsection*{4. Kiểm định giả thuyết sau với mức ý nghĩa 5\%}
+{\centering{$H_0 : \beta_1 = \beta_2= 0$}\\}
+Đối thuyết \hspace{4.5cm}$H_1: \beta_1 \neq 0 \vee \beta_2 \neq 0 $
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bai-2-4-summary}
@@ -363,14 +383,13 @@ Vì $p\_value = 0.0002075386 < \alpha = 0.05$, suy ra bác bỏ giả thiết $H
 
 Khoảng tin cậy $\beta_1$ với mức ý nghĩa 5\% của mô hình có một biến độc lập $X_1$ là $[3.187036,8.88479]$.
 
-\subsubsection*{6. Với khoảng tin cậy vừa tìm được ở câu 5, chúng ta có thể khẳng địng rằng hồi quy tuyến tính là có ý nghĩa giữa mức độ bền dẻo của nhựa và độ dày của vật liệu và mật độ của vật liệu không? Chứng minh điều khẳng định của bạn.}
+\subsubsection*{6. Với khoảng tin cậy vừa tìm được ở câu 5, chúng ta có thể khẳng định rằng hồi quy tuyến tính là có ý nghĩa giữa mức độ bền dẻo của nhựa và độ dày của vật liệu và mật độ của vật liệu không? Chứng minh điều khẳng định của bạn.}
 
 Nếu chỉ dựa vào khoảng tin cậy của $\beta_1$ ở câu 5, chúng ta \textbf{không} thể khẳng định được điều trên, vì kết quả ở câu 5 chỉ cho ta biết mối quan hệ tuyến tính giữa mức độ bền dẻo ($Y$) với độ dày của vật liệu ($X_1$).
 
 Để chứng minh, ta lần lượt thực hiện kiểm định các giả thuyết sau:
 \begin{enumerate}
 	\item[i)] $H_0 : \beta_1 = \beta_2 = 0$ cho mô hình $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon $
-	
 	Với kết quả từ câu 4, $H_0$ bị bác bỏ do chứng minh trên, nghĩa là tồn tại tham số $\beta_1$ hoặc $\beta_2$ trong mô hình hồi quy hai biến $X_1, X_2$.
 	
 	\item[ii)] $H_0 : \beta_1 = 0$ cho mô hình $Y = \beta_0 + \beta_1 X_1 + \epsilon $
@@ -578,26 +597,57 @@ Dựa vào kết quả mô hình, ta có các hệ số hồi quy:
 $$\hat{\beta_0} = 32.89132, \hat{\beta_1} = 0.8019, \hat{\beta_2} = -0.38136, \hat{\beta_3} = -0.03713$$
 \subsubsection*{8. Trong mô hình tuyến tính ở câu 6, tính ước lượng của $\mathbb{V}(\epsilon)$ và $\mathbb{V}(\hat{\beta})$.}
 
-Ước lượng phương sai $\sigma^2$ của sai số, $\mathbb{V}(\epsilon)$, được ước lượng bởi 
-$$\mathbb{V}(\epsilon) \sim MSE = \displaystyle \frac{SSE}{n-4}$$
+\textbf{(a)} Ước lượng phương sai của sai số, $\mathbb{V}(\epsilon)$. Ta có  $\mathbb{V}(\epsilon) = \mathbf{I}_{14}\sigma^2$
 
-Ước lượng phương sai của $\hat{\beta}$:
+Với $\sigma^2$ được ước lượng bởi 
+$$\hat{\sigma}^2 = MSE = \displaystyle \frac{SSE}{n-4} = 6.745$$
+
+Vậy ước lượng của  $\mathbb{V}(\epsilon)$ là 
+\begin{center}
+\includegraphics[scale = 0.8]{bai3_8a.PNG} 
+\end{center}
+
+\textbf{(b)} Ước lượng phương sai của $\hat{\beta}$:
 
 \[\mathbb{V}(\hat{\beta}) = \left[ {\begin{array}{*{20}{c}}
   var(\hat{\beta_0}) \\
   var(\hat{\beta_1})  \\
    var(\hat{\beta_2})\\
  var(\hat{\beta_3})
-\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+\end{array}} \right]  = \left[ {\begin{array}{*{20}{c}}
   \mathbf{Se}^2(\hat{\beta_0}) \\
   \mathbf{Se}^2(\hat{\beta_1})  \\
    \mathbf{Se}^2(\hat{\beta_2})\\
  \mathbf{Se}^2(\hat{\beta_3})
 \end{array}} \right]\]
 
+Cách khác: 
+
+\begin{center}
+\includegraphics{bai3_8b.PNG} 
+\end{center}
+
 \subsubsection*{9. Với độ tin cậy 95\%, tìm khoảng tin cậy cho $\mathbb{V}(\epsilon)$. }
 
 
-\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất
-lượng ước lượng cao hơn không?}
+
+\begin{center}
+\includegraphics{bai3_9.PNG} 
+\end{center}
+
+95\% khoảng tin cậy của $\hat{\sigma^2}$ là (3.292832;20.77248)
+
+\subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất lượng ước lượng cao hơn không?}
+Kết quả mô hình chỉ với 1 biến độc lập $x_1$
+\begin{center}
+\includegraphics{bai3_10.PNG} 
+\end{center}
+Kết quả mô hình trên khi thêm 2 biến độc lập $x_3$ và $x_2$
+\begin{center}
+\includegraphics{bai3_10i.PNG} 
+\end{center}
+Do thực hiện trên cùng mẫu, số lượng biến độc lập khác nhau, ta so sánh giá trị $R^2$ hiệu chỉnh. Nhận thấy:
+$$R^2_{adj_1} = 0.4785 < R^2_{adj_3} = 0.6135$$
+Ta có thể kết luận, khi thêm  2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất lượng ước lượng cao hơn.
+
 \end{document}
