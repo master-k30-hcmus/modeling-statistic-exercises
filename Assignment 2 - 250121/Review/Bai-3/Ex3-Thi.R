@@ -63,3 +63,33 @@ sprintf("Cau 4: He so xac dinh: R2''=%s", format(R2))
 
 sprintf("Ta co cac he so xac dinh theo thu tu tang dan R2'' < R2' < R2")
 sprintf("Vay voi R2, mo hinh y duoc giai thich tot nhat voi hai bien doc lap x1, x2")
+
+## Cau 8
+
+n = length(y)
+p = 3
+
+lm_fit = lm(y~x1+x2+x3)
+lm_sum = summary(lm_fit); lm_sum
+lm_anova = anova(lm_fit); lm_anova
+
+SSR = sum(lm_anova$`Sum Sq`[1:3])
+SST = sum(lm_anova$`Sum Sq`)
+SSE = SST - SSR
+
+# sigma^2 = SSE / n-p-1
+# var(e) = sigma^2 x I_n
+# var(b_hat) = sigma^2 x (X'X)^-1
+sigma_square = SSE / (n - p - 1)
+var_e = sigma_square * diag(p+1)
+X <- matrix(c(rep(1,n),x1, x2, x3), nrow = n)
+var_B_hat = var_e * solve(t(X) %*% X)
+
+
+alpha = 0.05
+sigma <- sqrt(sigma_square)
+lower <-
+  (n - (p + 1)) * sigma ^ 2 / qchisq(alpha / 2, df = n - (p + 1), lower.tail = FALSE)
+upper <-
+  (n - (p + 1)) * sigma ^ 2 / qchisq(1 - alpha / 2, df = n - (p + 1), lower.tail = FALSE)
+c(lower, upper)
