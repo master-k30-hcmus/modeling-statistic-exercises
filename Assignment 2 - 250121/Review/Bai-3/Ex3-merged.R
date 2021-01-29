@@ -45,9 +45,9 @@ anova(linearModFull)
 
 ## 8
 SD_hat = sqrt(sum(linearModFull$residuals ^ 2) / (n - (p + 1)))
-var_epsilon = diag(p + 1) * (SD_hat ^ 2)
+var_epsilon = diag(n) * (SD_hat ^ 2)
 X <- matrix(c(rep(1, n), X1, X2, X3), nrow = 14)
-var_beta = var_epsilon * solve(t(X) %*% X)
+var_beta = SD_hat^2 * solve(t(X) %*% X)
 
 ## 9
 alpha = 0.05
