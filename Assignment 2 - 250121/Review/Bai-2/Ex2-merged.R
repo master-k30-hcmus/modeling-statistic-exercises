@@ -55,13 +55,19 @@ p = 2
 lm_sum = summary(model_Y_X1X2); lm_sum
 F_obs = lm_sum$fstatistic["value"]
 p_value = pf(F_obs, p, n - p - 1, lower.tail = FALSE); p_value
+alpha = 0.05
+if (p_value < alpha) {
+  sprintf("Vi p_value = %s < alpha = %s", format(p_value), format(alpha))
+  sprintf("Suy ra bac bo H0 voi muc y nghia %s.", format(alpha))
+} else {
+  sprintf("Vi p_value = %s < alpha = %s", format(p_value), format(alpha))
+  sprintf("Chua du co so de bac bo H0 voi muc y nghia %s.", format(alpha))
+}
 
-sprintf("Vi p_value = %s < alpha = %s", format(p_value), format(0.05))
-sprintf("Suy ra bac bo H0 voi muc y nghia 0.05.")
 
 ## Cau 5: Xac dinh khoang tin cay B1 voi muc y nghia 5% voi mo hinh chi co bien la X1
 
-confintB1 = confint(model_Y_X1)[2,]; confintB1
+confintB1 = confint(model_Y_X1)[2,]
 
 sprintf("Khoang tin cay B1 voi mo hinh Y ~ X1 la [%s,%s]",
         format(confintB1[1]),
@@ -82,6 +88,19 @@ SSE1 = SST - SSR1; SSE1
 SSE2 = SST - SSR1 - SSR2; SSE2
 
 F_obs = ((SSE1 - SSE2) / 1) / (SSE2 / (n - p - 1)); F_obs
+F_stats = 5.1174 #F_{0.95}(1,9)
+alpha = 0.05
+if (F_obs > F_stats) {
+  sprintf("Vi F_obs = %s > F_{%s}(1,9) = %s",
+          format(F_obs),
+          format(1 - alpha),
+          format(F_stats))
+  sprintf("Suy ra bac bo H0 voi muc y nghia %s.", format(alpha))
+} else {
+  sprintf("Vi F_obs = %s <= F_{%s}(1,9) = %s",
+          format(F_obs),
+          format(1 - alpha),
+          format(F_stats))
+  sprintf("Chua du co so de bac bo H0 voi muc y nghia %s.", format(alpha))
+}
 
-sprintf("Vi F_obs = %s > F_{0.95}(1,9) = %s", format(F_obs), format(5.1174))
-sprintf("Suy ra bac bo H0 voi muc y nghia 0.05.")
