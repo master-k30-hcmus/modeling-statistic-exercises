@@ -26,6 +26,10 @@ p_value = pf(F_obs, p, n - p - 1, lower.tail = FALSE); p_value
 sprintf("Vi p_value = %s < alpha = %s",format(p_value), format(0.05))
 sprintf("Suy ra bac bo H0, ket luan ton tai it nhat mot bien anh huong den muc do lo lang.")
 
+alpha = 0.05
+F_obs = qf(alpha, p, n - p - 1, lower.tail = FALSE)
+
+
 ## Cau 4: Bang ANOVA neu chi xet bien giai thich X1
 MSR1 = SSR1/1; MSR1
 SSE1 = SST - SSR1; SSE1
