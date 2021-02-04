@@ -147,7 +147,7 @@ Với mức ý nghĩa $\alpha = 0.05$, tra bảng Fisher ta được:
 
 Vì $F_{obs} > F_{0.95}(3,18)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%.
 
-Vậy tồn tại \textbf{ít nhất} một biến giải thích ảnh hưởng đến mức độ lo lắng.
+Vậy tồn tại \textbf{ít nhất} một trong ba biến áp lực công việc, kỹ năng quản lý, mức độ hài lòng với chức vụ của mình có ảnh hưởng đến mức độ lo lắng.
 
 \subsubsection*{4. Nếu chúng ta chỉ xét biến giải thích $X_1$, hãy lập bảng ANOVA ?}
 
@@ -247,7 +247,7 @@ Vậy $Y$ được giải thích bởi cả ba biến giải thích $X_1, X_2$ v
 
 \textbf{\underline{Kết luận cho câu 3}}
 
-Vậy ta có thể kết luận rằng tất cả ba biến giải thích \textbf{đều} có ảnh hưởng đến mức độ lo lắng.
+Vậy ta có thể kết luận rằng tất cả ba biến áp lực công việc, kỹ năng quản lý, mức độ hài lòng với chức vụ của mình \textbf{đều} có ảnh hưởng đến mức độ lo lắng của giám đốc.
 
 \subsubsection*{6. Xác định hệ số xác định cho mỗi mô hình trong câu 5.}
 \textbf{Mô hình 1:} $Y = \beta_0 + \beta_1 X_1 + \epsilon $ có hệ số xác định là
@@ -665,13 +665,13 @@ Cách khác:
 \includegraphics{bai3_9.PNG} 
 \end{center}
 
-Với độ tin cậy 95\%, khoảng tin cậy của $\hat{\sigma^2}$ là (3.292832;20.77248)
+Với độ tin cậy 95\%, khoảng tin cậy của $\hat{\sigma}^2$ là $\left(3.292832;20.77248\right)$
 
 \subsubsection*{10. Khi thêm 2 biến độc lập $x_3$ và $x_2$ vào mô hình chỉ với 1 biến độc lập $x_1$ thì làm cho chất lượng ước lượng cao hơn không?}
 
 Để kiểm tra chất lượng ước lượng, trước tiên, ta lần lượt kiểm định các giả thuyết sau:
 \begin{enumerate}[label=(\roman*)]
-	\item $H_0: \beta_1 = 0$ cho mô hình $y = \beta_0 + \beta_1x_1 + \epsilon$
+	\item $H_0: \beta_1 = 0$ cho mô hình $Y = \beta_0 + \beta_1X_1 + \epsilon$
 	
 	Đặt giả thuyết kiểm định:
 	\[\begin{cases}
@@ -679,19 +679,19 @@ Với độ tin cậy 95\%, khoảng tin cậy của $\hat{\sigma^2}$ là (3.292
 		H_1 : \beta_1 \ne 0
 	\end{cases}\]
 
-	Kết quả mô hình chỉ với 1 biến độc lập $x_1$
+	Kết quả mô hình chỉ với 1 biến độc lập $X_1$
 	\begin{center}
 		\includegraphics{bai3_10.PNG} 
 	\end{center}
 	
-	Từ đó, ta có $p\_value = 0.00367 < \alpha = 0.05$, suy ra bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $y$ được giải thích bởi $x_1$.
+	Từ đó, ta có $p\_value = 0.00367 < \alpha = 0.05$, suy ra bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $Y$ được giải thích bởi $X_1$.
 	
-	\item $H_0: \beta_2 = 0$ cho mô hình $y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon$
+	\item $H_0: \beta_2 = 0$ cho mô hình $Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon$
 	
 	Đặt giả thuyết kiểm định:
 	\[\begin{cases}
-		H_0 : \beta_2 = 0 \text{ hay } Y = \beta_0 + \beta_1 x_1 + \epsilon \\
-		H_1 : \beta_2 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+		H_0 : \beta_2 = 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \epsilon \\
+		H_1 : \beta_2 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon
 	\end{cases}\]
 	
 	Thực hiện kiểm định Fisher từng phần, ta có thống kê của kiểm định: 
@@ -707,14 +707,14 @@ Với độ tin cậy 95\%, khoảng tin cậy của $\hat{\sigma^2}$ là (3.292
 	Với mức ý nghĩa $\alpha = 0.05$, tra bảng Fisher ta được:
 	$$F_{1-\alpha}(r,n-p) = F_{0.95}(1,11) = 4.8443$$
 	
-	Vì $F_{obs}>F_{0.95}(1,11)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $y$ được giải thích bởi $x_1,x_2$.
+	Vì $F_{obs}>F_{0.95}(1,11)$ nên ta bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $Y$ được giải thích bởi $X_1,X_2$.
 	
-	\item $H_0: \beta_3 = 0$ cho mô hình $y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \epsilon$
+	\item $H_0: \beta_3 = 0$ cho mô hình $Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \beta_3X_3 + \epsilon$
 	
 	Đặt giả thuyết kiểm định:
 	\[\begin{cases}
-		H_0 : \beta_3 = 0 \text{ hay } Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon \\
-		H_1 : \beta_3 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \epsilon 
+		H_0 : \beta_3 = 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon \\
+		H_1 : \beta_3 \ne 0 \text{ hay } Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \epsilon 
 	\end{cases}\]
 
 	Thực hiện kiểm định Fisher từng phần, ta có thống kê của kiểm định: 
@@ -730,20 +730,20 @@ Với độ tin cậy 95\%, khoảng tin cậy của $\hat{\sigma^2}$ là (3.292
 	Với mức ý nghĩa $\alpha = 0.05$, tra bảng Fisher ta được:
 	$$F_{1-\alpha}(r,n-p) = F_{0.95}(1,10) = 4.9646$$
 	
-	Vì $F_{obs}<F_{0.95}(1,10)$, suy ra chưa đủ cơ sở để bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $y$ chưa được giải thích bởi $x_3$.
+	Vì $F_{obs}<F_{0.95}(1,10)$, suy ra chưa đủ cơ sở để bác bỏ $H_0$ với mức ý nghĩa 5\%, nghĩa là $Y$ chưa được giải thích bởi $X_3$.
 \end{enumerate}
 
 \textbf{\underline{Kết luận:}}
 
-Qua kiểm định các giả thuyết trên, vì $y$ chưa được giải thích bởi $x_3$ mà chỉ có thể được giải thích bởi $x_1, x_2$, nên ta có kết luận như sau:
+Qua kiểm định các giả thuyết trên, vì $Y$ chưa được giải thích bởi $X_3$ mà chỉ có thể được giải thích bởi $X_1, X_2$, nên ta có kết luận như sau:
 \begin{itemize}
-	\item Khi thêm biến độc lập $x_2$ vào mô hình $x_1$, do thực hiện trên cùng mẫu, số lượng biến độc lập khác nhau, ta so sánh giá trị $R^2$ hiệu chỉnh. Nhận thấy:
+	\item Khi thêm biến độc lập $X_2$ vào mô hình $X_1$, do thực hiện trên cùng mẫu, số lượng biến độc lập khác nhau, ta so sánh giá trị $R^2$ hiệu chỉnh. Nhận thấy:
 	
 	\[R^2_{adj_1} = 0.4785 < R^2_{adj_2} = 0.6307\]
 	
-	Vậy khi thêm $x_2$ vào mô hình với một biến độc lập $x_1$ thì chất lượng ước lượng sẽ được cải thiện.
+	Vậy khi thêm $X_2$ vào mô hình với một biến độc lập $X_1$ thì chất lượng ước lượng sẽ được cải thiện.
 	
-	\item Khi thêm biến độc lập $x_3$ vào mô hình $x_1,x_2$ sẽ không cải thiện được chất lượng ước lượng;
+	\item Khi thêm biến độc lập $X_3$ vào mô hình $X_1,X_2$ sẽ không cải thiện được chất lượng ước lượng;
 \end{itemize}
 
 \end{document}
