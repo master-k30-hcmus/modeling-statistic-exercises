@@ -353,7 +353,7 @@ Bảng ANOVA cho cả hai biến giải thích:
 		\hline
 		Biến thiên & SS & DF & MS & Fisher\\
 		\hline
-		$R_{X_1,X_2}$ & $SSR = 980.63+224.22 = 1204.85$ & 2 &$SSR/2 = 602.425$ & $MSR/MSE $\\
+		$R_{X_1,X_2}$ & $SSR = 980.63+224.22 = 1204.85$ & 2 &$SSR/2 = 602.425$ & $F = MSR/MSE $\\
 		\hline
 		$E$ & $SSE = 215.81$ & $n-3 = 9$ & $SSE/9 = 23.9789$ & $= 25.123 $\\
 		\hline
@@ -383,7 +383,7 @@ Từ hình trên, ta có giá trị thống kê Fisher $F_{obs} = 25.12 \sim F_{
 	\label{fig:bai-2-4-pvalue}
 \end{figure}
 
-Vì $p\_value = 0.0002075386 < \alpha = 0.05$, suy ra bác bỏ giả thiết $H_0$.
+Vì $p\_value = 0.0002075386 < \alpha = 0.05$, ta bác bỏ giả thuyết $H_0$ với mức ý nghĩa 5\%.
 
 \subsubsection*{5. Xác định khoảng tin cậy với mức ý nghĩa 5\% cho $\beta_1$ trong trường hợp mô hình chỉ có biến độc lập là độ dày của vật liệu ($X_1$).}
 
@@ -580,7 +580,7 @@ Vậy với hệ số $R^2$ cao nhất thì mô hình hai biến độc lập $x
 Giả thiết cho mô hình $\mathbf{Y} = \mathbf{X}\beta + \epsilon$:
 \begin{itemize}
 	\item Tập dữ liệu trong mô hình không xảy ra hiện tượng đa cộng tuyến.
-	\item $\epsilon$ thuộc phân phối chuẩn với độ lệch chuẩn vector $0$ và phương sai $\sigma^2$.
+	\item $\epsilon \sim N(\vec{0},\mathbf{I}_n \sigma^2)$.
 \end{itemize}
 
 Dựa vào dữ liệu đề bài, số biến độc lập nhiều nhất có thể là 3 biến $(X_1,X_2,X_3)$:
