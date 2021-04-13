@@ -9,6 +9,8 @@ library(corrplot)
 
 # loading data and explore
 mydata <-read.csv("data2.csv")
+head(mydata)
+
 data2 <- subset(mydata, select = -c(id,date))
 dim(data2)
 ## check missing data
@@ -29,14 +31,13 @@ corrplot(correlation,method="color")
 # Create full model
 mod_full_1 = lm(price ~ ., data2) #full model
 summary(mod_full_1)
-coef(mod_full_1)
-par(mfrow=c(2,2))
-plot(mod_full_1)
 
 ## model selection with BIC criteria, stepwise backward
 mod_BIC_1 <- MASS::stepAIC(mod_full_1, direction = "backward", k = log(nrow(data2)))
 summary(mod_BIC_1)
 mod_BIC_1$anova
+par(mfrow=c(2,2))
+plot(mod_BIC_1)
 
 ## transform PRICE and remove BASEMENT AREA
 data2_new <- subset(mydata, select = -c(id,date,sqft_basement)) #remove sqft_basement
@@ -47,7 +48,7 @@ summary(mod_full_3)
 mod_BIC_2 <- MASS::stepAIC(mod_full_3, direction = "backward", k = log(nrow(data2_new)))
 summary(mod_BIC_2)
 
-
+vif(mod_BIC_2)
 mmps(mod_BIC_2)
 avPlots(mod_BIC_2)
 coef(mod_BIC_2)
