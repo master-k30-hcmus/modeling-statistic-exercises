@@ -1,5 +1,8 @@
 \section{Dữ liệu 2}
 Bộ dữ liệu ghi lại lịch sử về những ngôi nhà được bán từ 5/2014 đến 5/2015 ở quận King, bang Washington, Hoa Kỳ. Bộ dữ liệu bao gồm 21613 quan trắc, gồm 21 biến.
+
+$*$ \textbf{Phương pháp chọn: Stepwise - lùi; tiêu chuẩn chọn: BIC}.
+
 \subsection*{Tìm hiểu dữ liệu}
 %một vài quan trắc đầu tiên, bảng correlation, quan sát phân bố biến Y
 \begin{figure}[h!]
@@ -12,30 +15,91 @@ Bộ dữ liệu ghi lại lịch sử về những ngôi nhà được bán t�
 \caption{Một số quan sát ban đầu của bộ dữ liệu}
 \end{figure}
 
-Bộ dữ liệu cung cấp gồm 21 biến, trong đó biến \textbf{id} và \textbf{date} sẽ được loại bỏ khỏi dữ~liệu trước khi tiến hành phân tích, vì nhóm em nghĩ các biến này chỉ để ghi lại chỉ số và thời gian mua bán, không có ý nghĩa thống kê. 
+Bộ dữ liệu cung cấp gồm 21 biến, trong đó biến \textbf{id} và \textbf{date} được loại bỏ khỏi dữ~liệu trước khi tiến hành phân tích, vì nhóm em nghĩ các biến này chỉ để ghi lại chỉ số và thời gian mua bán, không mang nhiều ý nghĩa thống kê. 
 
+Quan sát ban đầu cho thấy: các biến độc lập \textbf{sqft\_living, grade, sqft\_above, sqft\_living15} có mối tương quan cao với biến phụ thuộc \textbf{Price}; biến phụ thuộc \textbf{Price} phân bố không đều, bị lệch hẳn về một phía và giá trị chủ yếu từ 0 đến 2 000 000.
 \subsection*{Phân tích, chọn mô hình}
 %mô hình ban đầu (Đầy đủ biến, chưa chuẩn hóa), mô hình sau khi chọn biến bằng các tiêu chuẩn ..., mô hình cuối cùng (nếu có chuẩn hóa dữ liệu)
 
 %đưa ra kết quả R của mỗi mô hình, giải thích vì sao chọn mô hình cuối cùng, phân tích các kết quả từ plot xem mô hình có đảm bảo các giả thiết hay không (kỳ vọng = 0, phân phối chuẩn, phương sai không đổi, có mối quan hệ tuyến tính, không có đa cộng tuyến)
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../Photo Of Result/B2_originalmodel_R}
+	\includegraphics[width=0.6\linewidth]{../Photo Of Result/B2_originalmodel_R}
 	\caption{Mô hình hồi quy đầy đủ ban đầu}
 	\label{B2_full}
 \end{figure}
-$*$ \textbf{Phương pháp chọn: Stepwise - lùi; tiêu chuẩn chọn: BIC}.
 
-Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, do đó nhóm em chọn phương pháp lùi (\textbf{stepwise - backward}) cho bộ dữ liệu này. Trong mô hình hồi quy đầy đủ (Hình \ref{B2_full}), đa số các biến giải thích đều có ý nghĩa thống kê, do đó tiến hành phương~pháp lùi (loại biến dần dần) sẽ tiết kiệm thời gian hơn so với các phương pháp còn lại.
+Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, do đó nhóm em chọn phương pháp lùi (\textbf{stepwise - backward}) cho bộ dữ liệu này. Trong mô hình hồi quy đầy đủ (Hình \ref{B2_full}), đa số các biến giải thích đều có ý nghĩa thống kê, do đó tiến hành phương~pháp lùi (loại biến dần dần) sẽ tiết kiệm thời gian hơn so với các phương pháp còn lại.  Tiêu chuẩn BIC có xu hướng chọn các mô hình ít phức tạp hơn so với tiêu chuẩn AIC, đặc biệt khi số lượng quan trắc lớn.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../Photo Of Result/B2_BIC}
+	\subfloat[Chọn biến]
+	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_BIC}}\hfill
+	\subfloat[Kết quả mô hình]
+	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_modBIC1_R}}
 	\caption{Mô hình khi chọn bằng tiêu chuẩn BIC}
 	\label{B2_BIC}
 \end{figure}
+ Bằng phương pháp lùi và tiêu chuẩn BIC (Hình \ref{B2_BIC}), các biến \textbf{sqft\_basement, floors, sqft\_lot} đã bị loại bỏ khỏi mô hình. Mô hình được chọn có $R^2=0.7,R^2_{adj}=0.6998$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê.
+ 
+ Ta tiến hành kiểm tra xem mô hình này có thỏa mãn các giả thiết của mô hình hồi quy hay không.
+ 
+ \begin{figure}[h!]
+ 	\centering
+ 	{\includegraphics[width=.85\linewidth]{../Photo Of Result/B2_originalmodel}}
+ 	\caption{Các biểu đồ kiểm định mô hình}
+ 	\label{B2_check}
+ \end{figure}
+ 
+ Dựa vào hình \ref{B2_check}, phương sai của sai số không phải là hằng số, kì vọng của sai số bằng 0; sai số có vẻ tuân theo phân phối chuẩn nhưng phần đuôi trên bị lệch khá nhiều. 
+ 
+ Kết hợp với nhận xét ban đầu, về việc biến \textbf{Price} phân bố không đều, nhóm em tiến~hành biến đổi biến này thành \textbf{log(Price)}.
+ 
+ \begin{figure}[h!]
+ 	\centering
+ 	{\includegraphics[width=.6\linewidth]{../Photo Of Result/B2_logprice}}
+ 	\caption{Phân bố của biến \textbf{Price} sau khi biến đổi }
+ 	\label{B2_log}
+ \end{figure}
+ Sau khi biến đổi, tiến hành hồi quy cho mô hình có 15 biến đã chọn bằng tiêu chuẩn BIC trước đó (\textbf{Mô hình 1}) và hồi quy cho mô hình đầy đủ rồi áp dụng tiêu chuẩn BIC (\textbf{Mô hình 2}), ta có:
+ 
+  \begin{figure}[h!]
+ 	\centering
+ 	\subfloat[Mô hình 1]
+ 	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_log}}\hfill
+ 	\subfloat[Mô hình 2]
+ 	{\includegraphics[width=.48\linewidth]{../Photo Of Result/B2_modBIC2_R}}
+ 	\caption{Kết quả khi biến đổi \textbf{Price} thành \textbf{log(Price)}}
+ \end{figure}
+ 
+Cả hai mô hình đều gồm 15 biến giải thích, mô hình 2 đã loại bỏ các biến \textbf{sqft\_basement, sqft\_above, sqft\_lot15} khác với 3 biến đã loại trước khi biến đổi \textbf{Price}. 
 
+Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 2 có hệ số xác định lớn hơn ($R^2=77.03\%$), các biến liên quan đến diện tích tầng hầm (\textbf{sqft\_basement}, \textbf{sqft\_above}) đã được bao gồm trong \textbf{sqft\_living}, diện tích khu đất vào năm 2015 cũng không mang nhiều ý nghĩa thống kê trong mô hình 1 nên có thể loại bỏ.
 
+\textit{Kiểm tra giả thiết mô hình 2:} phương sai của sai số không thay~đổi, kì vọng bằng 0 và đã tuân theo phân phối chuẩn, chưa phát hiện hiện tượng đa~cộng~tuyến trong mô hình (các chỉ số VIF $< 5$) (Hình \ref{B2_final}). 
 
+ \begin{figure}[h!]
+	\centering
+	\subfloat[Các biểu đồ kiểm định]
+	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_modBIC2_fitted}}\hfill
+	\subfloat[Kiểm tra đa cộng tuyến]
+	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_BIC_vif}}
+	\caption{Kết quả khi biến đổi thành \textbf{log(Price)}}
+	\label{B2_final}
+\end{figure}
 \subsection*{Kết luận}
 %Nhận xét các biến ảnh hưởng đến biến Y từ mô hình cuối cùng, ý nghĩa của mô hình đã chọn
+Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước lượng như hình \ref{B2_coef}.
+\begin{figure}[h!]
+	\centering
+	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_coef}}
+	\caption{Hệ số mô hình được chọn}
+	\label{B2_coef}
+\end{figure}
+
+Có 77.06\% sự biến thiên của giá nhà ở quận King được giải thích bởi 15 biến độc lập, trong đó các yếu tố ảnh hưởng nhiều nhất gồm số phòng ngủ, số phòng tắm, diện tích nhà, số tầng, hướng nhà ra bờ sông, tình trạng của ngôi nhà, điểm tổng thể của ngôi nhà theo phân loại của quận, kinh độ - vĩ độ (vị trí), năm xây dựng căn nhà.
+
+Giá trị của một căn nhà \textbf{không bị ảnh hưởng} nhiều bởi các yếu tố liên quan đến diện tích: diện tích tầng hầm, diện tích khu đất, diện tích ngoài tầng hầm, năm sửa chữa căn nhà, zipcode (mã vùng) của ngôi nhà. 
+
+Số phòng ngủ có mối tương quan nghịch với giá nhà, vì khi số phòng ngủ tăng lên, nhưng các yếu tố còn lại không thay đổi, thì diện tích của mỗi phòng ngủ sẽ giảm đi, gây cảm giác chật chội. Do đó không phải càng có nhiều phòng ngủ thì ngôi nhà sẽ có giá trị cao. 
+

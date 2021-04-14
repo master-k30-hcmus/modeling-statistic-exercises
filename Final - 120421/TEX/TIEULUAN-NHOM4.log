@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.13)  13 APR 2021 22:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.13)  14 APR 2021 15:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1296,57 +1296,117 @@ Ch\uhorn \ohorn ng 2.
 File: ../Photo Of Result/B2_headdata.png Graphic file (type png)
 <use ../Photo Of Result/B2_headdata.png>
 Package pdftex.def Info: ../Photo Of Result/B2_headdata.png  used on input line
- 8.
+ 11.
 (pdftex.def)             Requested size: 338.58632pt x 155.42937pt.
 <../Photo Of Result/B2_corr.png, id=84, 519.44063pt x 335.00156pt>
 File: ../Photo Of Result/B2_corr.png Graphic file (type png)
 <use ../Photo Of Result/B2_corr.png>
-Package pdftex.def Info: ../Photo Of Result/B2_corr.png  used on input line 9.
+Package pdftex.def Info: ../Photo Of Result/B2_corr.png  used on input line 12.
+
 (pdftex.def)             Requested size: 241.84843pt x 155.97346pt.
 <../Photo Of Result/B2_histPrice.png, id=85, 519.44063pt x 335.00156pt>
 File: ../Photo Of Result/B2_histPrice.png Graphic file (type png)
 <use ../Photo Of Result/B2_histPrice.png>
 Package pdftex.def Info: ../Photo Of Result/B2_histPrice.png  used on input lin
-e 11.
+e 14.
 (pdftex.def)             Requested size: 241.84843pt x 155.97346pt.
-<../Photo Of Result/B2_originalmodel_R.png, id=86, 389.0535pt x 436.63126pt>
-File: ../Photo Of Result/B2_originalmodel_R.png Graphic file (type png)
-<use ../Photo Of Result/B2_originalmodel_R.png>
-Package pdftex.def Info: ../Photo Of Result/B2_originalmodel_R.png  used on inp
-ut line 23.
-(pdftex.def)             Requested size: 338.58632pt x 380.0127pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 6559) has occurred while \output is active []
-
  [8
 
 
  <../Photo Of Result/B2_headdata.PNG> <../Photo Of Result/B2_corr.png> <../Phot
 o Of Result/B2_histPrice.png>]
+<../Photo Of Result/B2_originalmodel_R.png, id=97, 389.0535pt x 436.63126pt>
+File: ../Photo Of Result/B2_originalmodel_R.png Graphic file (type png)
+<use ../Photo Of Result/B2_originalmodel_R.png>
+Package pdftex.def Info: ../Photo Of Result/B2_originalmodel_R.png  used on inp
+ut line 27.
+(pdftex.def)             Requested size: 290.22107pt x 325.72707pt.
 <../Photo Of Result/B2_BIC.png, id=99, 441.44925pt x 241.50224pt>
 File: ../Photo Of Result/B2_BIC.png Graphic file (type png)
 <use ../Photo Of Result/B2_BIC.png>
-Package pdftex.def Info: ../Photo Of Result/B2_BIC.png  used on input line 33.
-(pdftex.def)             Requested size: 338.58632pt x 185.23134pt.
+Package pdftex.def Info: ../Photo Of Result/B2_BIC.png  used on input line 37.
+(pdftex.def)             Requested size: 241.84843pt x 132.30704pt.
+<../Photo Of Result/B2_modBIC1_R.png, id=100, 429.40425pt x 402.90524pt>
+File: ../Photo Of Result/B2_modBIC1_R.png Graphic file (type png)
+<use ../Photo Of Result/B2_modBIC1_R.png>
+Package pdftex.def Info: ../Photo Of Result/B2_modBIC1_R.png  used on input lin
+e 39.
+(pdftex.def)             Requested size: 241.84843pt x 226.92873pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [9 <../Photo Of Result/B2_originalmodel_R.PNG>] [10 <../Photo Of Result/B2_BI
-C.PNG>]
+[9 <../Photo Of Result/B2_originalmodel_R.PNG>]
+<../Photo Of Result/B2_originalmodel.jpg, id=113, 511.15968pt x 296.60812pt>
+File: ../Photo Of Result/B2_originalmodel.jpg Graphic file (type jpg)
+<use ../Photo Of Result/B2_originalmodel.jpg>
+Package pdftex.def Info: ../Photo Of Result/B2_originalmodel.jpg  used on input
+ line 49.
+(pdftex.def)             Requested size: 411.14528pt x 238.57216pt.
+ [10 <../Photo Of Result/B2_BIC.PNG> <../Photo Of Result/B2_modBIC1_R.PNG> <../
+Photo Of Result/B2_originalmodel.jpg>]
+<../Photo Of Result/B2_logprice.png, id=124, 519.44063pt x 335.00156pt>
+File: ../Photo Of Result/B2_logprice.png Graphic file (type png)
+<use ../Photo Of Result/B2_logprice.png>
+Package pdftex.def Info: ../Photo Of Result/B2_logprice.png  used on input line
+ 60.
+(pdftex.def)             Requested size: 290.22107pt x 187.1702pt.
+<../Photo Of Result/B2_log.png, id=125, 423.984pt x 414.95026pt>
+File: ../Photo Of Result/B2_log.png Graphic file (type png)
+<use ../Photo Of Result/B2_log.png>
+Package pdftex.def Info: ../Photo Of Result/B2_log.png  used on input line 69.
+(pdftex.def)             Requested size: 241.84843pt x 236.70139pt.
+<../Photo Of Result/B2_modBIC2_R.png, id=126, 409.53pt x 414.348pt>
+File: ../Photo Of Result/B2_modBIC2_R.png Graphic file (type png)
+<use ../Photo Of Result/B2_modBIC2_R.png>
+Package pdftex.def Info: ../Photo Of Result/B2_modBIC2_R.png  used on input lin
+e 71.
+(pdftex.def)             Requested size: 232.17242pt x 234.91pt.
+
+Overfull \hbox (6.98251pt too wide) in paragraph at lines 75--76
+[]\T5/cmr/m/n/13 C£ hai mæ h¼nh ^^_·u gçm 15 bi¸n gi£i th½ch, mæ h¼nh 2 ^^_¢ lo
+¤i bä c¡c bi¸n \T5/cmr/bx/n/13 sqft_basement,
+ []
+
+
+Underfull \vbox (badness 3396) has occurred while \output is active []
+
+ [11 <../Photo Of Result/B2_logprice.png> <../Photo Of Result/B2_log.PNG> <../P
+hoto Of Result/B2_modBIC2_R.PNG>]
+<../Photo Of Result/B2_modBIC2_fitted.jpg, id=139, 500.62032pt x 295.1025pt>
+File: ../Photo Of Result/B2_modBIC2_fitted.jpg Graphic file (type jpg)
+<use ../Photo Of Result/B2_modBIC2_fitted.jpg>
+Package pdftex.def Info: ../Photo Of Result/B2_modBIC2_fitted.jpg  used on inpu
+t line 84.
+(pdftex.def)             Requested size: 483.69687pt x 285.13684pt.
+<../Photo Of Result/B2_BIC_vif.png, id=140, 507.69675pt x 79.497pt>
+File: ../Photo Of Result/B2_BIC_vif.png Graphic file (type png)
+<use ../Photo Of Result/B2_BIC_vif.png>
+Package pdftex.def Info: ../Photo Of Result/B2_BIC_vif.png  used on input line 
+86.
+(pdftex.def)             Requested size: 483.69687pt x 75.74005pt.
+<../Photo Of Result/B2_coef.png, id=142, 512.51476pt x 82.50826pt>
+File: ../Photo Of Result/B2_coef.png Graphic file (type png)
+<use ../Photo Of Result/B2_coef.png>
+Package pdftex.def Info: ../Photo Of Result/B2_coef.png  used on input line 95.
+
+(pdftex.def)             Requested size: 483.69687pt x 77.86998pt.
+
+Underfull \vbox (badness 2197) has occurred while \output is active []
+
+ [12 <../Photo Of Result/B2_modBIC2_fitted.jpg> <../Photo Of Result/B2_BIC_vif.
+PNG>])
+[13 <../Photo Of Result/B2_coef.PNG>]
 \openout2 = `B-CAU3.aux'.
 
- (./B-CAU3.tex) [11
+ (./B-CAU3.tex) [14
 
 
 ]
 \openout2 = `B-CAU4.aux'.
 
- (./B-CAU4.tex) [12
+ (./B-CAU4.tex)
+[15
 
 
 ]
@@ -1355,9 +1415,8 @@ C.PNG>]
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
- (./TIEULUAN-NHOM4.aux
-(./A-CAU1.aux) (./A-CAU2.aux) (./B-CAU1.aux) (./B-CAU2.aux) (./B-CAU3.aux)
-(./B-CAU4.aux))
+ (./TIEULUAN-NHOM4.aux (./A-CAU1.aux) (./A-CAU2.aux) (./B-CAU1.aux)
+(./B-CAU2.aux) (./B-CAU3.aux) (./B-CAU4.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `TIEULUAN-NHOM4.out' has not changed.
@@ -1369,21 +1428,25 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 25701 strings out of 480608
- 449186 string characters out of 5907536
- 737318 words of memory out of 5000000
- 41079 multiletter control sequences out of 15000+600000
- 552934 words of font info for 61 fonts, out of 8000000 for 9000
+ 25788 strings out of 480608
+ 451685 string characters out of 5907536
+ 738636 words of memory out of 5000000
+ 41142 multiletter control sequences out of 15000+600000
+ 553755 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,12n,81p,837b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><c:/texlive/2020/texmf-di
-st/fonts/type1/vntex/vnr/vnr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/vnte
-x/vnr/vnr12.pfb>
-Output written on TIEULUAN-NHOM4.pdf (12 pages, 180065 bytes).
+ 63i,11n,81p,837b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/vntex/v
+nr/vnbx12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><c:/t
+exlive/2020/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><c:/texlive/2020/texmf-d
+ist/fonts/type1/vntex/vnr/vnti12.pfb>
+Output written on TIEULUAN-NHOM4.pdf (15 pages, 563446 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

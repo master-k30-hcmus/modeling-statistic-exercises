@@ -2,7 +2,7 @@ setwd("D:/DS-HCMUS-K30/HP1_2020/MHHTK/FINAL/data")
 
 library(MASS)
 library(ggplot2)
-library(plyr)
+library(dplyr)
 library(broom)
 library(car)
 library(corrplot)
@@ -22,6 +22,11 @@ summary(data2)
 str(data2)
 hist(data2$price)
 
+# Create variable log of house price
+# data2 <- data2 %>%  mutate(log_price = log(price))
+# Plot histogram of log of house price
+# ggplot(data2, aes(x = log_price)) +   geom_histogram()
+
 ## Determining the association between variables
 cor_data=data.frame(data2[,1:19])
 correlation=cor(cor_data)
@@ -39,18 +44,20 @@ mod_BIC_1$anova
 par(mfrow=c(2,2))
 plot(mod_BIC_1)
 
-## transform PRICE and remove BASEMENT AREA
-data2_new <- subset(mydata, select = -c(id,date,sqft_basement)) #remove sqft_basement
-mod_full_3 = lm(log(price) ~ . , data2_new)
-summary(mod_full_3) 
+## transform PRICE
+mod_2 = lm(log(price) ~ bedrooms + bathrooms + sqft_living + waterfront + view + 
+             condition + grade + sqft_above + yr_built + yr_renovated + 
+             zipcode + lat + long + sqft_living15 + sqft_lot15, data2)
+summary(mod_2) 
 
-#model selection with BIC criteria, stepwise backward
-mod_BIC_2 <- MASS::stepAIC(mod_full_3, direction = "backward", k = log(nrow(data2_new)))
+mod_2_full = lm(log(price)~.,data2)
+mod_BIC_2 <- MASS::stepAIC(mod_2_full, direction = "backward", k = log(nrow(data2)))
 summary(mod_BIC_2)
+mod_BIC_2$anova
 
 vif(mod_BIC_2)
 mmps(mod_BIC_2)
 avPlots(mod_BIC_2)
-coef(mod_BIC_2)
 par(mfrow=c(2,2))
 plot(mod_BIC_2)
+coef(mod_BIC_2)
