@@ -40,7 +40,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
 	\caption{Mô hình khi chọn bằng tiêu chuẩn BIC}
 	\label{B2_BIC}
 \end{figure}
- Bằng phương pháp lùi và tiêu chuẩn BIC (Hình \ref{B2_BIC}), các biến \textbf{sqft\_basement, floors, sqft\_lot} đã bị loại bỏ khỏi mô hình. Mô hình được chọn có $R^2=0.7,R^2_{adj}=0.6998$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê.
+ Bằng phương pháp lùi và tiêu chuẩn BIC (Hình \ref{B2_BIC}), các biến \textbf{sqft\_basement, floors, sqft\_lot} đã bị loại bỏ khỏi mô hình. Mô hình được chọn có $R^2=0.7$, $R^2_{adj}=0.69$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê.
  
  Ta tiến hành kiểm tra xem mô hình này có thỏa mãn các giả thiết của mô hình hồi quy hay không.
  
@@ -61,7 +61,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  	\caption{Phân bố của biến \textbf{Price} sau khi biến đổi }
  	\label{B2_log}
  \end{figure}
- Sau khi biến đổi, tiến hành hồi quy cho mô hình có 15 biến đã chọn bằng tiêu chuẩn BIC trước đó (\textbf{Mô hình 1}) và hồi quy cho mô hình đầy đủ rồi áp dụng tiêu chuẩn BIC (\textbf{Mô hình 2}), ta có:
+ Sau khi biến đổi, ta tiến hành hồi quy cho: \textbf{mô hình 1} mô hình có 15 biến đã chọn bằng tiêu chuẩn BIC trước đó, và \textbf{mô hình 2} mô hình đầy đủ rồi áp dụng tiêu chuẩn BIC để chọn biến.
  
   \begin{figure}[H]
  	\centering
@@ -76,7 +76,7 @@ Cả hai mô hình đều gồm 15 biến giải thích, mô hình 2 đã loại
 
 Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 2 có hệ số xác định lớn hơn ($R^2=77.03\%$), các biến liên quan đến diện tích tầng hầm (\textbf{sqft\_basement}, \textbf{sqft\_above}) đã được bao gồm trong \textbf{sqft\_living}, diện tích khu đất vào năm 2015 cũng không mang nhiều ý nghĩa thống kê trong mô hình 1 nên có thể loại bỏ.
 
-\textit{Kiểm tra giả thiết mô hình 2:} phương sai của sai số không thay~đổi, kì vọng bằng 0 và đã tuân theo phân phối chuẩn, chưa phát hiện hiện tượng đa~cộng~tuyến trong mô hình (các chỉ số VIF $< 5$) (Hình \ref{B2_final}). 
+\textit{Kiểm tra giả thiết mô hình 2:} phương sai của sai số không thay~đổi, kì vọng bằng 0 và đã tuân theo phân phối chuẩn, chưa phát hiện hiện tượng đa~cộng~tuyến trong mô~hình (các chỉ số VIF $< 5$) (Hình \ref{B2_final}). 
 
  \begin{figure}[H]
 	\centering
@@ -97,9 +97,9 @@ Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước 
 	\label{B2_coef}
 \end{figure}
 
-Có 77.06\% sự biến thiên của giá nhà ở quận King được giải thích bởi 15 biến độc lập, trong đó các yếu tố ảnh hưởng nhiều nhất gồm số phòng ngủ, số phòng tắm, diện tích nhà, số tầng, hướng nhà ra bờ sông, tình trạng của ngôi nhà, điểm tổng thể của ngôi nhà theo phân loại của quận, kinh độ - vĩ độ (vị trí), năm xây dựng căn nhà.
+Có 77.06\% sự biến thiên của giá nhà ở quận King được giải thích bởi 15 biến độc~lập, trong đó các yếu tố ảnh hưởng nhiều nhất gồm số phòng ngủ, số phòng tắm, diện tích nhà, số tầng, hướng nhà ra bờ sông, tình trạng của ngôi nhà, điểm tổng thể của ngôi nhà theo phân loại của quận, kinh độ - vĩ độ (vị trí), năm xây dựng căn nhà.
 
-Giá trị của một căn nhà \textbf{không bị ảnh hưởng} nhiều bởi các yếu tố liên quan đến diện tích: diện tích tầng hầm, diện tích khu đất, diện tích ngoài tầng hầm, năm sửa chữa căn nhà, zipcode (mã vùng) của ngôi nhà. 
+Giá trị của một căn nhà \textbf{không bị ảnh hưởng} nhiều bởi các yếu tố: diện tích tầng~hầm, diện tích khu đất, diện tích ngoài tầng hầm, năm sửa chữa căn nhà, zipcode (mã~vùng) của ngôi nhà. 
 
 Số phòng ngủ có mối tương quan nghịch với giá nhà, vì khi số phòng ngủ tăng lên, nhưng các yếu tố còn lại không thay đổi, thì diện tích của mỗi phòng ngủ sẽ giảm đi, gây cảm giác chật chội. Do đó không phải càng có nhiều phòng ngủ thì ngôi nhà sẽ có giá trị cao. 
 
