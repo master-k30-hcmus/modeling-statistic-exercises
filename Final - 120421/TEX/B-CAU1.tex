@@ -1,12 +1,14 @@
 \section{Dữ liệu 1}
 Những thông tin vê các giám đốc điều hành các tập đoàn Hoa Kỳ. Bộ dữ liệu gồm 177 quan trắc và 15 biến.
+
 \subsection*{Tìm hiểu và tiền xử lý dữ liệu}
 
-Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn như: $\textit{sales'}$, $\textit{profits}$, $\textit{mktval}$. Nếu đưa những biến này vào phương trình hồi quy có thể dẫn tới hiện tượng bias do tác động của những biến này lên model lấn át những biến khác còn lại như $\textit{age}$, $\textit{ceoten}$.... Nên ta sẽ dùng phương pháp logarit cho 3 biến này trong model tương ứng với 3 biến mới là:  $\textit{lsales"}$ , $\textit{lmktval}$   và $\textit{profmarg}$. (1)
+Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn như: $sales'$, $profits$, $lmktval$. Nếu đưa những biến này vào phương trình hồi quy có thể dẫn tới hiện tượng bias do tác động của những biến này lên model lấn át những biến khác còn lại như $age$, $ceoten$.... Nên ta sẽ dùng phương pháp logarit cho 3 biến này trong model tương ứng với 3 biến mới là:  $lsales"$ , $lmktval$   và $profmarg$. (1)
 
 
 Từ biểu đồ dưới ta thấy ba biến định lượng $\textit{lsales}$, $\textit{lmktval}$ và $\textit{profmarg}$ xảy ra hiện tượng đa cộng tuyến.
-Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (Hình \ref{fig-b1:plot-vars})
+Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (hình \ref{fig-b1:plot-vars}).
+
 Tính độ correlation của biến salary với lần lượt 2 biến trên ta có:
 
 \begin{figure}[!h]
@@ -27,10 +29,15 @@ Xét bảng correlation giữa các biên độc lập với nhau và giữa cá
 
 Từ (1) và (2) ta có mô hình với đầy đủ các biến cần lựa chọn như sau:
 
-$\textit{salary}$ = $\beta_0$ + $\beta_1$*$\textit{age}$ + $\beta_2$*$\textit{college}$ + $\beta_3$*$\textit{grad}$ + $\beta_4$ * $\textit{comten}$ + $\beta_5$ * $\textit{ceoten}$ + $\beta_6$ * $\textit{lmktval}$ + $\beta_7$ *$\textit{profmarg}$ (1.1)
+\begin{equation}\label{eq-b1:full-model}
+	\begin{split}
+		salary 	= \beta_0 + &\beta_1*age + \beta_2*college + \beta_3*grad + \beta_4*comten\\
+		&+ \beta_5*ceoten + \beta_6*lmktval + \beta_7*profmarg
+	\end{split}
+\end{equation}
 
 
-Thực hiện phân rã hai biến phân loại gồm $\textit{college}$ và $\textit{grad}$ trước khi thực hiện phương pháp chọn biến StepWise tiến với tiêu chuẩn AIC.
+Thực hiện phân rã hai biến phân loại gồm $college$ và $grad$ trước khi thực hiện phương pháp chọn biến StepWise tiến với tiêu chuẩn AIC.
 
 Để đánh giá chất lượng mô hình ta chia tâp dữ liệu thành hai phần training và testing với tỷ lệ 80:20 sau đó tiến hành phương pháp chọn biến.
 
@@ -53,7 +60,7 @@ Tổng quan tiêu chuẩn AIC thì mô hình tốt là mô hình có giá trị 
 \end{figure}
 
 
-Với ba biến trên được chọn mô hình (1.1) trở thành mô hình mới:
+Với ba biến trên được chọn mô hình \ref{eq-b1:full-model} trở thành mô hình mới:
 
 $\textit{salary}$ = -950.6 + 248.2 *$\textit{lmktval}$ - -13.9 *$\textit{profmarg}$ + 11.7  *$\textit{ceoten}$  (1.2)
 
@@ -65,7 +72,7 @@ Ta tiến hành bỏ biến $\textit{ceoten}$ và hồi quy mô hình với hai 
 	\centering
 	\includegraphics[scale = 0.52]{../Photo Of Result/B1_newsummary.PNG}  
 	\caption{Kết quả hồi quy mô hình với hai biến còn lại}
-	\label{ex1:model:1}
+	\label{fig-b1:new-summary}
 \end{figure}
 
 Mô hình thống kê mới:
@@ -73,7 +80,7 @@ Mô hình thống kê mới:
 $\textit{salary}$ = -830.7 + 245.3 *$\textit{lmktval}$ -13.9 *$\textit{profmarg}$ + 11.7  (1.3)
 
 
-Trường hợp này hai biến còn lại có ý nghĩa thống kê. Tuy nhiên mô hình được tạo bởi hai biến này chỉ giải thích được 23 $\%$ kết quả biến phụ thuộc. Nguyên nhân dẫn tới kết quả thấp là do số lượng data ít, các biến giải thích ít không tạo nên mô hình đặc trưng được.
+Trường hợp này hai biến còn lại có ý nghĩa thống kê. Tuy nhiên mô hình được tạo bởi hai biến này chỉ giải thích được 23 $\%$ kết quả biến phụ thuộc (hình \ref{fig-b1:new-summary}). Nguyên nhân dẫn tới kết quả thấp là do số lượng data ít, các biến giải thích ít không tạo nên mô hình đặc trưng được.
 
 
 
@@ -85,7 +92,7 @@ Thực hiện dự đoán trên tập dữ liệu test từ kết quả mô hìn
 	\centering
 	\includegraphics[scale = 0.5]{../Photo Of Result/B1_MSE.PNG}  
 	\caption{Chỉ số đo lường kết quả MSE}
-	\label{ex1:model:1}
+	\label{fig-b1:mse}
 \end{figure}
 
 
