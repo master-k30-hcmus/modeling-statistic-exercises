@@ -7,18 +7,18 @@ Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn 
 
 
 Từ biểu đồ dưới ta thấy ba biến định lượng $\textit{lsales}$, $\textit{lmktval}$ và $\textit{profmarg}$ xảy ra hiện tượng đa cộng tuyến.
-Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (hình \ref{fig-b1:plot-vars}).
+Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến $sales$ và $profit$ luôn (hình \ref{fig-b1:plot-vars}).
 
 Tính độ correlation của biến salary với lần lượt 2 biến trên ta có:
 
-\begin{figure}[!h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.7]{../Photo Of Result/B1_plotVriables.png}  
 	\caption{Mối tương quan giữa các biến}
 	\label{fig-b1:plot-vars}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.6]{../Photo Of Result/B1_CorTable.PNG}  
 	\caption{Mức độ tương quan giữa biến lsales và promarg Correlation}
@@ -43,7 +43,7 @@ Thực hiện phân rã hai biến phân loại gồm $college$ và $grad$ trư�
 
 \subsection*{Thực hiện chọn biến bằng phương pháp StepWise tiến và tiêu chuẩn AIC}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.52]{../Photo Of Result/B1_stepwiseForward.PNG}  
 	\caption{Kết quả chọn biến theo phương pháp StepWise tiến với tiêu chuẩn AIC}
@@ -52,7 +52,7 @@ Thực hiện phân rã hai biến phân loại gồm $college$ và $grad$ trư�
 
 Tổng quan tiêu chuẩn AIC thì mô hình tốt là mô hình có giá trị AIC nhỏ nhất. Ở mô hình 1 biến $\textit{lmktval}$ được chọn vào mô hình vì có AIC nhỏ nhất trong tất cả các kết hợp với các biến còn lại. Tương tự AIC được tính cho mô hình thêm biến thứ 2 biến $\textit{ceoten}$ và biến thứ 3 là $\textit{ceoten}$. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.52]{../Photo Of Result/B1_summary.PNG}  
 	\caption{Kết quả hồi quy mô hình với các biên được chọn}
@@ -68,7 +68,7 @@ Tuy nhiên ta nhận thấy biến $\textit{ceoten}$ có $\rho_{value} \ge \alph
 
 Ta tiến hành bỏ biến $\textit{ceoten}$ và hồi quy mô hình với hai biến còn lại kết quả thu được từ phần mềm R như bên dưới:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.52]{../Photo Of Result/B1_newsummary.PNG}  
 	\caption{Kết quả hồi quy mô hình với hai biến còn lại}
@@ -88,7 +88,7 @@ Trường hợp này hai biến còn lại có ý nghĩa thống kê. Tuy nhiên
 
 Thực hiện dự đoán trên tập dữ liệu test từ kết quả mô hình (1.3)  và dùng chỉ số đánh MSE(trung bình sai số bình phương) ta có:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.5]{../Photo Of Result/B1_MSE.PNG}  
 	\caption{Chỉ số đo lường kết quả MSE}
