@@ -1,8 +1,0 @@
-\contentsline {chapter}{\numberline {1}Dữ liệu tự chọn}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Dữ liệu 1: Mô hình hồi quy đa biến}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Dữ liệu 2: Hồi quy thành phần chính}{6}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Dữ liệu có sẵn}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Dữ liệu 1}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Dữ liệu 2}{8}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Dữ liệu 3}{14}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Dữ liệu 4}{15}{section.2.4}%
