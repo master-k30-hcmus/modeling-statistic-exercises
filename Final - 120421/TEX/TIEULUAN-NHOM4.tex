@@ -16,6 +16,7 @@
 \usepackage{commath}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
+\usepackage{float}
 \usepackage{subfig}
 \usepackage{url}
 
@@ -33,6 +34,10 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\heva}[1]{\left\{ 
 	\begin{aligned}#1\end{aligned}\right.}
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
