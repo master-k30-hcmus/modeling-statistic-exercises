@@ -5,7 +5,7 @@ $*$ \textbf{Phương pháp chọn: Stepwise - lùi; tiêu chuẩn chọn: BIC}.
 
 \subsection*{Tìm hiểu dữ liệu}
 %một vài quan trắc đầu tiên, bảng correlation, quan sát phân bố biến Y
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \subfloat[Một số quan trắc đầu tiên]
 {\includegraphics[width=0.7\linewidth]{../Photo Of Result/B2_headdata}}\\
@@ -22,7 +22,7 @@ Quan sát ban đầu cho thấy: các biến độc lập \textbf{sqft\_living, 
 %mô hình ban đầu (Đầy đủ biến, chưa chuẩn hóa), mô hình sau khi chọn biến bằng các tiêu chuẩn ..., mô hình cuối cùng (nếu có chuẩn hóa dữ liệu)
 
 %đưa ra kết quả R của mỗi mô hình, giải thích vì sao chọn mô hình cuối cùng, phân tích các kết quả từ plot xem mô hình có đảm bảo các giả thiết hay không (kỳ vọng = 0, phân phối chuẩn, phương sai không đổi, có mối quan hệ tuyến tính, không có đa cộng tuyến)
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\linewidth]{../Photo Of Result/B2_originalmodel_R}
 	\caption{Mô hình hồi quy đầy đủ ban đầu}
@@ -31,7 +31,7 @@ Quan sát ban đầu cho thấy: các biến độc lập \textbf{sqft\_living, 
 
 Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, do đó nhóm em chọn phương pháp lùi (\textbf{stepwise - backward}) cho bộ dữ liệu này. Trong mô hình hồi quy đầy đủ (Hình \ref{B2_full}), đa số các biến giải thích đều có ý nghĩa thống kê, do đó tiến hành phương~pháp lùi (loại biến dần dần) sẽ tiết kiệm thời gian hơn so với các phương pháp còn lại.  Tiêu chuẩn BIC có xu hướng chọn các mô hình ít phức tạp hơn so với tiêu chuẩn AIC, đặc biệt khi số lượng quan trắc lớn.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\subfloat[Chọn biến]
 	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_BIC}}\hfill
@@ -44,7 +44,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  
  Ta tiến hành kiểm tra xem mô hình này có thỏa mãn các giả thiết của mô hình hồi quy hay không.
  
- \begin{figure}[h!]
+ \begin{figure}[H]
  	\centering
  	{\includegraphics[width=.85\linewidth]{../Photo Of Result/B2_originalmodel}}
  	\caption{Các biểu đồ kiểm định mô hình}
@@ -55,7 +55,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  
  Kết hợp với nhận xét ban đầu, về việc biến \textbf{Price} phân bố không đều, nhóm em tiến~hành biến đổi biến này thành \textbf{log(Price)}.
  
- \begin{figure}[h!]
+ \begin{figure}[H]
  	\centering
  	{\includegraphics[width=.6\linewidth]{../Photo Of Result/B2_logprice}}
  	\caption{Phân bố của biến \textbf{Price} sau khi biến đổi }
@@ -63,7 +63,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  \end{figure}
  Sau khi biến đổi, ta tiến hành hồi quy cho: \textbf{mô hình 1} mô hình có 15 biến đã chọn bằng tiêu chuẩn BIC trước đó, và \textbf{mô hình 2} mô hình đầy đủ rồi áp dụng tiêu chuẩn BIC để chọn biến.
  
-  \begin{figure}[h!]
+  \begin{figure}[H]
  	\centering
  	\subfloat[Mô hình 1]
  	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_log}}\hfill
@@ -78,7 +78,7 @@ Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 
 
 \textit{Kiểm tra giả thiết mô hình 2:} phương sai của sai số không thay~đổi, kì vọng bằng 0 và đã tuân theo phân phối chuẩn, chưa phát hiện hiện tượng đa~cộng~tuyến trong mô~hình (các chỉ số VIF $< 5$) (Hình \ref{B2_final}). 
 
- \begin{figure}[h!]
+ \begin{figure}[H]
 	\centering
 	\subfloat[Các biểu đồ kiểm định]
 	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_modBIC2_fitted}}\hfill
@@ -90,7 +90,7 @@ Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 
 \subsection*{Kết luận}
 %Nhận xét các biến ảnh hưởng đến biến Y từ mô hình cuối cùng, ý nghĩa của mô hình đã chọn
 Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước lượng như hình \ref{B2_coef}.
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_coef}}
 	\caption{Hệ số mô hình được chọn}
