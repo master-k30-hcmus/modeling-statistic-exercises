@@ -20,15 +20,19 @@
 \usepackage{tcolorbox}
 \usepackage{subfig}
 \usepackage{url}
+
+\usepackage{indentfirst}
+\setlength{\parindent}{20pt}
+
 \usepackage[unicode]{hyperref}
 \newmdenv[linecolor=black,skipabove=\topsep,skipbelow=\topsep,
 leftmargin=-5pt,rightmargin=-5pt,
 innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
-\setlength{\parindent}{0pt}
 \usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\heva}[1]{\left\{ 
 	\begin{aligned}#1\end{aligned}\right.}
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -68,10 +72,28 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 		\end{center}
 	\end{titlepage}
 \tableofcontents
+
+\chapter{Dữ liệu tự chọn}
+\begin{itemize}
+	\item Tên "đề tài", nguồn gốc của dữ liệu, giới thiệu các biến.
+	\item Mô hình chọn được; phân tích kết quả
+	\item Đưa ra những phương pháp/phân tích khác có thể giúp cho kết quả tốt hơn.
+	\item Kết luận.
+\end{itemize}
+
 \include{A-CAU1}
 \include{A-CAU2}
+
+\chapter{Dữ liệu có sẵn}
+\begin{itemize}
+	\item Chọn mô hình phù hợp nhất giải thích biến phụ thuộc với từng bộ dữ liệu.
+	\item Nêu rõ phương pháp chọn mô hình và lý do chọn phương pháp đó.
+	\item Nói rõ ý nghĩa của mô hình đã chọn.
+\end{itemize}
+
 \include{B-CAU1}
 \include{B-CAU2}
 \include{B-CAU3}
 \include{B-CAU4}
+
 \end{document}

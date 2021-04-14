@@ -1,40 +1,26 @@
-\documentclass[a4paper]{article}
-\usepackage[utf8]{vietnam}
-\usepackage{scrextend}
-\usepackage{graphicx}
-
-
-\begin{document}
-	
-%\chapter{Dữ liệu 1}
+\section{Dữ liệu 1}
 Những thông tin vê các giám đốc điều hành các tập đoàn Hoa Kỳ. Bộ dữ liệu gồm 177 quan trắc và 15 biến.
-
-- Chọn mô hình phù hợp nhất giải thích biến phụ thuộc với từng bộ dữ liệu.
-
-- Nêu rõ phương pháp chọn mô hình và lý do chọn phương pháp đó.
-
-- Nói rõ ý nghĩa của mô hình đã chọn.
 \subsection*{Tìm hiểu và tiền xử lý dữ liệu}
 
 Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn như: $\textit{sales'}$, $\textit{profits}$, $\textit{mktval}$. Nếu đưa những biến này vào phương trình hồi quy có thể dẫn tới hiện tượng bias do tác động của những biến này lên model lấn át những biến khác còn lại như $\textit{age}$, $\textit{ceoten}$.... Nên ta sẽ dùng phương pháp logarit cho 3 biến này trong model tương ứng với 3 biến mới là:  $\textit{lsales"}$ , $\textit{lmktval}$   và $\textit{profmarg}$. (1)
 
 
 Từ biểu đồ dưới ta thấy ba biến định lượng $\textit{lsales}$, $\textit{lmktval}$ và $\textit{profmarg}$ xảy ra hiện tượng đa cộng tuyến.
-Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (Hình 1)
+Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (Hình \ref{fig-b1:plot-vars})
 Tính độ correlation của biến salary với lần lượt 2 biến trên ta có:
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale = 0.7]{../Photo Of Result/B1_plotVriables.png}  
 	\caption{Mối tương quan giữa các biến}
-	\label{ex1:model:1}
+	\label{fig-b1:plot-vars}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale = 0.6]{../Photo Of Result/B1_CorTable.PNG}  
 	\caption{Mức độ tương quan giữa biến lsales và promarg Correlation}
-	\label{ex1:model:1}
+	\label{fig-b1:corr-table}
 \end{figure}
 
 Xét bảng correlation giữa các biên độc lập với nhau và giữa các biến độc lập với biến phụ thuộc ta thấy: Giữa hai biến $\textit{lmktval}$ và biến $\textit{lsales}$ có mối tương quan rất cao ($\approx$ 0.75). Tuy nhiên biến $\textit{lmktval}$ lại có mối tương quan cao hơn với biến phụ thuộc $\textit{salary}$. Mặt khác giữa biến $\textit{profmarg}$ và $\textit{lsales}$ cũng có mối tương quan cao ($\approx$ -0.42). Nên ta loại bỏ biến $\textit{lsales}$ khỏi danh sách các biến được xét. (2)
@@ -54,10 +40,10 @@ Thực hiện phân rã hai biến phân loại gồm $\textit{college}$ và $\t
 	\centering
 	\includegraphics[scale = 0.52]{../Photo Of Result/B1_stepwiseForward.PNG}  
 	\caption{Kết quả chọn biến theo phương pháp StepWise tiến với tiêu chuẩn AIC}
-	\label{ex1:model:1}
+	\label{fig-b1:stepwise-forward}
 \end{figure}
 
-Tông quan tieu chuẩn AIC thì mô hình tốt là mô hình có giá trị AIC nhỏ nhất. Ở mô hình 1 biến $\textit{lmktval}$ được chọn vào mô hình vì có AIC nhỏ nhất trong tất cả các kết hợp với các biến còn lại. Tương tự AIC được tính cho mô hình thêm biến thứ 2 biến $\textit{ceoten}$ và biến thứ 3 là $\textit{ceoten}$. 
+Tổng quan tiêu chuẩn AIC thì mô hình tốt là mô hình có giá trị AIC nhỏ nhất. Ở mô hình 1 biến $\textit{lmktval}$ được chọn vào mô hình vì có AIC nhỏ nhất trong tất cả các kết hợp với các biến còn lại. Tương tự AIC được tính cho mô hình thêm biến thứ 2 biến $\textit{ceoten}$ và biến thứ 3 là $\textit{ceoten}$. 
 
 \begin{figure}[h!]
 	\centering
@@ -102,8 +88,6 @@ Thực hiện dự đoán trên tập dữ liệu test từ kết quả mô hìn
 	\label{ex1:model:1}
 \end{figure}
 
-
-\end{document}
 
 
 
