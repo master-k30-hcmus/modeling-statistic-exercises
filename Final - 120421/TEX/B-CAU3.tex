@@ -4,7 +4,7 @@ Bộ dữ liệu ghi lại tỷ lệ tai nạn, gồm 39 quan trắc được th
 
 \subsection*{Tìm hiểu dữ liệu}
 
-Bộ dữ liệu gồm 13 biến sau:
+Bộ dữ liệu gồm 1 biến phụ thuộc và 13 biến giải thích sau:
 \begin{itemize}[label=--]
 	\item $Y$ : tỷ lệ \% tai nạn trên đoạn đường khảo sát.
 	\item $X1$ : chiều dài đoạn đường (dặm).
@@ -46,7 +46,7 @@ Một số phân bố theo biến:
 			\caption{Phân bố theo tổng số làn đường ($X10$)}
 			\label{fig-b3:plot-x10}
 		\end{figure}
-	\item $Y$: Phần lớn tỷ lệ \% tai nạn là $1-5\%$ (hình \ref{fig-b3:plot-y}).
+	\item $Y$: Phần lớn tỷ lệ tai nạn là $1-5\%$ (hình \ref{fig-b3:plot-y}).
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.7\linewidth]{images/B3/plot-y}
@@ -55,15 +55,15 @@ Một số phân bố theo biến:
 		\end{figure}
 \end{itemize}
 
-Trung bình của tổng tỷ lệ \% tai nạn theo các loại tuyến đường (hình \ref{fig-b3:aggregate-x11-13}) cho thấy loại tuyến đường cao tốc chính có tỷ lệ \% tai nạn cao nhất.
+Trung bình của tổng tỷ lệ tai nạn theo các loại tuyến đường (hình \ref{fig-b3:aggregate-x11-13}) cho thấy loại tuyến đường cao tốc chính có tỷ lệ tai nạn cao nhất.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/B3/aggregate-x11-13}
-	\caption{Trung bình của tổng tỷ lệ \% tai nạn theo các loại tuyến đường}
+	\caption{Trung bình của tổng tỷ lệ tai nạn theo các loại tuyến đường}
 	\label{fig-b3:aggregate-x11-13}
 \end{figure}
 
-Trung bình của tổng tỷ lệ \% tai nạn theo các mức tốc độ giới hạn cho phép (hình \ref{fig-b3:aggregate-x4}) cho thấy giới hạn tốc độ cho phép trên đường cao tốc càng thấp thì xảy ra tai~nạn càng nhiều, tỷ lệ \% tai nạn giảm dần đều khi giới hạn tốc độ cho phép tăng.
+Trung bình của tổng tỷ lệ \% tai nạn theo các mức tốc độ giới hạn cho phép (hình \ref{fig-b3:aggregate-x4}) cho thấy giới hạn tốc độ cho phép trên đường cao tốc càng thấp thì xảy ra tai nạn càng nhiều, tỷ lệ tai nạn giảm dần đều khi giới hạn tốc độ cho phép tăng.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{images/B3/aggregate-x4}
@@ -71,7 +71,7 @@ Trung bình của tổng tỷ lệ \% tai nạn theo các mức tốc độ gi�
 	\label{fig-b3:aggregate-x4}
 \end{figure}
 
-Trung bình của tổng tỷ lệ \% tai nạn theo tổng số làn đường (hình \ref{fig-b3:aggregate-x10}) cho thấy  trên đoạn đường có 8 làn đường có tỷ lệ \% tai nạn cao nhất, kế đến là đoạn đường có 2~làn.
+Trung bình của tổng tỷ lệ \% tai nạn theo tổng số làn đường (hình \ref{fig-b3:aggregate-x10}) cho thấy  trên đoạn đường có 8 làn đường có tỷ lệ xảy ra tai nạn cao nhất, kế đến là đoạn đường có 2 làn.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{images/B3/aggregate-x10}
@@ -79,8 +79,33 @@ Trung bình của tổng tỷ lệ \% tai nạn theo tổng số làn đường 
 	\label{fig-b3:aggregate-x10}
 \end{figure}
 
-
-
+Ma trận ở hình \ref{fig-b3:dataset-corr} thể hiện độ tương giữa các biến, thấy rằng tốc độ giới hạn cho phép ($X4$) có tương quan nghịch và số cửa đoạn đường cao tốc ($X9$) có tương quan thuận đối với tỷ lệ \% tai nạn ($Y$).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/B3/dataset-corr}
+	\caption{Ma trận tương quan giữa các biến}
+	\label{fig-b3:dataset-corr}
+\end{figure}
 
 \subsection*{Phân tích, chọn mô hình}
+
+Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-b3:model-full}, ta thấy được gần như tất cả các biến đều không có ý nghĩa thống kê. Ta tiến hành kiểm tra sự đa cộng tuyến có trong mô hình này bằng phương pháp VIF, ta có kết quả ở hình \ref{fig-b3:model-full-vif}. Nhận xét rằng hiện tượng đa cộng tuyến xảy ra nặng nề giữa các biến, có 7/13 biến giải thích vượt ngưỡng chấp nhận được của VIF là 5.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/B3/model-full}
+	\caption{Mô hình hồi quy đầy đủ ban đầu}
+	\label{fig-b3:model-full}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/B3/model-full-vif}
+	\caption{Hiện tượng đa cộng tuyến giữa các biến trong mô hình}
+	\label{fig-b3:model-full-vif}
+\end{figure}
+
+
+
+
 \subsection*{Kết luận}
