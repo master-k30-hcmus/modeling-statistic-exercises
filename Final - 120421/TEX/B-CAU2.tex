@@ -24,7 +24,7 @@ Quan sát ban đầu cho thấy: các biến độc lập \textbf{sqft\_living, 
 %đưa ra kết quả R của mỗi mô hình, giải thích vì sao chọn mô hình cuối cùng, phân tích các kết quả từ plot xem mô hình có đảm bảo các giả thiết hay không (kỳ vọng = 0, phân phối chuẩn, phương sai không đổi, có mối quan hệ tuyến tính, không có đa cộng tuyến)
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{../Photo Of Result/B2_originalmodel_R}
+	\includegraphics[width=.7\linewidth]{../Photo Of Result/B2_originalmodel_R}
 	\caption{Mô hình hồi quy đầy đủ ban đầu}
 	\label{B2_full}
 \end{figure}
@@ -46,7 +46,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  
  \begin{figure}[H]
  	\centering
- 	{\includegraphics[width=.85\linewidth]{../Photo Of Result/B2_originalmodel}}
+ 	{\includegraphics[width=.7\linewidth]{../Photo Of Result/B2_originalmodel}}
  	\caption{Các biểu đồ kiểm định mô hình}
  	\label{B2_check}
  \end{figure}
@@ -57,7 +57,7 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  
  \begin{figure}[H]
  	\centering
- 	{\includegraphics[width=.6\linewidth]{../Photo Of Result/B2_logprice}}
+ 	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_logprice}}
  	\caption{Phân bố của biến \textbf{Price} sau khi biến đổi }
  	\label{B2_log}
  \end{figure}
@@ -101,5 +101,6 @@ Có 77.06\% sự biến thiên của giá nhà ở quận King được giải t
 
 Giá trị của một căn nhà \textbf{không bị ảnh hưởng} nhiều bởi các yếu tố: diện tích tầng~hầm, diện tích khu đất, diện tích ngoài tầng hầm, năm sửa chữa căn nhà, zipcode (mã~vùng) của ngôi nhà. 
 
-Số phòng ngủ có mối tương quan nghịch với giá nhà, vì khi số phòng ngủ tăng lên, nhưng các yếu tố còn lại không thay đổi, thì diện tích của mỗi phòng ngủ sẽ giảm đi, gây cảm giác chật chội. Do đó không phải càng có nhiều phòng ngủ thì ngôi nhà sẽ có giá trị cao. 
+Số phòng ngủ có mối tương quan nghịch với giá nhà, vì khi số phòng ngủ tăng lên, nhưng các yếu tố còn lại không thay đổi, thì diện tích của mỗi phòng ngủ sẽ giảm đi, gây cảm giác chật chội. Do đó, không phải càng có nhiều phòng ngủ thì ngôi nhà sẽ có giá trị cao. 
 
+Nếu ngôi nhà có hướng ra bờ sông, tình trạng còn mới ()
