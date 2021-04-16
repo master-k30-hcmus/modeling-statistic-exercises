@@ -55,3 +55,29 @@ vif(mod_BIC)
 mmps(mod_BIC)
 avPlots(mod_BIC)
 coef(mod_BIC)
+
+data_res = residuals(mod_BIC)
+data_crit = 2*sd(data_res)
+data_outlier = ifelse(abs(data_res>data_crit),1,0); data_outlier
+data_outlier[data_outlier==1]
+new_data = data3[-c(26,27),]
+dim(new_data)
+
+new_mod_full = lm(y_i ~ ., new_data) #full model
+summary(new_mod_full)
+coef(new_mod_full)
+par(mfrow=c(2,2))
+plot(new_mod_full)
+vif(new_mod_full)
+
+## model selection with BIC criteria, stepwise
+new_mod_BIC <- MASS::stepAIC(new_mod_full, direction = "both", k = log(nrow(new_data)))
+summary(new_mod_BIC)
+new_mod_BIC$anova
+par(mfrow=c(2,2))
+plot(new_mod_BIC)
+
+vif(new_mod_BIC)
+mmps(new_mod_BIC)
+avPlots(new_mod_BIC)
+coef(new_mod_BIC)
