@@ -21,9 +21,9 @@ head(NA_values,100)
 summary(data3)
 str(data3)
 
-ggplot(data=data3) + geom_histogram(aes(x=x_i.10),binwidth = .5) + labs(x = "Tong so lan duong (X10)", y = "So luong")
-ggplot(data=data3) + geom_histogram(aes(x=x_i.4),binwidth = .5) + labs(x = "Toc do gioi han cho phep (X4)", y = "So luong")
-ggplot(data=data3,aes(y_i)) + geom_histogram(binwidth=2) + labs(x = "Ty le % xay ra tai nan", y = "So luong")
+ggplot(data=data3) + geom_histogram(aes(x=x_i.10), binwidth = .5) + labs(x = "Tong so lan duong (X10)", y = "So luong")
+ggplot(data=data3) + geom_histogram(aes(x=x_i.4), binwidth = .5) + labs(x = "Toc do gioi han cho phep (X4)", y = "So luong")
+ggplot(data=data3) + geom_histogram(aes(x=y_i), binwidth=2) + labs(x = "Ty le % xay ra tai nan", y = "So luong")
 
 aggregate(y_i ~ x_i.11 + x_i.12 + x_i.13,data3,mean)
 aggregate(y_i ~ x_i.4,data3,mean)
@@ -37,21 +37,21 @@ par(mfrow=c(1, 1))
 corrplot(correlation,method="color")
 
 ## Create full model
-mod_full_1 = lm(y_i ~ ., data3) #full model
-summary(mod_full_1)
-coef(mod_full_1)
+mod_full = lm(y_i ~ ., data3) #full model
+summary(mod_full)
+coef(mod_full)
 par(mfrow=c(2,2))
-plot(mod_full_1)
-vif(mod_full_1)
+plot(mod_full)
+vif(mod_full)
 
 ## model selection with BIC criteria, stepwise
-mod_BIC_1 <- MASS::stepAIC(mod_full_1, direction = "both", k = log(nrow(data3)))
-summary(mod_BIC_1)
-mod_BIC_1$anova
+mod_BIC <- MASS::stepAIC(mod_full, direction = "both", k = log(nrow(data3)))
+summary(mod_BIC)
+mod_BIC$anova
 par(mfrow=c(2,2))
-plot(mod_BIC_1)
+plot(mod_BIC)
 
-vif(mod_BIC_1)
-mmps(mod_BIC_1)
-avPlots(mod_BIC_1)
-coef(mod_BIC_1)
+vif(mod_BIC)
+mmps(mod_BIC)
+avPlots(mod_BIC)
+coef(mod_BIC)

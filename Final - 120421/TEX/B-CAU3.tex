@@ -2,6 +2,8 @@
 
 Bộ dữ liệu ghi lại tỷ lệ tai nạn, gồm 39 quan trắc được thực hiện trên vài đoạn đường cao tốc ở tiểu bang Minnesota vùng Trung Tây của Hoa Kỳ.
 
+$*$ \textbf{Phương pháp chọn: Stepwise tiến lùi; Tiêu chuẩn chọn: BIC}.
+
 \subsection*{Tìm hiểu dữ liệu}
 
 Bộ dữ liệu gồm 1 biến phụ thuộc và 13 biến giải thích sau:
@@ -22,7 +24,7 @@ Bộ dữ liệu gồm 1 biến phụ thuộc và 13 biến giải thích sau:
 	\item $X13$ : 1 nếu là tuyến đường cao tốc chính, 0 nếu ngược lại.
 \end{itemize}
 
-Một vài quan trắc đầu tiên trong bộ dữ liệu (hình \ref{fig-b3:head-dataset}).
+Một vài quan trắc đầu tiên trong bộ dữ liệu được thể hiện trong hình \ref{fig-b3:head-dataset}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/B3/head-dataset}
@@ -82,14 +84,20 @@ Trung bình của tổng tỷ lệ \% tai nạn theo tổng số làn đường 
 Ma trận ở hình \ref{fig-b3:dataset-corr} thể hiện độ tương giữa các biến, thấy rằng tốc độ giới hạn cho phép ($X4$) có tương quan nghịch và số cửa đoạn đường cao tốc ($X9$) có tương quan thuận đối với tỷ lệ \% tai nạn ($Y$).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/B3/dataset-corr}
+	\includegraphics[width=0.9\linewidth]{images/B3/dataset-corr}
 	\caption{Ma trận tương quan giữa các biến}
 	\label{fig-b3:dataset-corr}
 \end{figure}
 
 \subsection*{Phân tích, chọn mô hình}
+Đầu tiên, ta xét mô hình đầy đủ có dạng:
+\begin{equation}\label{b3-model-full}
+	\begin{split}
+		Y = \beta_0 + &\beta_1X1 + \beta_2X2 + \beta_3X3 + \beta_4X4 + \beta_5X5 + \beta_6X6 + \beta_7X7\\ + &\beta_8X8 + \beta_9X9 + \beta_{10}X10 + \beta_{11}X11 + \beta_{12}X12 + \beta_{13}X13 + \epsilon
+	\end{split}
+\end{equation}
 
-Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-b3:model-full}, ta thấy được gần như tất cả các biến đều không có ý nghĩa thống kê. Ta tiến hành kiểm tra sự đa cộng tuyến có trong mô hình này bằng phương pháp VIF, ta có kết quả ở hình \ref{fig-b3:model-full-vif}. Nhận xét rằng hiện tượng đa cộng tuyến xảy ra nặng nề giữa các biến, có 7/13 biến giải thích vượt ngưỡng chấp nhận được của VIF là 5.
+Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-b3:model-full}, ta thấy được gần như tất cả 13 biến đều không có ý nghĩa thống kê. Ta tiến hành kiểm tra hiện tượng đa cộng tuyến có trong mô hình này sử dụng phương pháp tính hệ số VIF. Kết quả ở hình \ref{fig-b3:model-full-vif} cho thấy hiện tượng đa cộng tuyến xảy ra nặng nề giữa các biến, có 7/13 biến giải thích vượt ngưỡng chấp nhận được với hệ số VIF là 5 theo quy ước chung.
 
 \begin{figure}[H]
 	\centering
@@ -105,7 +113,46 @@ Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-b3:mode
 	\label{fig-b3:model-full-vif}
 \end{figure}
 
+Vì số lượng biến giải thích khá ít, chỉ có 13 biến và có hiện tượng đa cộng tuyến, nên nhóm em sử dụng phương pháp Stepwise tiến lùi để dễ dàng thêm bớt các biến khi chọn mô hình. Đối với tiêu chuẩn đánh giá mô hình, vì bộ dữ liệu này có cỡ mẫu nhỏ, chỉ có 39 quan trắc, nên nhóm em dùng tiêu chuẩn BIC cho cỡ mẫu $n=39$.
+
+Dùng phần mềm R cho phương pháp Stepwise tiến lùi và tiêu chuẩn BIC, ta có kết quả ở hình \ref{fig-b3:model-bic}, mô hình được chọn có dạng:
+\begin{equation}\label{b3-model-bic}
+	Y = \beta_0 + \beta_1X1 + \beta_4X4 + \beta_9X9 + \epsilon
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Chọn biến]
+	{\includegraphics[width=.5\linewidth]{images/B3/model-selection-bic}}\hfill
+	\subfloat[Kết quả mô hình]
+	{\includegraphics[width=.5\linewidth]{images/B3/model-bic}}
+	\caption{Chọn mô hình với tiêu chuẩn BIC}
+	\label{fig-b3:model-bic}
+\end{figure}
+
+Trong quá trình chọn mô hình, đa số các biến đã bị loại bỏ hết chỉ trừ 3 biến $X1$, $X4$, và $X9$ lần lượt là chiều dài đoạn đường, tốc độ giới hạn cho phép và số cửa vào đoạn đường cao tốc. Mô hình \ref{b3-model-bic} có hệ số xác định $R^2 = 0.6986$ và hệ số hiệu chỉnh $R^2_{adj} = 0.6728$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê. 
+
+Hiện tượng đa cộng tuyến giữa các biến cũng không còn tồn tại trong mô hình \ref{b3-model-bic} (hình \ref{fig-b3:model-bic-vif}) và các hệ số của nó (hình \ref{fig-b3:model-bic-coef}).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\linewidth]{images/B3/model-bic-vif}
+	\caption{Hiện tượng đa cộng tuyến giữa các biến trong mô hình được chọn}
+	\label{fig-b3:model-bic-vif}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{images/B3/model-bic-coef}
+	\caption{Các hệ số $\beta_i$ trong mô hình được chọn, $i=0,1,4,9$}
+	\label{fig-b3:model-bic-coef}
+\end{figure}
 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{images/B3/model-bic-plot}
+	\caption{Các đồ thị của mô hình}
+	\label{fig:model-bic-plot}
+\end{figure}
 
 \subsection*{Kết luận}
