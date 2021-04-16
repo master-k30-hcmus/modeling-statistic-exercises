@@ -1,40 +1,42 @@
 \section{Dữ liệu 2: Hồi quy thành phần chính}
 
 \subsection{Giới thiệu bộ dữ liệu}
-Hiện nay, Xe đạp cho thuê được giới thiệu ở nhiều thành phố để nâng cao sự thoải~mái khi di chuyển. Điều cần quan tâm khi cho thuê xe đạp là xe đạp phải luôn sẵn sàng và tiếp cận được người dùng vào đúng thời điểm, giúp giảm bớt thời gian chờ đợi. Do đó, việc đảm bảo  một nguồn cung cấp xe đạp cho thuê ổn định cho thành phố trở thành mối quan tâm lớn. Phần quan trọng là cần dự đoán được số lượng xe đạp cần thiết tại mỗi giờ, để có được nguồn cung cấp xe đạp cho thuê ổn định.
+Hiện nay, Xe đạp cho thuê được giới thiệu ở nhiều thành phố để nâng cao sự thoải~mái khi di chuyển. Điều cần quan tâm khi cho thuê xe đạp là xe đạp phải luôn sẵn sàng và tiếp cận được người dùng vào đúng thời điểm, giúp giảm bớt thời gian chờ. Do đó, việc đảm bảo  một nguồn cung cấp xe đạp cho thuê ổn định cho thành phố trở thành mối~quan~tâm lớn. Phần quan trọng là cần dự đoán được số lượng xe đạp cần~thiết tại mỗi giờ, để có được nguồn cung cấp xe đạp cho thuê ổn định.
 
 Nhóm em sử dụng Bộ dữ liệu Nhu cầu thuê xe đạp ở Seoul (\textbf{Seoul Bike Sharing Demand Data Set}).
 
 Nguồn: \url{https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand?fbclid=IwAR1b9vg38PvINI2V7K9ZfVoJNx0VmP8GUbuLVO4JGsCdEC\_-hHVtUKqXX9Y}).
 
-Bộ dữ liệu ghi lại các thông tin về thời tiết, số lượng xe đạp được thuê mỗi giờ theo ngày. Bộ dữ liệu có 8760 quan trắc, gồm 14 biến.
+Bộ dữ liệu ghi lại các thông tin về thời tiết, số lượng xe đạp được thuê mỗi giờ theo từng ngày, từ 01/12/2017 đến 31/11/2018. Bộ dữ liệu có 8760 quan trắc, gồm 14 biến.
 
-\textbf{Date} - Ngày ghi l
+\textbf{Date} - Ngày ghi lại số lượng xe đạp cho thuê
 
-\textbf{Rented Bike count} - Count of bikes rented at each hour
+\textbf{Rented Bike count} - Số lượng xe đạp được thuê được ghi lại theo mỗi giờ
 
-\textbf{Hour} - Hour of he day
+\textbf{Hour} - Giờ trong ngày
 
-\textbf{Temperature}-Temperature in Celsius
+\textbf{Temperature} - Nhiệt độ ($^o C$)
 
-\textbf{Humidity} - %
+\textbf{Humidity} - Độ ẩm (\%)
 
-\textbf{Windspeed} - m/s
+\textbf{Windspeed} - Tốc độ gió ($m/s$)
 
-\textbf{Visibility} - 10m
+\textbf{Visibility} - Tầm nhìn xa ($10m$)
 
-\textbf{Dew point temperature} - Celsius
+\textbf{Dew point temperature} - Nhiệt độ điểm sương ($^o C$)
 
-\textbf{Solar radiation} - MJ/m2
+\textbf{Solar radiation} - Bức xạ mặt trời ($Mj/m^2$)
 
-\textbf{Rainfall} - mm
+\textbf{Rainfall} - Lượng mưa ($mm$)
 
-\textbf{Snowfall} - cm
+\textbf{Snowfall} - Lượng tuyết rơi ($cm$)
 
-\textbf{Seasons} - Winter, Spring, Summer, Autumn
+\textbf{Seasons} - Mùa (Winter, Spring, Summer, Autumn)
 
-\textbf{Holiday} - Holiday/No holiday
+\textbf{Holiday} - Ngày lễ (Holiday/No holiday)
 
-\textbf{Functional Day}- NoFunc(Non Functional Hours), Fun(Functional hours)
+\textbf{Functional Day}- Ngày làm việc (Yes, No)
 
+\subsection*{Phân tích và chọn mô hình}
 
+\subsection*{Nhận xét và kết luận}
