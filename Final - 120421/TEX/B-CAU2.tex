@@ -17,7 +17,7 @@ $*$ \textbf{Phương pháp chọn: Stepwise - lùi; tiêu chuẩn chọn: BIC}.
 
 Bộ dữ liệu cung cấp gồm 21 biến, trong đó biến \textbf{id} và \textbf{date} được loại bỏ khỏi dữ~liệu trước khi tiến hành phân tích, vì nhóm em nghĩ các biến này chỉ để ghi lại chỉ số và thời gian mua bán, không mang nhiều ý nghĩa thống kê. 
 
-Quan sát ban đầu cho thấy: các biến độc lập \textbf{sqft\_living, grade, sqft\_above, sqft\_living15} có mối tương quan cao với biến phụ thuộc \textbf{Price}; biến phụ thuộc \textbf{Price} phân bố không đều, bị lệch hẳn về một phía và giá trị chủ yếu từ 0 đến 2 000 000.
+Quan sát ban đầu cho thấy: các biến độc lập \textbf{bathrooms} (số phòng tắm), \textbf{sqft\_living} (diện tích căn nhà), \textbf{grade} (điểm số đánh giá), \textbf{sqft\_above} (diện tích ngoài tầng hầm), \textbf{sqft\_living15} (diện tích ngôi nhà vào năm 2015) có mối tương quan cao với biến phụ thuộc \textbf{Price} - giá nhà; biến phụ thuộc \textbf{Price} phân bố không đều, bị lệch hẳn về một phía và giá trị chủ yếu từ 0 đến 2 000 000.
 \subsection*{Phân tích, chọn mô hình}
 %mô hình ban đầu (Đầy đủ biến, chưa chuẩn hóa), mô hình sau khi chọn biến bằng các tiêu chuẩn ..., mô hình cuối cùng (nếu có chuẩn hóa dữ liệu)
 
@@ -87,8 +87,7 @@ Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 
 	\caption{Kết quả khi biến đổi thành \textbf{log(Price)}}
 	\label{B2_final}
 \end{figure}
-\subsection*{Kết luận}
-%Nhận xét các biến ảnh hưởng đến biến Y từ mô hình cuối cùng, ý nghĩa của mô hình đã chọn
+
 Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước lượng như hình \ref{B2_coef}.
 \begin{figure}[H]
 	\centering
@@ -97,9 +96,24 @@ Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước 
 	\label{B2_coef}
 \end{figure}
 
+\noindent $\log$\textbf{(Price)} = $-6.93 -0.011 \times$ \textbf{bedrooms} $+0.071\times$ \textbf{bathrooms} $+1.403\times 10^{-4} \times$ \textbf{sqft\_living}
+
+\hspace{1.5cm} $+ 3.426\times10^{-7}\times$ \textbf{sqft\_lot} $+ 0.069\times$ \textbf{floors} $+ 0.36\times$ \textbf{waterfront} $+ 0.061\times$ \textbf{view}
+
+\hspace{1.5cm}  $+ 0.063\times$ \textbf{condition} $+ 0.159\times$ \textbf{grade} $- 3.4196\times 10^{-3}\times$ \textbf{yr\_built}
+
+\hspace{1.5cm} $+ 3.650\times 10^{-5}\times$ \textbf{yr\_renovated} $- 6.441 \times 10^{-4}\times$ \textbf{zipcode} $+ 1.404\times$ \textbf{lat}
+
+
+\hspace{1.5cm}  $- 0.171\times$ \textbf{long} $+ 9.565.171\times 10^{-5}\times$ \textbf{sqft\_living15}
+
+\subsection*{Kết luận}
+%Nhận xét các biến ảnh hưởng đến biến Y từ mô hình cuối cùng, ý nghĩa của mô hình đã chọn
+
 Có 77.06\% sự biến thiên của giá nhà ở quận King được giải thích bởi 15 biến độc~lập, trong đó các yếu tố ảnh hưởng nhiều nhất gồm \textit{số phòng ngủ, số phòng tắm, diện~tích~nhà, số tầng, hướng nhà ra bờ sông, tình trạng ngôi nhà (mới/cũ), điểm theo phân loại của quận, vị trí (kinh độ - vĩ độ), năm xây dựng}.
 
 Giá trị của một căn nhà \textbf{không bị ảnh hưởng nhiều} bởi các yếu tố: diện tích tầng~hầm, diện tích khu đất, diện tích ngoài tầng hầm, năm sửa chữa căn nhà, zipcode (mã~vùng) của ngôi nhà. Diện tích của căn nhà cũng có ảnh hưởng, tuy nhiên sự ảnh hưởng là không nhiều.
 
 Số phòng ngủ có mối tương quan nghịch với giá nhà, vì khi số phòng ngủ tăng lên, nhưng các yếu tố còn lại không thay đổi, thì diện tích của mỗi phòng ngủ sẽ giảm đi, gây cảm giác chật chội. 
 
+Nhìn vào các kết quả hình \ref{B2_final}, vân thấy có nhiều điểm ngoại lai (\textbf{outlier}), hướng nghiên cứu tiếp theo có thể loại bỏ những điểm này ra khỏi bộ dữ liệu, tiến hành quan~sát riêng để rút ra thêm các kết luận khác (nếu có).
