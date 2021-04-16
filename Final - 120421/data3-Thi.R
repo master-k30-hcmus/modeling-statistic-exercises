@@ -36,30 +36,30 @@ par(mfrow = c(1, 1))
 corrplot(correlation,method = "color")
 
 processModelSelection = function(model, data){
-  summary(model)
-  coef(model)
   par(mfrow = c(2,2))
   plot(model)
-  vif(model)
 
   ## model selection with BIC criteria, using Stepwise regression
-  model_BIC = MASS::stepAIC(model, direction = "both", k = log(nrow(data3)))
-  summary(model_BIC)
-  model_BIC$anova
+  model_BIC = MASS::stepAIC(model, direction = "both", k = log(nrow(data)))
   par(mfrow = c(2,2))
   plot(model_BIC)
-
-  vif(model_BIC)
   mmps(model_BIC)
   avPlots(model_BIC)
-  coef(model_BIC)
 
   return(model_BIC)
 }
 
 ## Create full model
 mod_full = lm(y_i ~ ., data3)
+summary(mod_full)
+coef(mod_full)
+vif(mod_full)
+
 mod_BIC = processModelSelection(model = mod_full, data = data3)
+summary(mod_BIC)
+mod_BIC$anova
+vif(mod_BIC)
+coef(mod_BIC)
 
 data_res = residuals(mod_BIC)
 data_crit = 2*sd(data_res)
@@ -69,4 +69,12 @@ new_data = data3[-c(26,27),]
 dim(new_data)
 
 new_mod_full = lm(y_i ~ ., new_data)
+summary(mod_full)
+coef(mod_full)
+vif(mod_full)
+
 new_mod_BIC = processModelSelection(model = new_mod_full, data = new_data)
+summary(mod_BIC)
+mod_BIC$anova
+vif(mod_BIC)
+coef(mod_BIC)

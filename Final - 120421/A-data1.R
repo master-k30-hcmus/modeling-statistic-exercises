@@ -4,10 +4,27 @@ insurance = read.csv("data/insurance.csv")
 head(insurance)
 dim(insurance)
 
+NA_values = data.frame(no_of_na_values = colSums(is.na(insurance))) #check missing data
+head(NA_values,100)
+
 dup = duplicated(insurance)
 dup_data = insurance[dup,]; dup_data
 insurance = insurance[-c(582),]
 dim(insurance)
+
+library(ggplot2)
+library(gridExtra)
+
+plt = {}
+plt$region = ggplot(data = insurance) + geom_histogram(aes(x = region), stat = "count") + labs(x = "Region", y = "Count")
+plt$smoker = ggplot(data = insurance) + geom_histogram(aes(x = smoker), stat = "count") + labs(x = "Smoker", y = "Count")
+plt$sex = ggplot(data = insurance) + geom_histogram(aes(x = sex), stat = "count") + labs(x = "Sex", y = "Count")
+plt$bmi = ggplot(data = insurance) + geom_histogram(aes(x = bmi)) + labs(x = "BMI", y = "Count")
+plt$age = ggplot(data = insurance) + geom_histogram(aes(x = age)) + labs(x = "Age", y = "Count")
+plt$children = ggplot(data = insurance) + geom_histogram(aes(x = children)) + labs(x = "Children", y = "Count")
+plt$charges = ggplot(data = insurance) + geom_histogram(aes(x = charges)) + labs(x = "Charges", y = "Count")
+
+grid.arrange(plt$bmi, plt$region, plt$smoker, plt$age, plt$sex, plt$children, plt$charges, nrow = 3)
 
 insurance$smoker = ifelse(insurance$smoker == "yes", 1, 0)
 insurance$region_ne = ifelse(insurance$region == "northeast", 1, 0)
@@ -21,10 +38,43 @@ dim(insurance)
 
 attach(insurance)
 
-library(MASS)
-library(ggplot2)
-library(plyr)
-library(broom)
-library(car)
-library(corrplot)
+aggregate(y_i ~ x_i.11 + x_i.12 + x_i.13, insurance,mean)
+aggregate(y_i ~ x_i.4, insurance,mean)
+aggregate(y_i ~ x_i.10, insurance,mean)
+
+cor_data = data.frame(insurance)
+correlation = cor(cor_data)
+par(mfrow = c(1, 1))
+corrplot(correlation, method = "color")
+
+processModelSelection = function(model, data){
+  par(mfrow = c(2,2))
+  plot(model)
+
+  ## model selection with BIC criteria, using Stepwise regression
+  model_BIC = MASS::stepAIC(model, direction = "both", k = log(nrow(data)))
+  par(mfrow = c(2,2))
+  plot(model_BIC)
+  mmps(model_BIC)
+  avPlots(model_BIC)
+
+  return(model_BIC)
+}
+
+mod_full = lm(charges ~ ., insurance)
+summary(mod_full)
+coef(mod_full)
+vif(mod_full)
+
+mod_BIC = processModelSelection(model = mod_full, data = insurance)
+summary(mod_BIC)
+mod_BIC$anova
+vif(mod_BIC)
+coef(mod_BIC)
+
+# library(MASS)
+# library(plyr)
+# library(broom)
+# library(car)
+# library(corrplot)
 

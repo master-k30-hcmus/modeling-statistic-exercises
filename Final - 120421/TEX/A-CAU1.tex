@@ -14,9 +14,9 @@ Bộ dữ liệu ghi lại các thông tin về thông tin của người đăng
 	\item \textbf{Charges}: Chi phí y tế của cá nhân được chi trả bởi bảo hiểm y tế.
 \end{enumerate}
 
-Nhận thấy biến $region$ có bốn giá trị, để thuận tiện cho việc hồi quy mô hình đa biến, chúng ta cần phải tách $region$ thành ba biến giả con lần lượt là $region\_ne$ - vùng Đông Bắc, $region\_se$ - vùng Đông Nam và $region\_sw$ - vùng Tây Nam, nếu không nằm trong 3 vùng này thì nó là vùng Tây Bắc. Vậy bộ dữ liệu có tất cả 9 biến.
+Nhận thấy biến $region$ có bốn giá trị, để thuận tiện cho việc hồi quy mô hình đa biến, chúng ta cần phải tách $region$ thành ba biến giả lần lượt là $region\_ne$ - vùng Đông Bắc, $region\_se$ - vùng Đông Nam và $region\_sw$ - vùng Tây Nam, nếu không nằm trong 3 vùng này thì nó là vùng Tây Bắc. Vậy bộ dữ liệu có tất cả 9 biến.
 
-Kiểm tra sự trùng lặp dữ liệu trong bộ dữ liệu, ta có kết quả từ phầm mềm R ở hình \ref{fig-a1:dataset-duplicated}, thấy rằng chỉ tồn tại một dữ liệu bị trùng, ta tiến hành loại bỏ dữ liệu này.
+Kiểm tra sự trùng lặp dữ liệu trong bộ dữ liệu, ta có kết quả từ phầm mềm R ở hình \ref{fig-a1:dataset-duplicated}, thấy rằng chỉ tồn tại một dữ liệu bị trùng, ta tiến hành loại bỏ dữ liệu này. Vậy bộ dữ liệu có 1337 quan trắc.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/A1/dataset-duplicated}
