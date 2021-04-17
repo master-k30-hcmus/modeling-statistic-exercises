@@ -19,6 +19,10 @@
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{url}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{listings}
+
 
 \usepackage{scrextend}
 \changefontsizes{13pt}
@@ -34,6 +38,10 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\heva}[1]{\left\{ 
 	\begin{aligned}#1\end{aligned}\right.}
+
+\lstset{
+	basicstyle=\scriptsize\tt,
+}
 
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
