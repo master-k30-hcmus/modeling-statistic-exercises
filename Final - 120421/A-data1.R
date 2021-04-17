@@ -11,6 +11,7 @@ dup = duplicated(insurance)
 dup_data = insurance[dup,]; dup_data
 insurance = insurance[-c(582),]
 dim(insurance)
+attach(insurance)
 
 library(ggplot2)
 library(gridExtra)
@@ -25,6 +26,8 @@ plt$children = ggplot(data = insurance) + geom_histogram(aes(x = children)) + la
 plt$charges = ggplot(data = insurance) + geom_histogram(aes(x = charges)) + labs(x = "Charges", y = "Count")
 
 grid.arrange(plt$sex, plt$smoker, plt$region, plt$bmi, plt$age, plt$children, plt$charges, nrow = 3)
+
+detach(insurance)
 
 insurance$smoker = ifelse(insurance$smoker == "yes", 1, 0)
 insurance$region_ne = ifelse(insurance$region == "northeast", 1, 0)
@@ -51,18 +54,12 @@ age_ranges <- cut(age, c(seq(min(age), max(age), by = 10)), include.lowest = TRU
 aggregate(charges ~ age_ranges, insurance, mean)
 
 
-# library(corrplot)
-# cor_data = data.frame(insurance)
-# correlation = cor(cor_data)
-# par(mfrow = c(1, 1))
-# corrplot(correlation, method = "color")
-
 processModelSelection = function(model, data){
   par(mfrow = c(2,2))
   plot(model)
 
   ## model selection with BIC criteria, using Stepwise regression
-  model_BIC = MASS::stepAIC(model, direction = "both", k = log(nrow(data)))
+  model_BIC = MASS::stepAIC(model, direction = "backward", k = log(nrow(data)))
   par(mfrow = c(2,2))
   plot(model_BIC)
   mmps(model_BIC)
@@ -84,4 +81,4 @@ mod_BIC$anova
 vif(mod_BIC)
 coef(mod_BIC)
 
-
+detach(insurance)

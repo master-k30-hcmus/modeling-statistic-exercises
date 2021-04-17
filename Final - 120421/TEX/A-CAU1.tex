@@ -27,7 +27,7 @@ Kiểm tra sự trùng lặp dữ liệu trong bộ dữ liệu, ta có kết qu
 Một vài quan trắc đầu tiên trong bộ dữ liệu được thể hiện trong hình \ref{fig-a1:head-dataset} và số chiều của nó: 1337 dòng (quan trắc) và 9 cột (biến).
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/head-dataset}
+	\includegraphics[width=0.9\linewidth]{images/A1/head-dataset}
 	\caption{Một vài quan trắc đầu tiên và số chiều của bộ dữ liệu}
 	\label{fig-a1:head-dataset}
 \end{figure}
@@ -35,7 +35,7 @@ Một vài quan trắc đầu tiên trong bộ dữ liệu được thể hiện
 Phân bố của 7 biến ban đầu ở hình \ref{fig-a1:plot-vars} và trung bình tổng của từng biến theo biến phụ thuộc \texttt{charges} ở hình \ref{fig-a1:aggregate-vars}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/plot-vars}
+	\includegraphics[width=1\linewidth]{images/A1/plot-vars}
 	\caption{Phân bố của 7 biến ban đầu}
 	\label{fig-a1:plot-vars}
 \end{figure}
@@ -87,13 +87,61 @@ Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:mode
 	\label{fig-a1:model-full}
 \end{figure}
 
-Ta sử dụng phương pháp tính hệ số VIF để kiểm tra hiện tượng đa cộng tuyến có trong mô hình này, kết quả từ phần mềm R ở hình \ref{fig-a1:model-full-vif} cho thấy các chỉ số VIF đều dưới 5, chứng tỏ không tồn tại hiện tượng này trong mô hình.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{images/A1/model-full-vif}
-	\caption{Hiện tượng đa cộng tuyến có trong mô hình đầy đủ}
+	\includegraphics[width=0.8\linewidth]{images/A1/model-full-plot}
+	\caption{Các biểu đồ của mô hình lựa chọn}
+	\label{fig-a1:model-full-plot}
+\end{figure}
+
+Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hiện tượng đa cộng tuyến có trong mô hình này, kết quả từ phần mềm R ở hình \ref{fig-a1:model-full-vif} cho thấy các hệ số VIF đều dưới 5, chứng tỏ không tồn tại hiện tượng này trong mô hình.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/A1/model-full-vif}
+	\caption{Hiện tượng đa cộng tuyến trong mô hình đầy đủ}
 	\label{fig-a1:model-full-vif}
+\end{figure}
+
+Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nên nhóm em sẽ sử dụng phương pháp Stepwise lùi để chọn mô hình phù hợp nhanh hơn, và tiêu chuẩn BIC cho mô hình đơn giản trên. Các bước và kết quả chọn mô hình, các thông số của nó được thể hiện ở hình \ref{fig-a1:model-bic} 
+\begin{figure}[H]
+	\centering
+	\subfloat[Các bước và kết quả chọn mô hình]
+	{\includegraphics[width=.5\linewidth]{images/A1/model-bic-anova}}\hfill
+	\subfloat[Mô hình lựa chọn]
+	{\includegraphics[width=.5\linewidth]{images/A1/model-bic}}
+	\caption{Mô hình lựa chọn với phương pháp Stepwise và tiêu chuẩn BIC}
+	\label{fig-a1:model-bic}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-plot}
+	\caption{Các biểu đồ của mô hình lựa chọn}
+	\label{fig-a1:model-bic-plot}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\linewidth]{images/A1/model-bic-vif}
+	\caption{Hiện tượng đa cộng tuyến trong mô hình lựa chọn}
+	\label{fig-a1:model-bic-vif}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-vars}
+	\caption{Mối quan hệ tuyến tính của từng biến đối với biến phụ thuộc \texttt{charges}}
+	\label{fig-a1:model-bic-vars}
 \end{figure}
 
 
 \subsection*{Nhận xét và kết luận}
+
+Ý nghĩa mô hình?
+
+Mô hình giải thích đc bn?
+
+Giải thích các plot của mô hình?
+
+Có thể mở rộng bài toán bằng cách xem xét các giá trị ngoại lai và hiểu được sự tồn tại của các giá trị đó. Sau đó, chọn phương pháp tối ưu nhằm lựa chọn mô hình phù hợp hơn.
