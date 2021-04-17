@@ -69,12 +69,12 @@ new_data = data3[-c(as.numeric(names(data_outlier[data_outlier == 1]))),]
 dim(new_data)
 
 new_mod_full = lm(y_i ~ ., new_data)
-summary(mod_full)
-coef(mod_full)
-vif(mod_full)
+summary(new_mod_full)
+coef(new_mod_full)
+vif(new_mod_full)
 
 new_mod_BIC = processModelSelection(model = new_mod_full, data = new_data)
-summary(mod_BIC)
-mod_BIC$anova
-vif(mod_BIC)
-coef(mod_BIC)
+summary(new_mod_BIC)
+new_mod_BIC$anova
+vif(new_mod_BIC)
+coef(new_mod_BIC)

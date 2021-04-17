@@ -2,7 +2,7 @@
 
 Bộ dữ liệu ghi lại tỷ lệ tai nạn, gồm 39 quan trắc được thực hiện trên vài đoạn đường cao tốc ở tiểu bang Minnesota vùng Trung Tây của Hoa Kỳ.
 
-$*$ \textbf{Phương pháp chọn: Stepwise tiến lùi; Tiêu chuẩn chọn: BIC}.
+$*$ \textbf{Phương pháp chọn: Stepwise từng bước; Tiêu chuẩn chọn: BIC}.
 
 \subsection*{Tìm hiểu dữ liệu}
 
@@ -90,6 +90,7 @@ Ma trận ở hình \ref{fig-b3:dataset-corr} thể hiện độ tương quan gi
 \end{figure}
 
 \subsection*{Phân tích, chọn mô hình}
+
 Đầu tiên, ta xét mô hình đầy đủ có dạng:
 \begin{equation}\label{b3-model-full}
 	\begin{split}
@@ -149,7 +150,6 @@ Mối tương quan giữa từng biến giải thích trong mô hình và biến
 	\label{fig-b3:model-bic-vif}
 \end{figure}
 
-
 Tuy nhiên, biểu đồ phần dư ở hình \ref{fig-b3:model-full-plot} cho thấy mối liên quan giữa biến phụ thuộc và các biến giải thích không tuân theo hàm tuyến tính. Nhưng quan sát thấy có một số giá trị ngoại lai (\textit{outlier}) tồn tại trong dữ liệu, nhóm em sử dụng phương pháp kiểm tra là tính dao động phần dư (\textit{residuals}) và chuẩn hóa dữ liệu sao cho có trung bình 0 và phương sai 1, rồi từ đó tìm đối tượng nào có dao động phần dư chuẩn hóa cao hơn $|2|$. 
 \begin{figure}[H]
 	\centering
@@ -183,11 +183,18 @@ Ta thử loại bỏ các biến này và tiến hành chọn lại mô hình v�
 
 Ta nhận thấy tỷ lệ phần trăm sự biến thiên giải thích được của biến phụ thuộc:
 \begin{itemize}
-	\item Đối với mô hình đầy đủ, có cải thiện từ 75.89\% thành 78.78\% và hệ số $R^2$ hiệu chỉnh cũng tăng tương đối từ 0.6335 lên 0.6678. 
+	\item Đối với mô hình đầy đủ, có cải thiện từ 75.89\% thành 78.78\% và hệ số $R^2$ hiệu~chỉnh cũng tăng tương đối từ 0.6335 lên 0.6678. 
 	\item Đối với mô hình mới \ref{b3-new-model-bic}, có cải thiện đáng kể từ 69.86\% thành 73.4\% và hệ số $R^2$ hiệu chỉnh cũng tăng tương đối từ 0.6728 lên 0.7007. 
 \end{itemize}
 
-Dù vậy, các biến trong mô hình lựa chọn mới \ref{b3-new-model-bic} lại kém có ý nghĩa thống kê hơn mô hình lựa chọn cũ. Nếu chúng ta dự trên tỷ lệ phần trăm giải thích được cho mô hình thì mô hình mới vẫn là một lựa chọn không tồi. Tuy nhiên biểu đồ phần dư cũng không thay đổi nhiều so với mô hình cũ (hình \ref{fig-b3:new-model-bic-plot}).
+Dù vậy, các biến trong mô hình lựa chọn mới \ref{b3-new-model-bic} lại kém có ý nghĩa thống kê hơn mô hình lựa chọn cũ. Nếu chúng ta dự trên tỷ lệ phần trăm giải thích được cho mô hình thì mô hình mới vẫn là một lựa chọn không tồi. Các biến trong mô hình vẫn đảm bảo mối quan hệ tuyến tính với biến phụ thuộc và không xảy ra hiện tượng đa cộng tuyến theo chỉ số VIF (hình \ref{fig-b3:new-model-bic-vars}, \ref{fig-b3:new-model-bic-vif}), tuy nhiên, biểu đồ phần dư cũng không thay đổi nhiều so với mô hình cũ (hình \ref{fig-b3:new-model-bic-plot}).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/B3/new-model-bic-vars}
+	\caption{Mối tương quan giữa từng biến giải tích và biến phụ thuộc}
+	\label{fig-b3:new-model-bic-vars}
+\end{figure}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/B3/new-model-bic-plot}
@@ -195,8 +202,21 @@ Dù vậy, các biến trong mô hình lựa chọn mới \ref{b3-new-model-bic}
 	\label{fig-b3:new-model-bic-plot}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{images/B3/new-model-bic-vif}
+	\caption{Hiện tượng đa cộng tuyến giữa các biến trong mô hình được chọn}
+	\label{fig-b3:new-model-bic-vif}
+\end{figure}
+
 \subsection*{Kết luận}
 
-Vậy mô hình lựa chọn cuối cùng có thể giải thích 73.4\% phương sai của biến phụ thuộc $Y$. Nói cách khác, có 73.4\% phần trăm sự biến thiên của tỷ lệ tai nạn ($Y$) được giải thích bởi chiều dài đoạn đường ($X1$), tốc độ giới hạn cho phép ($X4$), số làn đường thay đổi tự do trên đoạn đường cao tốc và số cửa vào đường cao tốc.
+Khi kiểm tra các điều kiện ý nghĩa của mô hình:
+\begin{itemize}
+	\item Vấn đề đa cộng tuyến trong cả hai mô hình lựa chọn đều được đảm bảo là không xảy ra.
+	\item Tuy nhiên, phần dư $\epsilon$ trong cả hai mô hình đều không tuân theo phân phối chuẩn, kỳ vọng không bằng 0 và phương sai không là một hằng số.
+\end{itemize}
 
-Tuy nhiên, dù giải pháp loại bỏ giá trị ngoại lai là cần thiết, nhưng vì dữ liệu quá ít, lý do vì sao bộ dữ liệu có những giá trị ngoại lai này vẫn chưa thể giải thích được chúng có thật sự là giá trị ngoại lai. Vì vậy, chúng ta cần nhiều dữ liệu hơn để mô hình có thể cho kết quả hồi quy tốt và chính xác hơn.
+Vậy \textbf{mô hình không có ý nghĩa}, tuy rằng mô hình lựa chọn cuối cùng đã có thể giải thích 73.4\% phương sai của biến phụ thuộc $Y$, nói cách khác, có 73.4\% phần trăm sự biến thiên của tỷ lệ tai nạn ($Y$) có thể được giải thích bởi chiều dài đoạn đường ($X1$), tốc độ giới hạn cho phép ($X4$), số làn đường thay đổi tự do trên đoạn đường cao tốc và số cửa vào đường cao tốc.
+
+Mặt khác, dù giải pháp loại bỏ giá trị ngoại lai là cần thiết, nhưng vì dữ liệu quá ít, lý do vì sao bộ dữ liệu có những giá trị ngoại lai này vẫn chưa thể giải thích được chúng có thật sự là giá trị ngoại lai. Vì vậy, chúng ta cần nhiều dữ liệu hơn để mô hình có thể cho kết quả hồi quy tốt và chính xác hơn.

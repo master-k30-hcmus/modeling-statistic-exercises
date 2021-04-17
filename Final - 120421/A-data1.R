@@ -16,20 +16,21 @@ library(ggplot2)
 library(gridExtra)
 
 plt = {}
-plt$region = ggplot(data = insurance) + geom_histogram(aes(x = region), stat = "count") + labs(x = "Region", y = "Count")
-plt$smoker = ggplot(data = insurance) + geom_histogram(aes(x = smoker), stat = "count") + labs(x = "Smoker", y = "Count")
 plt$sex = ggplot(data = insurance) + geom_histogram(aes(x = sex), stat = "count") + labs(x = "Sex", y = "Count")
+plt$smoker = ggplot(data = insurance) + geom_histogram(aes(x = smoker), stat = "count") + labs(x = "Smoker", y = "Count")
+plt$region = ggplot(data = insurance) + geom_histogram(aes(x = region), stat = "count") + labs(x = "Region", y = "Count")
 plt$bmi = ggplot(data = insurance) + geom_histogram(aes(x = bmi)) + labs(x = "BMI", y = "Count")
 plt$age = ggplot(data = insurance) + geom_histogram(aes(x = age)) + labs(x = "Age", y = "Count")
 plt$children = ggplot(data = insurance) + geom_histogram(aes(x = children)) + labs(x = "Children", y = "Count")
 plt$charges = ggplot(data = insurance) + geom_histogram(aes(x = charges)) + labs(x = "Charges", y = "Count")
 
-grid.arrange(plt$bmi, plt$region, plt$smoker, plt$age, plt$sex, plt$children, plt$charges, nrow = 3)
+grid.arrange(plt$sex, plt$smoker, plt$region, plt$bmi, plt$age, plt$children, plt$charges, nrow = 3)
 
 insurance$smoker = ifelse(insurance$smoker == "yes", 1, 0)
 insurance$region_ne = ifelse(insurance$region == "northeast", 1, 0)
 insurance$region_se = ifelse(insurance$region == "southeast", 1, 0)
 insurance$region_sw = ifelse(insurance$region == "southwest", 1, 0)
+insurance$children = factor(insurance$children)
 
 insurance = subset(insurance, select = -c(region))
 
@@ -50,10 +51,11 @@ age_ranges <- cut(age, c(seq(min(age), max(age), by = 10)), include.lowest = TRU
 aggregate(charges ~ age_ranges, insurance, mean)
 
 
-cor_data = data.frame(insurance)
-correlation = cor(cor_data)
-par(mfrow = c(1, 1))
-corrplot(correlation, method = "color")
+# library(corrplot)
+# cor_data = data.frame(insurance)
+# correlation = cor(cor_data)
+# par(mfrow = c(1, 1))
+# corrplot(correlation, method = "color")
 
 processModelSelection = function(model, data){
   par(mfrow = c(2,2))
@@ -69,6 +71,8 @@ processModelSelection = function(model, data){
   return(model_BIC)
 }
 
+library(car)
+
 mod_full = lm(charges ~ ., insurance)
 summary(mod_full)
 coef(mod_full)
@@ -80,9 +84,4 @@ mod_BIC$anova
 vif(mod_BIC)
 coef(mod_BIC)
 
-# library(MASS)
-# library(plyr)
-# library(broom)
-# library(car)
-# library(corrplot)
 
