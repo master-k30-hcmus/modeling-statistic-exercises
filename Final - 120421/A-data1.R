@@ -38,9 +38,17 @@ dim(insurance)
 
 attach(insurance)
 
-aggregate(y_i ~ x_i.11 + x_i.12 + x_i.13, insurance,mean)
-aggregate(y_i ~ x_i.4, insurance,mean)
-aggregate(y_i ~ x_i.10, insurance,mean)
+aggregate(charges ~ region_se + region_ne + region_sw, insurance, mean)
+aggregate(charges ~ smoker, insurance, mean)
+aggregate(charges ~ sex, insurance, mean)
+aggregate(charges ~ children, insurance, mean)
+
+bmi_ranges <- cut(age, c(seq(15, 55, by = 5)), include.lowest = TRUE)
+aggregate(charges ~ bmi_ranges, insurance, mean)
+
+age_ranges <- cut(age, c(seq(min(age), max(age), by = 10)), include.lowest = TRUE)
+aggregate(charges ~ age_ranges, insurance, mean)
+
 
 cor_data = data.frame(insurance)
 correlation = cor(cor_data)

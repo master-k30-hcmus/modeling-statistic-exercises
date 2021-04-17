@@ -65,7 +65,7 @@ data_res = residuals(mod_BIC)
 data_crit = 2*sd(data_res)
 data_outlier = ifelse(abs(data_res > data_crit),1,0); data_outlier
 data_outlier[data_outlier == 1]
-new_data = data3[-c(26,27),]
+new_data = data3[-c(as.numeric(names(data_outlier[data_outlier == 1]))),]
 dim(new_data)
 
 new_mod_full = lm(y_i ~ ., new_data)

@@ -2,15 +2,15 @@
 Những thông tin vê các giám đốc điều hành các tập đoàn Hoa Kỳ. Bộ dữ liệu gồm 177 quan trắc và 15 biến.
 
 $*$ \textbf{Phương pháp chọn: Stepwise - tiến; tiêu chuẩn chọn: AIC}.
+
 \subsection*{Tìm hiểu và tiền xử lý dữ liệu}
 
-Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn như: $sales'$, $profits$, $lmktval$. Nếu đưa những biến này vào phương trình hồi quy có thể dẫn tới hiện tượng bias do tác~động của những biến này lên model lấn át những biến khác còn lại như $age$, $ceoten$.... Nên ta sẽ dùng phương pháp logarit cho 3 biến này trong model tương ứng với 3 biến mới là:  $lsales''$, $lmktval$   và $profmarg$. (1)
-
+Một số biến trong bộ dữ liệu kiểu số có đơn vị tính lớn như: \texttt{sales}, \texttt{profit}, \texttt{lmktval}. Nếu đưa những biến này vào phương trình hồi quy có thể dẫn tới hiện tượng bias do tác~động của những biến này lên model lấn át những biến khác còn lại như $age$, $ceoten$.... Nên ta sẽ dùng phương pháp logarit cho 3 biến này trong model tương ứng với 3 biến mới là:  $lsales$, $lmktval$ và $profmarg$. (1) \label{abc}
 
 Từ biểu đồ dưới ta thấy ba biến định lượng $\textit{lsales}$, $\textit{lmktval}$ và $\textit{profmarg}$ xảy ra hiện~tượng đa cộng tuyến.
-Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến sales và profit luôn (hình \ref{fig-b1:plot-vars}).
+Tuy nhiên có xảy ra hiện tượng đa cộng tuyến giữa 2 biến \texttt{sales} và \texttt{profit} (hình \ref{fig-b1:plot-vars}).
 
-Tính độ correlation của biến $salary$ với lần lượt 2 biến trên ta có:
+Tính độ tương quan giữa biến $salary$ với lần lượt 2 biến trên ta có:
 
 \begin{figure}[H]
 	\centering
@@ -22,26 +22,26 @@ Tính độ correlation của biến $salary$ với lần lượt 2 biến trên
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.7\linewidth]{../Photo Of Result/B1_CorTable.PNG}  
-	\caption{Mức độ tương quan giữa biến lsales và promarg Correlation}
+	\caption{Mức độ tương quan giữa biến \texttt{lsales} và \texttt{promarg}}
 	\label{fig-b1:corr-table}
 \end{figure}
 
-Xét bảng correlation giữa các biến độc lập với nhau và giữa các biến độc lập với biến phụ thuộc, ta thấy: Giữa hai biến $\textit{lmktval}$ và biến $\textit{lsales}$ có mối tương quan rất cao ($\approx$ 0.75). Tuy nhiên biến $\textit{lmktval}$ lại có mối tương quan cao hơn với biến phụ thuộc $\textit{salary}$. Mặt khác giữa biến $\textit{profmarg}$ và $\textit{lsales}$ cũng có mối tương quan cao ($\approx$ -0.42). Nên ta loại bỏ biến $\textit{lsales}$ khỏi danh sách các biến được xét. (2)
+Xét bảng correlation giữa các biến độc lập với nhau và giữa các biến độc lập với biến phụ thuộc, ta thấy: Giữa hai biến $\textit{lmktval}$ và biến $\textit{lsales}$ có mối tương quan rất cao ($\approx$ 0.75). Tuy nhiên biến $\textit{lmktval}$ lại có mối tương quan cao hơn với biến phụ thuộc $\textit{salary}$. Mặt khác giữa biến $\textit{profmarg}$ và $\textit{lsales}$ cũng có mối tương quan cao ($\approx -0.42$). Nên ta loại bỏ biến $\textit{lsales}$ khỏi danh sách các biến được xét. (2)
 
 Từ (1) và (2) ta có mô hình với đầy đủ các biến cần lựa chọn như sau:
 \begin{equation}\label{eq-b1:full-model}
 	\begin{split}
-		salary 	= \beta_0 + &\beta_1*age + \beta_2*college + \beta_3*grad + \beta_4*comten\\
-		&+ \beta_5*ceoten + \beta_6*lmktval + \beta_7*profmarg
+		salary 	= \beta_0 + &\beta_1 \times age + \beta_2 \times college + \beta_3 \times grad + \beta_4 \times comten\\
+		+ &\beta_5\times ceoten + \beta_6\times lmktval + \beta_7\times profmarg
 	\end{split}
 \end{equation}
 
 
-Thực hiện phân rã hai biến phân loại gồm $college$ và $grad$ trước khi thực hiện phương~pháp chọn biến \textbf{Stepwise} \textbf{tiến} với \textbf{tiêu chuẩn AIC}.
+Thực hiện phân rã hai biến phân loại gồm $college$ và $grad$ trước khi thực hiện phương pháp  \textbf{Stepwise} \textbf{tiến} với \textbf{tiêu chuẩn AIC}.
 
-Để đánh giá chất lượng mô hình ta chia tâp dữ liệu thành hai phần, training và testing, với tỷ lệ $80:20$ sau đó tiến hành phương pháp chọn biến trên tập training.
+Để đánh giá chất lượng mô hình ta chia tâp dữ liệu thành hai phần, training và testing, với tỷ lệ $8:2$ sau đó tiến hành phương pháp chọn biến trên tập training.
 
-\subsection*{Chọn biến bằng phương pháp StepWise tiến và tiêu chuẩn AIC}
+\subsection*{Chọn biến bằng phương pháp Stepwise tiến và tiêu chuẩn AIC}
 
 \begin{figure}[H]
 	\centering
@@ -63,6 +63,7 @@ Với ba biến được chọn ở trên, mô hình \ref{eq-b1:full-model} tr�
 \begin{equation}\label{1.2}
 \textit{salary} = -950.6 + 248.2 * \textit{lmktval} - 13.9 *\textit{profmarg} + 11.7  *\textit{ceoten}
 \end{equation}
+
 Tuy nhiên ta nhận thấy biến $\textit{ceoten}$ có $\rho_{value} \ge \alpha$ (0.05738 $\ge$ 0.05) nên không có ý~nghĩa thống kê trong mô hình. Ta tiến hành bỏ biến $\textit{ceoten}$ và hồi quy mô hình với hai biến còn lại kết quả thu được từ phần mềm R như hình \ref{fig-b1:new-summary}:
 
 \begin{figure}[H]
