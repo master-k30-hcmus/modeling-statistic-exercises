@@ -15,9 +15,9 @@ $*$ \textbf{Phương pháp chọn: Stepwise - lùi; tiêu chuẩn chọn: BIC}.
 \caption{Một số quan sát ban đầu của bộ dữ liệu}
 \end{figure}
 
-Bộ dữ liệu cung cấp gồm 21 biến, trong đó biến \textbf{id} và \textbf{date} được loại bỏ khỏi dữ~liệu trước khi tiến hành phân tích, vì nhóm em nghĩ các biến này chỉ để ghi lại chỉ số và thời gian mua bán, không mang nhiều ý nghĩa thống kê. 
+Bộ dữ liệu cung cấp gồm 21 biến, trong đó biến \texttt{id} và \texttt{date} được loại bỏ khỏi dữ~liệu trước khi tiến hành phân tích, vì nhóm em nghĩ các biến này chỉ để ghi lại chỉ số và thời gian mua bán, không mang nhiều ý nghĩa thống kê. 
 
-Quan sát ban đầu cho thấy: các biến độc lập \textbf{bathrooms} (số phòng tắm), \textbf{sqft\_living} (diện tích căn nhà), \textbf{grade} (điểm số đánh giá), \textbf{sqft\_above} (diện tích ngoài tầng hầm), \textbf{sqft\_living15} (diện tích ngôi nhà vào năm 2015) có mối tương quan cao với biến phụ thuộc \textbf{Price} - giá nhà; biến phụ thuộc \textbf{Price} phân bố không đều, bị lệch hẳn về một phía và giá trị chủ yếu từ 0 đến 2 000 000.
+Quan sát ban đầu cho thấy: các biến độc lập \texttt{bathrooms} (số phòng tắm), \texttt{sqft\_living} (diện tích căn nhà), \texttt{grade} (điểm số đánh giá), \texttt{sqft\_above} (diện tích ngoài tầng hầm), \texttt{sqft\_living15} (diện tích ngôi nhà vào năm 2015) có mối tương quan cao với biến phụ~thuộc \texttt{Price} - giá nhà; biến phụ thuộc \texttt{Price} phân bố không đều, bị lệch hẳn về một~phía và giá trị chủ yếu từ 0 đến 2 000 000.
 \subsection*{Phân tích, chọn mô hình}
 %mô hình ban đầu (Đầy đủ biến, chưa chuẩn hóa), mô hình sau khi chọn biến bằng các tiêu chuẩn ..., mô hình cuối cùng (nếu có chuẩn hóa dữ liệu)
 
@@ -29,7 +29,7 @@ Quan sát ban đầu cho thấy: các biến độc lập \textbf{bathrooms} (s�
 	\label{B2_full}
 \end{figure}
 
-Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, do đó nhóm em chọn phương pháp lùi (\textbf{stepwise - backward}) cho bộ dữ liệu này. Trong mô hình hồi quy đầy đủ (Hình \ref{B2_full}), đa số các biến giải thích đều có ý nghĩa thống kê, do đó tiến hành phương~pháp lùi (loại biến dần dần) sẽ tiết kiệm thời gian hơn so với các phương pháp còn lại.  Tiêu chuẩn BIC có xu hướng chọn các mô hình ít phức tạp hơn so với tiêu chuẩn AIC, đặc biệt khi số lượng quan trắc lớn.
+Bộ dữ liệu (sau khi loại bỏ \texttt{id} và \texttt{date}) có 18 biến giải thích, do đó nhóm em chọn phương pháp lùi (\textbf{stepwise - backward}) cho bộ dữ liệu này. Trong mô hình hồi quy đầy đủ (Hình \ref{B2_full}), đa số các biến giải thích đều có ý nghĩa thống kê, do đó tiến hành phương~pháp lùi (loại biến dần dần) sẽ tiết kiệm thời gian hơn so với các phương pháp còn lại.  Tiêu chuẩn BIC có xu hướng chọn các mô hình ít phức tạp hơn so với tiêu chuẩn AIC, đặc biệt khi số lượng quan trắc lớn.
 
 \begin{figure}[H]
 	\centering
@@ -40,9 +40,9 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
 	\caption{Mô hình khi chọn bằng tiêu chuẩn BIC}
 	\label{B2_BIC}
 \end{figure}
- Bằng phương pháp lùi và tiêu chuẩn BIC (Hình \ref{B2_BIC}), các biến \textbf{sqft\_basement, floors, sqft\_lot} đã bị loại bỏ khỏi mô hình. Mô hình được chọn có $R^2=0.7$, $R^2_{adj}=0.69$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê.
+ Bằng phương pháp lùi và tiêu chuẩn BIC (Hình \ref{B2_BIC}), các biến \texttt{sqft\_basement, floors, sqft\_lot} đã bị loại bỏ khỏi mô hình. Mô hình được chọn có $R^2=0.7$, $R^2_{adj}=0.69$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê.
  
- Ta tiến hành kiểm tra xem mô hình này có thỏa mãn các giả thiết của mô hình hồi quy hay không.
+ Ta tiến hành kiểm tra xem mô hình này có thỏa mãn các giả thiết của mô hình hồi~quy hay không.
  
  \begin{figure}[H]
  	\centering
@@ -53,12 +53,12 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  
  Dựa vào hình \ref{B2_check}, phương sai của sai số không phải là hằng số, kì vọng của sai số bằng 0; sai số có vẻ tuân theo phân phối chuẩn nhưng phần đuôi trên bị lệch khá nhiều. 
  
- Kết hợp với nhận xét ban đầu, về việc biến \textbf{Price} phân bố không đều, nhóm em tiến~hành biến đổi biến này thành \textbf{log(Price)}.
+ Kết hợp với nhận xét ban đầu, về việc biến \texttt{Price} phân bố không đều, nhóm em tiến~hành biến đổi biến này thành \texttt{log(Price)}.
  
  \begin{figure}[H]
  	\centering
  	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_logprice}}
- 	\caption{Phân bố của biến \textbf{Price} sau khi biến đổi }
+ 	\caption{Phân bố của biến \texttt{Price} sau khi biến đổi }
  	\label{B2_log}
  \end{figure}
  Sau khi biến đổi, ta tiến hành hồi quy cho: \textbf{mô hình 1} mô hình có 15 biến đã chọn bằng tiêu chuẩn BIC trước đó, và \textbf{mô hình 2} mô hình đầy đủ rồi áp dụng tiêu chuẩn BIC để chọn biến.
@@ -69,12 +69,12 @@ Bộ dữ liệu (sau khi loại bỏ id và date) có 18 biến giải thích, 
  	{\includegraphics[width=.5\linewidth]{../Photo Of Result/B2_log}}\hfill
  	\subfloat[Mô hình 2]
  	{\includegraphics[width=.48\linewidth]{../Photo Of Result/B2_modBIC2_R}}
- 	\caption{Kết quả khi biến đổi \textbf{Price} thành \textbf{log(Price)}}
+ 	\caption{Kết quả khi biến đổi \texttt{Price} thành \texttt{log(Price)}}
  \end{figure}
  
-Cả hai mô hình đều gồm 15 biến giải thích, mô hình 2 đã loại bỏ các biến \textbf{sqft\_basement, sqft\_above, sqft\_lot15} khác với 3 biến đã loại trước khi biến đổi \textbf{Price}. 
+Cả hai mô hình đều gồm 15 biến giải thích, mô hình 2 đã loại bỏ các biến \texttt{sqft\_basement, sqft\_above, sqft\_lot15} khác với 3 biến đã loại trước khi biến đổi \texttt{Price}. 
 
-Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 2 có hệ số xác định lớn hơn ($R^2=77.03\%$), các biến liên quan đến diện tích tầng hầm (\textbf{sqft\_basement}, \textbf{sqft\_above}) đã được bao gồm trong \textbf{sqft\_living}, diện tích khu đất vào năm 2015 cũng không mang nhiều ý nghĩa thống kê trong mô hình 1 nên có thể loại bỏ.
+Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 2 có hệ số xác định lớn hơn ($R^2=77.03\%$), các biến liên quan đến diện tích tầng hầm (\texttt{sqft\_basement}, \texttt{sqft\_above}) đã được bao gồm trong \texttt{sqft\_living}, diện tích khu đất vào năm 2015 cũng không mang nhiều ý nghĩa thống kê trong mô hình 1 nên có thể loại bỏ.
 
 \textit{Kiểm tra giả thiết mô hình 2:} phương sai của sai số không thay~đổi, kì vọng bằng 0 và đã tuân theo phân phối chuẩn, chưa phát hiện hiện tượng đa~cộng~tuyến trong mô~hình (các chỉ số VIF $< 5$) (Hình \ref{B2_final}). 
 
@@ -84,7 +84,7 @@ Nhóm em chọn \textbf{mô hình 2} là mô hình cuối cùng, vì: mô hình 
 	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_modBIC2_fitted}}\hfill
 	\subfloat[Kiểm tra đa cộng tuyến]
 	{\includegraphics[width=\linewidth]{../Photo Of Result/B2_BIC_vif}}
-	\caption{Kết quả khi biến đổi thành \textbf{log(Price)}}
+	\caption{Kết quả khi biến đổi thành \texttt{log(Price)}}
 	\label{B2_final}
 \end{figure}
 
@@ -96,16 +96,16 @@ Vậy \textbf{mô hình cuối cùng được chọn} có các hệ số ước 
 	\label{B2_coef}
 \end{figure}
 
-\noindent $\log$\textbf{(Price)} = $-6.93 -0.011 \times$ \textbf{bedrooms} $+0.071\times$ \textbf{bathrooms} $+1.403\times 10^{-4} \times$ \textbf{sqft\_living}
+\noindent $\log$\texttt{(Price)} = $-6.93 -0.011 \times$ \texttt{bedrooms} $+0.071\times$ \texttt{bathrooms} $+1.403\times 10^{-4} \times$ \texttt{sqft\_living}
 
-\hspace{1.5cm} $+ 3.426\times10^{-7}\times$ \textbf{sqft\_lot} $+ 0.069\times$ \textbf{floors} $+ 0.36\times$ \textbf{waterfront} $+ 0.061\times$ \textbf{view}
+\hspace{1.5cm} $+ 3.426\times10^{-7}\times$ \texttt{sqft\_lot} $+ 0.069\times$ \texttt{floors} $+ 0.36\times$ \texttt{waterfront} $+ 0.061\times$ \texttt{view}
 
-\hspace{1.5cm}  $+ 0.063\times$ \textbf{condition} $+ 0.159\times$ \textbf{grade} $- 3.4196\times 10^{-3}\times$ \textbf{yr\_built}
+\hspace{1.5cm}  $+ 0.063\times$ \texttt{condition} $+ 0.159\times$ \texttt{grade} $- 3.4196\times 10^{-3}\times$ \texttt{yr\_built}
 
-\hspace{1.5cm} $+ 3.650\times 10^{-5}\times$ \textbf{yr\_renovated} $- 6.441 \times 10^{-4}\times$ \textbf{zipcode} $+ 1.404\times$ \textbf{lat}
+\hspace{1.5cm} $+ 3.650\times 10^{-5}\times$ \texttt{yr\_renovated} $- 6.441 \times 10^{-4}\times$ \texttt{zipcode} $+ 1.404\times$ \texttt{lat}
 
 
-\hspace{1.5cm}  $- 0.171\times$ \textbf{long} $+ 9.565.171\times 10^{-5}\times$ \textbf{sqft\_living15}
+\hspace{1.5cm}  $- 0.171\times$ \texttt{long} $+ 9.565.171\times 10^{-5}\times$ \texttt{sqft\_living15}
 
 \subsection*{Kết luận}
 %Nhận xét các biến ảnh hưởng đến biến Y từ mô hình cuối cùng, ý nghĩa của mô hình đã chọn

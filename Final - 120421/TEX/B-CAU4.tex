@@ -5,11 +5,12 @@ Bộ dữ liệu ghi lại những yếu tố có thể ảnh hưởng đến l�
 \subsection*{Tìm hiểu dữ liệu}
 Bộ dữ liệu gồm 13 biến sau:
 \begin{itemize}
-	\item $wage$: Số lượng trung bình một giờ
-	\item $educ$: Số năm học
+	\item \texttt{wage}: Số lượng trung bình một giờ
+	\item \texttt{educ}: Số năm học
 	\item 
 \end{itemize}
 
+<<<<<<< HEAD
 \begin{figure}
 	\centering
 	{\includegraphics[width=0.63\linewidth]{../Photo Of Result/describe(4)-1}}
@@ -24,6 +25,8 @@ Dựa vào kết quả mô tả dữ liệu từ R trong hình \ref{describe-4},
 	\item Các biến định tính: "nonwhite", "female", "married", "smsa"  ,   "northcen" , "south"  ,  "west"  ,   "construc" "ndurman"  "trcommpu" , "trade" ,   "services" , "profserv" , "profocc" , "clerocc" , "servocc" 
 	\item Các biến định lượng: "wage"  ,  "educ"  ,  "exper" ,  "tenure" , "numdep" , "lwage" ,  "expersq", "tenursq"
 \end{itemize}
+=======
+>>>>>>> 308a0d25eee70afaf39c94ee6e1b0a3251a3b94d
 \subsection*{Phân tích dữ liệu}
 \begin{figure}[H]
 	\includegraphics[width=0.9\textwidth]{../Photo Of Result/Plot-dinhluong-data4}
@@ -171,6 +174,7 @@ Ta có thể thấy trong hình \ref{full-model} chỉ một vài biến như l�
 \end{longtable}
 Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán
 
+<<<<<<< HEAD
 \subsubsection*{Hướng tiếp cận 2:: Phương pháp tiến dựa trên AIC}
 \begin{figure}[H]
 	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-1}
@@ -185,6 +189,11 @@ Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ 
 	\caption{Các biến định tính được vẽ ra}
 	\label{plot_data4}
 \end{figure}
+=======
+\subsubsection*{Hướng tiếp cận 2: Phương pháp tiến dựa trên AIC}
+
+\lstinputlisting[float=h,frame=tb,caption=R output,label=zebra]{../Output Of R/StepAIC_back.txt}
+>>>>>>> 308a0d25eee70afaf39c94ee6e1b0a3251a3b94d
 
 Sau khi chạy code R phương pháp lùi dựa theo tiêu chí AIC thì mô hình chọn được là mô hình gồm 11 biến
 \[\texttt{wage} = \texttt{educ} + \beta_0\texttt{tenure} + \texttt{female} + married + smsa + northcen + west + ndurman + trcommpu + trade + services + profserv + profocc\]
