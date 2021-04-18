@@ -64,7 +64,7 @@ Một số điều thú vị thấy được ở hai hình \ref{fig-a1:plot-vars
 	\item \texttt{smoker}: số lượng người hút thuốc ít hơn số lượng người không hút thuốc có trong bộ dữ liệu, nhưng chi phí trung bình mà bảo hiểm y tế chi trả cho nhóm này thì hoàn toàn cao hơn rất nhiều, điều này khá hiển nhiên.
 	\item \texttt{region}: phân bố của các vùng và chi phí trung bình mà bảo hiểm y tế chi trả ở từng vùng cũng đều xấp xỉ nhau. 
 	\item \texttt{bmi}: chỉ số BMI có phân bố dạng chuẩn, và chi phí trung bình mà bảo hiểm y tế chi trả cũng tăng dần đều theo chỉ số này, điều này cũng hợp lý vì khi chỉ số BMI càng cao thì khả năng bị béo phì cũng tăng. 
-	\item \texttt{age}: tuổi tác có phân bố ngẫu nhiên, và chi phí trung bình mà bảo hiểm y tế chi trả cũng tăng dần theo tuổi, điều này cũng khá hiển nhiên.
+	\item \texttt{age}: tuổi tác có phân bố ngẫu nhiên, và chi phí trung bình mà bảo hiểm y tế chi~trả cũng tăng dần theo tuổi, điều này cũng khá hiển nhiên.
 	\item \texttt{children}: phân bố của trẻ em được hưởng theo bảo hiểm bị lệch hẳn về bên trái, nên chi phí trung bình mà bảo hiểm y tế chi trả cho 4-5 trẻ em có thể bị sai lệch do mất cân bằng dữ liệu.
 \end{itemize}
 
@@ -79,7 +79,7 @@ Xét mô hình đầy đủ sau:
 	\end{split}
 \end{equation}
 
-Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:model-full}, đúng như dự đoán, biến vùng miền \texttt{region} và giới tính \texttt{sex} không có ý nghĩa thống kê, và các biến còn lại có ý nghĩa thống kê khá cao.
+Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:model-full}, đúng như dự đoán, biến vùng~miền \texttt{region} và giới tính \texttt{sex} không có ý nghĩa thống kê, và các biến còn lại có ý nghĩa thống kê khá cao.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/A1/model-full}
@@ -94,7 +94,7 @@ Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:mode
 	\label{fig-a1:model-full-plot}
 \end{figure}
 
-Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hiện tượng đa cộng tuyến có trong mô hình này, kết quả từ phần mềm R ở hình \ref{fig-a1:model-full-vif} cho thấy các hệ số VIF đều dưới 5, chứng tỏ không tồn tại hiện tượng này trong mô hình.
+Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hiện tượng đa cộng~tuyến có trong mô hình này, kết quả từ phần mềm R ở hình \ref{fig-a1:model-full-vif} cho thấy các hệ số VIF đều dưới 5, chứng tỏ không tồn tại hiện tượng này trong mô hình.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/A1/model-full-vif}
@@ -102,7 +102,7 @@ Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hi�
 	\label{fig-a1:model-full-vif}
 \end{figure}
 
-Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nên nhóm em sẽ sử dụng phương pháp Stepwise lùi để chọn mô hình phù hợp nhanh hơn, và tiêu chuẩn BIC cho mô hình đơn giản trên. Các bước và kết quả chọn mô hình, các thông số của nó được thể hiện ở hình \ref{fig-a1:model-bic} 
+Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nhóm em sử dụng phương pháp Stepwise lùi để chọn mô hình phù hợp nhanh hơn, và tiêu chuẩn BIC cho mô hình đơn giản trên. Các bước và kết quả chọn mô hình, các thông số của nó được thể hiện ở hình \ref{fig-a1:model-bic} 
 \begin{figure}[H]
 	\centering
 	\subfloat[Các bước và kết quả chọn mô hình]
@@ -113,21 +113,18 @@ Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nê
 	\label{fig-a1:model-bic}
 \end{figure}
 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-plot}
-	\caption{Các biểu đồ của mô hình lựa chọn}
-	\label{fig-a1:model-bic-plot}
-\end{figure}
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.35\linewidth]{images/A1/model-bic-vif}
 	\caption{Hiện tượng đa cộng tuyến trong mô hình lựa chọn}
 	\label{fig-a1:model-bic-vif}
 \end{figure}
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-plot}
+	\caption{Các biểu đồ của mô hình lựa chọn}
+	\label{fig-a1:model-bic-plot}
+\end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-vars}

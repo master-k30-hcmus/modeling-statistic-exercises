@@ -114,14 +114,14 @@ Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-b3:mode
 	\label{fig-b3:model-full-vif}
 \end{figure}
 
-Vì số lượng biến giải thích khá ít, chỉ có 13 biến và có hiện tượng đa cộng tuyến, nên nhóm em sử dụng phương pháp hồi quy Stepwise từng bước để dễ dàng thêm bớt các biến khi chọn mô hình. Đối với tiêu chuẩn đánh giá mô hình, vì bộ dữ liệu này có cỡ mẫu nhỏ, chỉ có 39 quan trắc, nên nhóm em dùng tiêu chuẩn BIC cho cỡ mẫu $n=39$.
+Vì số lượng biến giải thích khá ít, chỉ có 13 biến và có hiện tượng đa cộng tuyến, nên nhóm em sử dụng phương pháp hồi quy Stepwise từng bước để dễ dàng thêm bớt các biến khi chọn mô hình. Đối với tiêu chuẩn đánh giá mô hình, vì bộ dữ liệu này có cỡ~mẫu nhỏ, chỉ có 39 quan trắc, nên nhóm em dùng tiêu chuẩn BIC cho cỡ mẫu $n=39$.
 
-Dùng phần mềm R cho phương pháp Stepwise tiến lùi và tiêu chuẩn BIC, ta có kết quả ở hình \ref{fig-b3:model-bic}, mô hình lựa chọn có dạng:
+Dùng phần mềm R cho phương pháp Stepwise tiến lùi và tiêu chuẩn BIC, ta có kết~quả ở hình \ref{fig-b3:model-bic}, mô hình lựa chọn có dạng:
 \begin{equation}\label{b3-model-bic}
 	Y = \beta_0 + \beta_1X1 + \beta_4X4 + \beta_9X9 + \epsilon
 \end{equation}
 
-Trong quá trình chọn mô hình, đa số các biến đã bị loại bỏ hết chỉ trừ 3 biến $X1$, $X4$, và $X9$ lần lượt giải thích cho chiều dài đoạn đường, tốc độ giới hạn cho phép và số cửa vào đoạn đường cao tốc. Mô hình \ref{b3-model-bic} có hệ số xác định $R^2 = 0.6986$ và hệ số hiệu chỉnh $R^2_{adj} = 0.6728$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê. 
+Trong quá trình chọn mô hình, đa số các biến đã bị loại bỏ hết chỉ trừ 3 biến $X1$, $X4$, và $X9$ lần lượt giải thích cho chiều dài đoạn đường, tốc độ giới hạn cho phép và số cửa vào đoạn đường cao tốc. Mô hình \ref{b3-model-bic} có hệ số xác định $R^2 = 0.6986$ và hệ số hiệu~chỉnh $R^2_{adj} = 0.6728$, các tham số ước lượng của mô hình đều có ý nghĩa thống kê. 
 
 \begin{figure}[H]
 	\centering
@@ -133,9 +133,9 @@ Trong quá trình chọn mô hình, đa số các biến đã bị loại bỏ h
 	\label{fig-b3:model-bic}
 \end{figure}
 
-Mô hình \ref{b3-model-bic} giải thích được 69.86\% sự biến thiên của tỷ lệ \% tai nạn được giải thích bởi 3 biến độc lập. Các hệ số của mô hình lần lượt là: $\hat{\beta_0}=9.613, \hat{\beta_1}=-0.073, \hat{\beta_4}=-0.109, \hat{\beta_9}=0.101$.
+Mô hình \ref{b3-model-bic} giải thích được 69.86\% sự biến thiên của tỷ lệ \% tai nạn được giải~thích bởi 3 biến độc lập. Các hệ số của mô hình lần lượt là: $\hat{\beta_0}=9.613, \hat{\beta_1}=-0.073, \hat{\beta_4}=-0.109, \hat{\beta_9}=0.101$.
 
-Mối tương quan giữa từng biến giải thích trong mô hình và biến phụ thuộc có quan hệ tuyến tính được biểu diễn trong hình \ref{fig-b3:model-bic-vars}. Hiện tượng đa cộng tuyến giữa các biến cũng không còn tồn tại trong mô hình được biểu diễn trong hình \ref{fig-b3:model-bic-vif}.
+Mối tương quan giữa từng biến giải thích trong mô hình và biến phụ thuộc có quan~hệ tuyến tính được biểu diễn trong hình \ref{fig-b3:model-bic-vars}. Hiện tượng đa cộng tuyến giữa các biến cũng không còn tồn tại trong mô hình được biểu diễn trong hình \ref{fig-b3:model-bic-vif}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\linewidth]{images/B3/model-bic-vars}
@@ -150,7 +150,7 @@ Mối tương quan giữa từng biến giải thích trong mô hình và biến
 	\label{fig-b3:model-bic-vif}
 \end{figure}
 
-Tuy nhiên, biểu đồ phần dư ở hình \ref{fig-b3:model-full-plot} cho thấy mối liên quan giữa biến phụ thuộc và các biến giải thích không tuân theo hàm tuyến tính. Nhưng quan sát thấy có một số giá trị ngoại lai (\textit{outlier}) tồn tại trong dữ liệu, nhóm em sử dụng phương pháp kiểm tra là tính dao động phần dư (\textit{residuals}) và chuẩn hóa dữ liệu sao cho có trung bình 0 và phương sai 1, rồi từ đó tìm đối tượng nào có dao động phần dư chuẩn hóa cao hơn $|2|$. 
+Tuy nhiên, biểu đồ phần dư ở hình \ref{fig-b3:model-full-plot} cho thấy mối liên quan giữa biến phụ~thuộc và các biến giải thích không tuân theo hàm tuyến tính. Nhưng quan sát thấy có một số giá trị ngoại lai (\textit{outlier}) tồn tại trong dữ liệu, nhóm em sử dụng phương pháp kiểm tra là tính dao động phần dư (\textit{residuals}) và chuẩn hóa dữ liệu sao cho có trung~bình 0 và phương sai 1, rồi từ đó tìm đối tượng nào có dao động phần dư chuẩn hóa cao hơn $|2|$. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\linewidth]{images/B3/model-full-plot}
@@ -166,7 +166,7 @@ Dùng phần mềm R tính toán, ta có kết quả ở hình \ref{fig-b3:datas
 	\label{fig-b3:dataset-outlier}
 \end{figure}
 
-Ta thử loại bỏ các biến này và tiến hành chọn lại mô hình với phương pháp Stepwise và tiêu chuẩn BIC, ta có kết quả từ phầm mềm R ở hình \ref{fig-b3:new-models}. Mô hình lựa chọn thứ hai đã được thêm một biến $X8$ là số làn đường thay đổi (báo hiệu) trên đoạn đường cao tốc, mô hình này có dạng:
+Ta thử loại bỏ các biến này và tiến hành chọn lại mô hình với phương pháp Stepwise và tiêu chuẩn BIC, ta có kết quả từ phầm mềm R ở hình \ref{fig-b3:new-models}. Mô hình lựa chọn thứ~hai đã được thêm một biến $X8$ là số làn đường thay đổi (báo hiệu) trên đoạn đường cao tốc, mô hình này có dạng:
 \begin{equation}\label{b3-new-model-bic}
 	Y = \beta_0 + \beta_1X1 + \beta_4X4 + \beta_8X8 + \beta_9X9 + \epsilon
 \end{equation}
