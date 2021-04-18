@@ -121,7 +121,7 @@ x <- data.matrix(data4[2:21])
 y <- lapply(data4[1],as.numeric)
 k = lars(x,y[[1]], type = "forward.stagewise", trace = TRUE, max.steps = 100)
 plot(k)
-predict(k, type="coef", mode="norm")
+re <- predict(k, type="coef", mode="norm")
 
 # Hoi quy lai
 model_R <- lm(wage ~ . - nonwhite - south - construc - clerocc - servocc, data= data4[1:21])
@@ -154,4 +154,4 @@ par(mfrow = c(2,2))
 plot(model_log_BIC)
 
 var_select =  c("educ",  "tenure"  , "female",     "smsa"  ,   "west"  ,  "trade", "services",  "profocc")
-apply(data4[var_select],2,shapiro.test)
+lapply(data4[var_select],shapiro.test)
