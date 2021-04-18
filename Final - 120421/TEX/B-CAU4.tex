@@ -193,6 +193,7 @@ Ta có thể thấy trong hình \ref{full-model} chỉ một vài biến như l�
 	\caption{Giá trị $R^2_{adj}$, $C_p$, BIC, cho từng tập biến con tốt nhất}
 	\label{table-all-subset}\\
 \end{longtable}
+
 Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán
 
 
@@ -265,7 +266,15 @@ Dựa vào cả ba hướng tiếp cận, ta sẽ xây dựng 5 mô hình hồi 
 
 Dựa vào kết quả R trong hình \ref{5-model-reg}, ta chọn mô hình gồm 8 biến theo phương pháp chọn tất cả dựa vào chuẩn BIC. Tuy nhiên, các hệ số hồi quy vẫn chưa đạt được mức ý nghĩa thống kê $0.05$ nên ta sẽ biến đổi log biến được giải thích $wage$ thành biến $lwage$, và xây dựng lại mô hình dựa trên 8 biến được chọn ra.
 
-\[\texttt{lwage } = \texttt{ educ } + \texttt{ tenure } + \texttt{ female } + \texttt{ profocc } + \texttt{ female } + \texttt{ profocc } + \texttt{ trade } + \texttt{ west } + \texttt{ services } + \texttt{ smsa}\]
+\begin{equation*}
+	\begin{multlined}
+		\texttt{lwage } = \beta_0 + \text{ } \beta_{educ}\times \texttt{educ} \text{ } + \text{ } \beta_{tenure} \times \texttt{tenure} \text{ }+\text{ }\beta_{female} \times \texttt{female} \text{ } \\
+		+\text{ }\beta_{smsa} \times\texttt{smsa}\text{ }  
+		+ \text{ }\beta_{west} \times \texttt{west} \text{ } 
+		+ \text{ }\beta_{trade}\times \texttt{trade} + \text{ }\beta_{services} \times \texttt{services} \text{ }\\ + \text{ }\beta_{profocc}\times \texttt{profocc}
+	\end{multlined}
+\end{equation*}
+
 
 \begin{figure}[H]
 	\centering
@@ -293,7 +302,7 @@ Từ kết quả chạy từ R trong hình \ref{vif}, ta thấy được mô hì
 
 \begin{figure}[H]
 	\includegraphics[width=\textwidth]{../Photo Of Result/diagnostic-plot-4}
-	\caption{Các biểu đồ chuẩn đoán mô hình}
+	\caption{Các biểu đồ đánh giá mô hình}
 	\label{diagnostic}
 \end{figure}
 
