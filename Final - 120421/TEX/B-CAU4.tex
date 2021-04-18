@@ -1,34 +1,34 @@
 
 \section{Dữ liệu 4}
-Bộ dữ liệu ghi lại những yếu tố có thể ảnh hưởng đến lương (\$ giờ) của người lao động ở Anh năm 1976
+Bộ dữ liệu ghi lại những yếu tố có thể ảnh hưởng đến lương (\$ giờ) của người lao động ở Anh năm 1976.
 
 \subsection*{Tìm hiểu dữ liệu}
 Bộ dữ liệu gồm 13 biến sau:
 \begin{itemize}
 	\item \texttt{wage}: Số lượng trung bình một giờ
 	\item \texttt{educ}: Số năm đào tạo
-	\item \texttt{exper} Số năm kinh nghiệm tiềm năng
-	\item \texttt{tenure} Số năm làm việc hiện tại
-	\item \texttt{nonwhite} =1 nếu là người da màu
-	\item \texttt{female} =1 nếu là phụ nữ
-	\item \texttt{married} =1 nếu đã kết hôn
-	\item \texttt{numdep} số người phụ thuộc
-	\item \texttt{smsa} =1 nếu sống ở vùng đô thị Hoa Kỳ
-	\item \texttt{northcen} =1 nếu sống ở phía Bắc trung tâm Hoa Kỳ
-	\item \texttt{south} =1 nếu sống ở khu vực phía nam
-	\item \texttt{west} =1 nếu sống ở khu vực phía tây
-	\item \texttt{construc} =1 nếu làm việc ở construc. indus
-	\item \texttt{ndurman} =1 nếu làm việc nondur. manuf. indus.
-	\item \texttt{trcommpu} =1 nếu trong trans, commun, pub ut
-	\item \texttt{trade} =1 nếu bán buôn hoặc bán lẻ
-	\item \texttt{services} =1 nếu trong services indus
-	\item \texttt{profserv} =1 nếu trong prof. serv. indus.
-	\item \texttt{profocc} =1 nếu trong profess. occupation
-	\item \texttt{clerocc} =1 nếu trong clerical occupation
-	\item \texttt{servocc} =1 nếu trong  service occupation
-	\item \texttt{lwage} log(wage)
-	\item \texttt{expersq} exper2
-	\item \texttt{tenursq} tenure2
+	\item \texttt{exper}: Số năm kinh nghiệm tiềm năng
+	\item \texttt{tenure}: Số năm làm việc hiện tại
+	\item \texttt{nonwhite}: 1 nếu là người da màu
+	\item \texttt{female}: 1 nếu là phụ nữ
+	\item \texttt{married}: 1 nếu đã kết hôn
+	\item \texttt{numdep}: Số người phụ thuộc
+	\item \texttt{smsa}: 1 nếu sống ở vùng đô thị Hoa Kỳ
+	\item \texttt{northcen}: 1 nếu sống ở phía Bắc trung tâm Hoa Kỳ
+	\item \texttt{south}: 1 nếu sống ở khu vực phía Nam
+	\item \texttt{west}: 1 nếu sống ở khu vực phía Tây
+	\item \texttt{construc}: 1 nếu làm việc ở construc. indus
+	\item \texttt{ndurman}: 1 nếu làm việc nondur. manuf. indus.
+	\item \texttt{trcommpu}: 1 nếu trong trans, commun, pub ut
+	\item \texttt{trade}: 1 nếu bán buôn hoặc bán lẻ
+	\item \texttt{services}: 1 nếu trong services indus.
+	\item \texttt{profserv}: 1 nếu trong prof. serv. indus.
+	\item \texttt{profocc}: 1 nếu trong profess. occupation
+	\item \texttt{clerocc}: 1 nếu trong clerical occupation
+	\item \texttt{servocc}: 1 nếu trong service occupation
+	\item \texttt{lwage}: \texttt{log(wage)}
+	\item \texttt{expersq}: \texttt{exper2}
+	\item \texttt{tenursq}: \texttt{tenure2}
 \end{itemize}
 
 \begin{figure}[H]
@@ -45,8 +45,8 @@ Bộ dữ liệu gồm 13 biến sau:
 
 Dựa vào kết quả mô tả dữ liệu từ R trong hình \ref{describe-4}, ta thấy được bộ dữ liệu gồm  24 biến và 526 quan trắc, các biến dữ liệu không bị missing value và được chia làm hai loại:
 \begin{itemize}
-	\item Các biến định tính: "nonwhite", "female", "married", "smsa"  ,   "northcen" , "south"  ,  "west"  ,   "construc" "ndurman"  "trcommpu" , "trade" ,   "services" , "profserv" , "profocc" , "clerocc" , "servocc" 
-	\item Các biến định lượng: "wage"  ,  "educ"  ,  "exper" ,  "tenure" , "numdep" , "lwage" ,  "expersq", "tenursq"
+	\item Các biến định tính: \texttt{nonwhite}, \texttt{female}, \texttt{married}, \texttt{smsa}, \texttt{northcen}, \texttt{south}, \texttt{west}, \texttt{construc}, \texttt{ndurman}, \texttt{trcommpu}, \texttt{trade}, \texttt{services}, \texttt{profserv}, \texttt{profocc}, \texttt{clerocc}, \texttt{servocc}.
+	\item Các biến định lượng: \texttt{wage}, \texttt{educ}, \texttt{exper}, \texttt{tenure}, \texttt{numdep}, \texttt{lwage}, \texttt{expersq}, \texttt{tenursq}.
 \end{itemize}
 
 \subsection*{Phân tích dữ liệu}
@@ -60,11 +60,11 @@ Dựa vào kết quả mô tả dữ liệu từ R trong hình \ref{describe-4},
 	\label{plot_data4}
 \end{figure}
 
-Dựa vào hình \ref{plot_data4}, ta thấy độ tương quan giữa ba cặp biến (\texttt{lwage}, \texttt{wage}), (\texttt{tenursq}, \texttt{tenure}, (\texttt{expersq}, \texttt{exper}) đều trên $0.9$ nên ta sẽ phải bỏ ba biến này ra khỏi bộ dữ liệu để tránh hiện tượng đa cộng tuyến. Nhìn vào bộ dữ liệu, ta nhận thấy được các biến 
-\texttt{lwage}, \texttt{tenursq}, \texttt{expersq} đều là sự biến đổi từ ba biến \texttt{wage}, \texttt{tenure}, \texttt{exper} ban đầu nên ta sẽ quyết định bỏ hẳn 3 biến \texttt{lwage}, \texttt{tenursq}, \texttt{expersq} này ra khỏi bộ dữ liệu.
+Dựa vào hình \ref{plot_data4}, ta thấy độ tương quan giữa ba cặp biến (\texttt{lwage}, \texttt{wage}), (\texttt{tenursq}, \texttt{tenure}, (\texttt{expersq}, \texttt{exper}) đều trên $0.9$ nên ta sẽ phải bỏ ba biến này ra khỏi bộ dữ liệu để tránh hiện tượng đa cộng tuyến. Nhìn vào bộ dữ liệu, ta nhận thấy được các biến \texttt{lwage}, \texttt{tenursq}, \texttt{expersq} đều là sự biến đổi từ ba biến \texttt{wage}, \texttt{tenure}, \texttt{exper} ban đầu nên ta sẽ quyết định bỏ hẳn 3 biến \texttt{lwage}, \texttt{tenursq}, \texttt{expersq} này ra khỏi bộ dữ liệu.
 
 \subsection*{Chọn mô hình}
-Ta sẽ xây dựng mô hình hồi quy tuyến tính đầy đủ
+
+Ta sẽ xây dựng mô hình hồi quy tuyến tính đầy đủ:
 
 \begin{figure}[H]
 	\centering
@@ -74,6 +74,7 @@ Ta sẽ xây dựng mô hình hồi quy tuyến tính đầy đủ
 \end{figure}
 
 Ta có thể thấy trong hình \ref{full-model} chỉ một vài biến như là \texttt{educ}, \texttt{tenure}, \texttt{female}, \texttt{trade}, \texttt{services}, \texttt{profocc} có ý nghĩa thống kê $0.001$. Do đó, ta cần sử dụng các phương pháp chọn biến để mô hình tốt hơn.
+
 \subsubsection*{Hướng tiếp cận 1: Chọn tất cả}
 
 \begin{longtable}{cllll}
@@ -194,10 +195,10 @@ Ta có thể thấy trong hình \ref{full-model} chỉ một vài biến như l�
 	\label{table-all-subset}\\
 \end{longtable}
 
-Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán
+Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán.
 
 
-\subsubsection*{Hướng tiếp cận 2:: Phương pháp tiến dựa trên AIC}
+\subsubsection*{Hướng tiếp cận 2: Phương pháp tiến dựa trên AIC}
 \begin{figure}[H]
 	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-1}
 	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-2}
@@ -212,7 +213,7 @@ Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ 
 	\label{stepAIC}
 \end{figure}
 
-Dự vào hình \ref{stepAIC}, sau khi chạy code R phương pháp lùi dựa theo tiêu chí AIC thì mô hình chọn được là mô hình gồm 11 biến
+Dựa vào hình \ref{stepAIC}, sau khi chạy code R phương pháp lùi dựa theo tiêu chí AIC thì mô hình chọn được là mô hình gồm 11 biến:
 
 \begin{equation*}
 	\begin{multlined}
@@ -248,7 +249,7 @@ Dựa vào hình \ref{stagewise}, sau khi chạy code R, phương pháp Stagewis
 	\end{multlined}
 \end{equation*}
 
-Dựa vào cả ba hướng tiếp cận, ta sẽ xây dựng 5 mô hình hồi quy lại theo các phương pháp chọn biến
+Dựa vào cả ba hướng tiếp cận, ta sẽ xây dựng 5 mô hình hồi quy lại theo các phương pháp chọn biến:
 
 \begin{figure}[H]
 	\begin{tabular}{cc}
@@ -306,7 +307,7 @@ Từ kết quả chạy từ R trong hình \ref{vif}, ta thấy được mô hì
 	\label{diagnostic}
 \end{figure}
 
-Dựa vào hình \ref{diagnostic} (Noraml Q-Q), ta có thể thấy được các điễm nằm gần như trên đường chéo, tức là sai số có phương sai không đôi và đã tuân theo phân phối chuẩn.
+Dựa vào hình \ref{diagnostic} (Normal Q-Q), ta có thể thấy được các điễm nằm gần như trên đường chéo, tức là sai số có phương sai không đổi và đã tuân theo phân phối chuẩn.
 
 \subsection*{Kết luận}
 Khi kiểm tra các giả thiết ý nghĩa của mô hình:

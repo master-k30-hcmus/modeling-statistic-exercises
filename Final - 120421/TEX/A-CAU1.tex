@@ -42,23 +42,12 @@ Phân bố của 7 biến ban đầu ở hình \ref{fig-a1:plot-vars} và trung 
 
 \begin{figure}[H]
 	\centering
-	\subfloat[\texttt{sex}]
-	{\includegraphics[width=0.6\linewidth]{images/A1/aggregate-sex}}\\
-	\subfloat[\texttt{smoker}]
-	{\includegraphics[width=0.65\linewidth]{images/A1/aggregate-smoker}}\\
-	\subfloat[\texttt{region}]
-	{\includegraphics[width=0.9\linewidth]{images/A1/aggregate-region}}\\
-	\subfloat[\texttt{bmi}]
-	{\includegraphics[width=0.7\linewidth]{images/A1/aggregate-bmi_ranges}}\\
-	\subfloat[\texttt{age}]
-	{\includegraphics[width=0.65\linewidth]{images/A1/aggregate-age_ranges}}\\
-	\subfloat[\texttt{children}]
-	{\includegraphics[width=0.65\linewidth]{images/A1/aggregate-children}}\\
-	\caption{Trung bình tổng của từng biến theo biến phụ thuộc \texttt{charges}}
-	\label{fig-a1:aggregate-vars}
+	\includegraphics[width=1\linewidth]{images/A1/boxplot-vars-by-charges}
+	\caption{Biểu đồ boxplot của 6 biến so đối với biến phụ thuộc \texttt{charges}}
+	\label{fig-a1:boxplot-vars}
 \end{figure}
 
-Một số điều thú vị thấy được ở hai hình \ref{fig-a1:plot-vars} và \ref{fig-a1:aggregate-vars}, ta xét lần lượt từng biến:
+Một số điều thú vị quan sát được ở hai hình \ref{fig-a1:plot-vars} và \ref{fig-a1:boxplot-vars}, ta xét lần lượt từng biến:
 \begin{itemize}
 	\item \texttt{sex}: dù là nam hay nữ thì phân bố giữa hai giới này đều xấp xỉ nhau, đồng thời chi phí trung bình mà bảo hiểm y tế chi trả cũng xấp xỉ nhau.
 	\item \texttt{smoker}: số lượng người hút thuốc ít hơn số lượng người không hút thuốc có trong bộ dữ liệu, nhưng chi phí trung bình mà bảo hiểm y tế chi trả cho nhóm này thì hoàn toàn cao hơn rất nhiều, điều này khá hiển nhiên.
@@ -79,19 +68,12 @@ Xét mô hình đầy đủ sau:
 	\end{split}
 \end{equation}
 
-Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:model-full}, đúng như dự đoán, biến vùng~miền \texttt{region} và giới tính \texttt{sex} không có ý nghĩa thống kê, và các biến còn lại có ý nghĩa thống kê khá cao.
+Mô hình hồi quy đầy đủ có các thông số ở hình \ref{fig-a1:model-full}, đúng như dự đoán, biến vùng~miền \texttt{region} và giới tính \texttt{sex} không có ý nghĩa thống kê, và các biến còn lại có ý nghĩa thống kê tương đối cao. Mặt khác, đặc tính hút thuốc có hệ số cao nhất trong số còn lại, với một người hút thuốc, họ phải chi trả khoảng 24,000 USD.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/A1/model-full}
 	\caption{Mô hình đầy đủ}
 	\label{fig-a1:model-full}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/model-full-plot}
-	\caption{Các biểu đồ của mô hình lựa chọn}
-	\label{fig-a1:model-full-plot}
 \end{figure}
 
 Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hiện tượng đa cộng~tuyến có trong mô hình này, kết quả từ phần mềm R ở hình \ref{fig-a1:model-full-vif} cho thấy các hệ số VIF đều dưới 5, chứng tỏ không tồn tại hiện tượng này trong mô hình.
@@ -102,7 +84,15 @@ Tiến hành sử dụng phương pháp tính hệ số VIF để kiểm tra hi�
 	\label{fig-a1:model-full-vif}
 \end{figure}
 
-Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nhóm em sử dụng phương pháp Stepwise lùi để chọn mô hình phù hợp nhanh hơn, và tiêu chuẩn BIC cho mô hình đơn giản trên. Các bước và kết quả chọn mô hình, các thông số của nó được thể hiện ở hình \ref{fig-a1:model-bic} 
+Mô hình giải thích được khoảng 75\% sự thay đổi thay đổi của chi phí chi trả y tế \texttt{charges} dựa trên các đặc tính như hút thuốc, tuổi tác, chỉ số BMI và số lượng trẻ em phụ thuộc. Tuy nhiên, dựa vào hình \ref{fig-a1:model-full-plot}, có thể thấy ở biểu đồ phần dư có kì vọng có vẻ gần bằng 0, nhưng phương sai không phải hằng số.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/A1/model-full-plot}
+	\caption{Các biểu đồ của mô hình lựa chọn}
+	\label{fig-a1:model-full-plot}
+\end{figure}
+
+Ta tiến hành chọn mô hình, hi vọng các biến được chọn sẽ cải thiện tình trạng của mô hình đầy đủ. Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nhóm em sử dụng phương pháp Stepwise lùi để chọn mô hình phù hợp nhanh hơn, và tiêu chuẩn BIC cho mô hình đơn giản có 9 biến trên. Các bước và kết quả chọn mô hình, các thông số của nó được thể hiện ở hình \ref{fig-a1:model-bic}.
 \begin{figure}[H]
 	\centering
 	\subfloat[Các bước và kết quả chọn mô hình]
@@ -113,32 +103,56 @@ Do mô hình đầy đủ đã có nhiều biến có ý nghĩa thống kê, nh�
 	\label{fig-a1:model-bic}
 \end{figure}
 
+Đồng thời mô hình cũng không có hiện tượng đa cộng tuyến giữa các biến được lựa chọn.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.35\linewidth]{images/A1/model-bic-vif}
 	\caption{Hiện tượng đa cộng tuyến trong mô hình lựa chọn}
 	\label{fig-a1:model-bic-vif}
 \end{figure}
+
+Tuy nhiên, các biến được lựa chọn khá tương đồng với những biến có ý nghĩa với mô hình đầy đủ, hình \ref{fig-a1:model-bic-plot} cho thấy các biểu đồ trong mô hình lựa chọn không khác mấy với mô hình đầy đủ. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-plot}
+	\includegraphics[width=0.7\linewidth]{images/A1/model-bic-plot}
 	\caption{Các biểu đồ của mô hình lựa chọn}
 	\label{fig-a1:model-bic-plot}
 \end{figure}
+
+Việc chuẩn hóa dữ liệu (hình \ref{fig-a1:scaled-model-full}) hay xóa bỏ các dữ liệu ngoại lai (\ref{fig-a1:new-model-full}) cũng không thay đổi được gì.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/A1/model-bic-vars}
-	\caption{Mối quan hệ tuyến tính của từng biến đối với biến phụ thuộc \texttt{charges}}
-	\label{fig-a1:model-bic-vars}
+	\subfloat[Thông số mô hình]
+	{\includegraphics[width=0.5\linewidth]{images/A1/scaled-model-full}}\hfill
+	\subfloat[Các biểu đồ của mô hình]
+	{\includegraphics[width=0.5\linewidth]{images/A1/plot-scaled-model}}
+	\caption{Mô hình lựa chọn với bộ dữ liệu chuẩn hóa}
+	\label{fig-a1:scaled-model-full}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\subfloat[Thông số mô hình]
+	{\includegraphics[width=0.5\linewidth]{images/A1/new-model}}\hfill
+	\subfloat[Các biểu đồ của mô hình]
+	{\includegraphics[width=0.5\linewidth]{images/A1/plot-new-model}}
+	\caption{Mô hình lựa chọn với bộ dữ liệu được xóa ngoại lai}
+	\label{fig-a1:new-model-full}
+\end{figure}
 
 \subsection*{Nhận xét và kết luận}
 
-Ý nghĩa mô hình?
+Khi kiểm tra các điều kiện ý nghĩa của mô hình:
+\begin{itemize}
+	\item Vấn đề đa cộng tuyến các mô hình lựa chọn đều được đảm bảo là không xảy ra.
+	\item Tuy nhiên, phần dư $\epsilon$ trong các mô hình đều không tuân theo phân phối chuẩn, kỳ vọng có thể bằng 0, nhưng phương sai không là một hằng số.
+\end{itemize}
 
-Mô hình giải thích đc bn?
+Vậy các \textbf{mô hình không có ý nghĩa}, dù đã xét các vấn đề về dữ liệu là ngoại lai và chuẩn hóa, nhưng cũng không thay đổi được mô hình, có thể mô hình tuyến tính chưa phù hợp để thể giải thích tốt cho chi phí chi trả y tế \texttt{charges}. Mô hình tuyến tính có thể giải thích được khoảng 75\% sự biến thiên của \texttt{charges}, phụ thuộc nhiều nhất là khi người có hút thuốc hay không. Vì vậy, mô hình vẫn có thể sử dụng để dự đoán, nhưng cần phải cẩn thận và xem xét về kết quả.
 
-Giải thích các plot của mô hình?
-
-Có thể mở rộng bài toán bằng cách xem xét các giá trị ngoại lai và hiểu được sự tồn tại của các giá trị đó. Sau đó, chọn phương pháp tối ưu nhằm lựa chọn mô hình phù hợp hơn.
+Những điều có thể thử để cải thiện hiệu quả mô hình:
+\begin{itemize}
+	\item Cần sử dụng các mô hình hồi quy phi tuyến khác như Support Vector Regression, Random Forest Regression, Decision Tree Regression,... để có những bằng chứng chắc chắn hơn về ý nghĩa của mô hình.
+	\item Biến đổi một số biến độc lập sử dụng để xây dựng mô hình: bình phương, $\log$, box-cox,...
+	\item Cần bổ sung thêm các đặc tính khác liên quan đến chi phí chi trả y tế như là có uống rượu, tiền sử bệnh (tiểu đường, huyết áp,...) để có thể mô tả biến phụ thuộc tốt hơn.
+\end{itemize}
