@@ -10,26 +10,54 @@ Bộ dữ liệu gồm 13 biến sau:
 	\item 
 \end{itemize}
 
-\subsection*{Vẽ dữ liệu}
+\begin{figure}
+	\centering
+	{\includegraphics[width=0.63\linewidth]{../Photo Of Result/describe(4)-1}}
+	{\includegraphics[width=0.63\linewidth]{../Photo Of Result/describe(4)-2}}
+	{\includegraphics[width=0.63\linewidth]{../Photo Of Result/describe(4)-3}}
+	\caption{Khái quát dữ liệu}
+	\label{describe-4}
+\end{figure}
 
+Dựa vào kết quả mô tả dữ liệu từ R trong hình \ref{describe-4}, ta thấy được bộ dữ liệu gồm  24 biến và 526 quan trắc, các biến dữ liệu không bị missing value và được chia làm hai loại:
+\begin{itemize}
+	\item Các biến định tính: "nonwhite", "female", "married", "smsa"  ,   "northcen" , "south"  ,  "west"  ,   "construc" "ndurman"  "trcommpu" , "trade" ,   "services" , "profserv" , "profocc" , "clerocc" , "servocc" 
+	\item Các biến định lượng: "wage"  ,  "educ"  ,  "exper" ,  "tenure" , "numdep" , "lwage" ,  "expersq", "tenursq"
+\end{itemize}
 \subsection*{Phân tích dữ liệu}
+\begin{figure}[H]
+	\includegraphics[width=0.9\textwidth]{../Photo Of Result/Plot-dinhluong-data4}
+	\caption{Các biến định lượng được vẽ ra}
+	\includegraphics[width=\textwidth]{../Photo Of Result/Plot-dinhtinh-data4}
+	\caption{Các biến định tính được vẽ ra}
+	\label{plot_data4}
+\end{figure}
 
-Dựa vào độ tương quan ta nhận thấy được ba biến \texttt{lwage}, \texttt{tenursq}, \texttt{expersq} trên 90 nên ta sẽ bỏ ba biến này ra khỏi bộ dữ liệu
-Nên ta sẽ tiến hành kiểm định thử xem ta có thể bỏ được 3 biến này được hay không
+Dựa vào hình \ref{plot_data4}, ta thấy độ tương quan giữa ba cặp biến (\texttt{lwage}, \texttt{wage}), (\texttt{tenursq}, \texttt{tenure}, (\texttt{expersq}, \texttt{exper}) đều trên $0.9$ nên ta sẽ phải bỏ ba biến này ra khỏi bộ dữ liệu để tránh hiện tượng đa cộng tuyến. Nhìn vào bộ dữ liệu, ta nhận thấy được các biến 
+\texttt{lwage}, \texttt{tenursq}, \texttt{expersq} đều là sự biến đổi từ ba biến \texttt{wage}, \texttt{tenure}, \texttt{exper} ban đầu nên ta sẽ quyết định bỏ hẳn 3 biến \texttt{lwage}, \texttt{tenursq}, \texttt{expersq} này ra khỏi bộ dữ liệu.
 
 \subsection*{Chọn mô hình}
+Ta sẽ xây dựng mô hình hồi quy tuyến tính đầy đủ
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../Photo Of Result/full-model-data4}
+	\caption{Kết quả hồi quy mô hình đầy đủ từ R}
+	\label{full-model}
+\end{figure}
+
+Ta có thể thấy trong hình \ref{full-model} chỉ một vài biến như là \texttt{educ}, \texttt{tenure}, \texttt{female}, \texttt{trade}, \texttt{services}, \texttt{profocc} có ý nghĩa thống kê $0.001$. Do đó, ta cần sử dụng các phương pháp chọn biến để mô hình tốt hơn.
 \subsubsection*{Hướng tiếp cận 1: Chọn tất cả}
 
 % Please add the following required packages to your document preamble:
 % \usepackage{longtable}
 % Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
-\begin{longtable}{clllll}
+\begin{longtable}{cllll}
 	\hline
 	\begin{tabular}[c]{@{}c@{}}Số lượng \\ biến\end{tabular} &
 	\multicolumn{1}{c}{Biến dự đoán} &
-	\multicolumn{1}{c}{R\textasciicircum{}2} &
-	\multicolumn{1}{c}{AIC} &
-	\multicolumn{1}{c}{Cp} &
+	\multicolumn{1}{c}{$R^2_{adj}$} &
+	\multicolumn{1}{c}{$C_p$} &
 	\multicolumn{1}{c}{BIC} \\ \hline
 	\endhead
 	%
@@ -41,136 +69,128 @@ Nên ta sẽ tiến hành kiểm định thử xem ta có thể bỏ được 3 
 	1 &
 	profocc &
 	\multicolumn{1}{c}{0.19362} &
-	\multicolumn{1}{c}{} &
 	243.45475 &
 	-101.6706 \\
 	2 &
 	educ, tenure &
 	\multicolumn{1}{c}{0.29919} &
-	\multicolumn{1}{c}{} &
 	143.97580 &
 	-170.2154 \\
 	3 &
 	educ, tenure, female &
 	\multicolumn{1}{c}{0.35396} &
-	\multicolumn{1}{c}{} &
 	92.91189 &
 	-207.7622 \\
 	4 &
 	educ, tenure, female, profocc &
 	0.39249 &
-	&
 	57.37900 &
 	-234.8483 \\
 	5 &
 	educ, tenure, femanle, profocc, trade &
 	0.41818 &
-	&
 	34.07821 &
 	-252.3208 \\
 	6 &
 	educ, tenure, female, profocc, trade, west &
 	0.42657 &
-	&
 	27.14121 &
 	-254.7032 \\
 	7 &
-	educ, tenure, female, profocc, trade, west,  services &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, \\ services\end{tabular} &
 	0.43425 &
-	&
 	20.89218 &
 	-256.5481 \\
 	8 &
-	educ, tenure, female, profocc, trade, west, services, smsa &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa\end{tabular} &
 	0.44033 &
-	&
 	16.16804 &
-	-256.9875 \\
+	\textbf{-256.9875} \\
 	9 &
-	educ, tenure, female, profocc, trade, west, services, smsa, married &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married\end{tabular} &
 	0.44469 &
-	&
 	13.08489 &
 	-255.8480 \\
 	10 &
-	educ, tenure, female, profocc, trade, west, services, smsa, married, northcen &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, northcen\end{tabular} &
 	0.44560 &
-	&
 	13.22747 &
 	-251.4683 \\
 	11 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, \\ married, ndurman, profserv\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv\end{tabular} &
 	0.44637 &
-	&
 	13.50318 &
 	-246.9594 \\
 	12 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, \\ married, ndurman, profserv, trcommpu\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv,\\ trcommpu\end{tabular} &
 	0.44827 &
-	&
 	12.73335 &
 	-243.5280 \\
 	13 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, \\ married, ndurman, profserv, trcommpu, northcen\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, \\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen\end{tabular} &
 	0.44939 &
-	&
 	12.69999 &
 	-239.3528 \\
 	14 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, \\ married, ndurman, profserv, trcommpu, northcen, numdep\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv,\\ trcommpu, northcen, numdep\end{tabular} &
 	0.44959 &
-	&
 	13.51543 &
 	-234.3090 \\
 	15 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, \\ married, ndurman, profserv, trcommpu, northcen, numdep, exper\end{tabular} &
-	0.45032 &
-	&
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper\end{tabular} &
+	\textbf{0.45032} &
 	13.84069 &
 	-229.7754 \\
 	16 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, married, ndurman, \\ profserv, trcommpu, nothcen, numdep, exper, south\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv,\\ trcommpu, nothcen, numdep, exper, south\end{tabular} &
 	0.45015 &
-	&
 	15.00327 &
 	-224.3782 \\
 	17 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west, services, smsa, married, ndurman,\\  profserv, trcommpu, northcen, numdep, exper, construc, clerocc\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenure, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper, construc,\\ clerocc\end{tabular} &
 	0.45003 &
-	&
 	16.12009 &
 	-219.0300 \\
 	18 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west, services, smsa, married, ndurman, \\ profserv, trcommpu, northcen, numdep, exper, construc, clerocc, south\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper, construc, \\ clerocc, south\end{tabular} &
 	0.44988 &
-	&
 	17.26616 &
 	-213.6529 \\
 	19 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west, services, smsa, married, ndurman, \\ profserv, trcommpu, northcen, numdep, exper, construc, clerocc, south, servocc\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper, construc,\\ clerocc, south, servocc\end{tabular} &
 	0.44906 &
-	&
-	19.01455 &
+	\texttt{19.01455} &
 	-207.6496 \\
 	20 &
-	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west, services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper, construc, clerocc, south, servocc, nonwhite\end{tabular} &
+	\begin{tabular}[c]{@{}l@{}}educ, tenire, female, profocc, trade, west,\\ services, smsa, married, ndurman, profserv, \\ trcommpu, northcen, numdep, exper, construc,\\ clerocc, south, servocc, nonwhite\end{tabular} &
 	0.44799 &
-	&
 	21.00000 &
 	-201.3995 \\ \hline
+	\caption{Giá trị $R^2_{adj}$, $C_p$, BIC, cho từng tập biến con tốt nhất}
+	\label{table-all-subset}\\
 \end{longtable}
-
-Dựa vào bảng ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán
+Dựa vào bảng \ref{table-all-subset} ta thấy được mô hình có chỉ số BIC tốt nhất là mô hình 8 biến. Tuy nhiên mô hình có hệ số xác định hiệu chỉnh tốt nhất là mô hình có 15 biến và mô hình có hệ số $C_p$ tốt nhất là mô hình 19 biến dự đoán
 
 \subsubsection*{Hướng tiếp cận 2:: Phương pháp tiến dựa trên AIC}
-
-\lstinputlisting[float=h,frame=tb,caption=R output,label=zebra]{../Output Of R/StepAIC_back.txt}
+\begin{figure}[H]
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-1}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-2}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-3}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-4}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-5}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-6}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-7}
+	\includegraphics[width=0.45\textwidth]{../Photo Of Result/stepAIC(4)-8}
+	\includegraphics[width=\textwidth]{../Photo Of Result/stepAIC(4)-9}
+	\caption{Các biến định tính được vẽ ra}
+	\label{plot_data4}
+\end{figure}
 
 Sau khi chạy code R phương pháp lùi dựa theo tiêu chí AIC thì mô hình chọn được là mô hình gồm 11 biến
 \[\texttt{wage} = \texttt{educ} + \beta_0\texttt{tenure} + \texttt{female} + married + smsa + northcen + west + ndurman + trcommpu + trade + services + profserv + profocc\]
 
 \subsubsection*{Hướng tiếp cận 3: Phương pháp Stagewise}
-\begin{figure}[]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.85\linewidth]{../Photo Of Result/stagewise plot}
 \end{figure}
@@ -180,7 +200,58 @@ Dựa vào hình và bảng trên phương pháp Stagewise đưa ra đề xuất
 
 Dựa vào cả ba hướng tiếp cận, ta sẽ xây dựng 5 mô hình hồi quy lại theo các phương pháp chọn biến
 
+\begin{figure}[H]
+	\begin{tabular}{cc}
+		\centering
+		\includegraphics[width=0.4\textwidth]{../Photo Of Result/model-R-4} &   \includegraphics[width=0.45\textwidth]{../Photo Of Result/model-BIC-4} \\
+		(a) Mô hình hồi quy theo giá trị $R^2_{adj}$  & (b) Mô hình hồi quy theo giá trị BIC \\[6pt]
+		\includegraphics[width=0.45\textwidth]{../Photo Of Result/model-Cp-4} &   \includegraphics[width=0.45\textwidth]{../Photo Of Result/model-stepwise-aic-4} \\
+		(c) Mô hình hồi quy theo giá trị $C_p$ & (d) Mô hình hồi quy Stepwise dựa trên AIC \\[6pt]
+		\multicolumn{2}{c}{\includegraphics[width=0.45\textwidth]{../Photo Of Result/model-stagewise-4} }\\
+		\multicolumn{2}{c}{(e) Mô hình hồi quy theo phương pháp Stagewise}
+	\end{tabular}
+	\caption{Mô hình hồi quy dựa trên các phương pháp chọn biến}
+	\label{5-model-reg}
+\end{figure}
 
-Dựa vào kết quả hồi quy của R chạy thì ta chọn mô hình 8 biến theo phương pháp chọn tất cả dựa vào chuẩn BIC. Tuy nhiên, các hệ số hồi quy vẫn chưa đạt được mức ý nghĩa thống kê nên ta tiến hành lấy log để xem thử
+Dựa vào kết quả R trong hình \ref{5-model-reg}, ta chọn mô hình gồm 8 biến theo phương pháp chọn tất cả dựa vào chuẩn BIC. Tuy nhiên, các hệ số hồi quy vẫn chưa đạt được mức ý nghĩa thống kê $0.05$ nên ta sẽ biến đổi log biến được giải thích $wage$ thành biến $lwage$, và xây dựng lại mô hình dựa trên 8 biến được chọn ra.
+
+\[\texttt{lwage } = \texttt{ educ } + \texttt{ tenure } + \texttt{ female } + \texttt{ profocc } + \texttt{ female } + \texttt{ profocc } + \texttt{ trade } + \texttt{ west } + \texttt{ services } + \texttt{ smsa}\]
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../Photo Of Result/model-final-4}
+	\caption{Mô hình hồi quy với 8 biến được chọn và đã qua chuẩn hóa log}
+	\label{model-final-4}
+\end{figure}
+
+Dựa vào kết quả trong hình \ref{model-final-4}, ta được mô hình hồi quy:
+\begin{equation*}
+\begin{multlined}
+	\texttt{lwage } = \text{ } 0.0493\times \texttt{educ} \text{ } + \text{ } 0.0169 \times \texttt{tenure} \text{ }-\text{ }0.2846 \times \texttt{female} \text{ } + 0.1319 \text{ } \times \texttt{smsa} \text{ } \\
+	+\text{ }0.1124 \times\texttt{west}\text{ } -\text{ }0.2689\times \texttt{trade} -\text{ }0.2684 \times \texttt{services} \text{ } + \text{ }0.2509\times \texttt{profocc}
+\end{multlined}
+\end{equation*}
+
+
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Kết quả VIF của mô hình được chọn]
+	{\includegraphics[width=\textwidth]{../Photo Of Result/vif-4}}\hfill
+	\subfloat[Kết quả kiểm định Shapiro cho các biến được chọn]
+	{\includegraphics[width=\textwidth]{../Photo Of Result/shapiro-test-4}}
+	\label{test-model}
+	\caption{Kiểm định các giả thiết của mô hình hồi quy tuyến tính}
+\end{figure}
+
+
+Từ kết quả chạy từ R trong hình \ref{test-model}, ta thấy được mô hình không vi phạm điều kiện nào của mô hình tuyến tính. Trong mô hình không tồn tại hiện tượng đa cộng tuyến (VIF < 5.0). Các kết quả kiểm định Shapiro đều có $p_{value} < \alpha = 0.05$, tức là 8 biến được chọn đều tuân theo phân phối chuẩn
+
+\begin{figure*}
+	\includegraphics[width=\textwidth]{../Photo Of Result/diagnostic-plot-4}
+\end{figure*}
+
+\subsection*{Kết luận}
 
 

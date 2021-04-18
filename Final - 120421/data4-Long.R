@@ -65,6 +65,8 @@ panel.hist <- function(x, ...) {
 install.packages("dplyr")
 library(dplyr)
 data4_quanti <- select(data4, unlist(quanti_var))
+
+#Ve cac bien dinh luong
 data4_quali <- select(data4, unlist(quali_var))
 pairs(
   data4_quali,
@@ -73,8 +75,8 @@ pairs(
   lower.panel = panel.smooth,
   pch = "o"
 )
-# Cac bien lwage, expersq, tenursq có do tuong quan cao nen ta xem xet bo
 
+#Ve cac bien dinh tinh
 data4_quanti <- select(data4, c(unlist(quanti_var),"lwage"))
 pairs(
   data4_quanti,
@@ -86,7 +88,7 @@ pairs(
 # Cac bien khong co do tuong quan cao
 
 # Xay dung mo hinh
-model1 = lm(lwage ~ .- wage - expersq - tenursq,data = data4)
+model1 = lm(wage ~ .- lwage - expersq - tenursq,data = data4)
 summary(model1)
 
 model1.stdres = rstandard(model1)
@@ -104,10 +106,9 @@ library(leaps)
 ## i) All Possible Subsets 
 all<-regsubsets(wage~ . , data=data4[1:21], nbest=1, nvmax=24)
 info <- summary(all)
-re <- cbind(info$which, round(cbind(rsq=info$rsq,adjr2=info$adjr2, cp=info$cp, bic=info$bic), 5))
+re <- cbind(info$which, round(cbind(adjr2=info$adjr2, cp=info$cp, bic=info$bic), 4))
 
 ## ii) Stepwise Subset (based on AIC, BIC)
-model2 = lm(lwage ~ 1, data = data4[2:22])
 stepAIC(model1, direction = "backward")
 
 stepAIC(model1, direction = "backward", k=2) #BIC
@@ -129,7 +130,7 @@ summary(model_R)
 model_Cp <- lm(wage ~ . - nonwhite, data= data4[1:21])
 summary(model_Cp)
 
-model_BIC <- lm(lwage ~ educ + tenursq + female + smsa + west + trade + services +profocc, data = data4[2:22])
+model_BIC <- lm(wage ~ educ + tenure + female + smsa + west + trade + services +profocc, data = data4[1:21])
 summary(model_BIC)
 
 model_stepwise_AIC = lm(wage ~ educ + tenure + female + married + smsa + northcen + west + ndurman + 
@@ -140,7 +141,17 @@ model_stagewise = lm(wage ~ educ + tenure + female + married + smsa + west + tra
                        profserv + profocc, data = data4)
 summary(model_stagewise)
 
+model_log_BIC <- lm(lwage ~ educ + tenure + female + smsa + west + trade + services +profocc, data = data4[2:22])
+summary(model_log_BIC)
+
 install.packages("caret")
 library(caret)
 preproc1 <- preProcess(data4, method=c("center", "scale"))
 norm1 <- predict(preproc1, data4)
+
+library(car)
+par(mfrow = c(2,2))
+plot(model_log_BIC)
+
+var_select =  c("educ",  "tenure"  , "female",     "smsa"  ,   "west"  ,  "trade", "services",  "profocc")
+apply(data4[var_select],2,shapiro.test)

@@ -1,0 +1,39 @@
+> model1 = lm(wage ~ .- lwage - expersq - tenursq,data = data4)
+> summary(model1)
+
+Call:
+lm(formula = wage ~ . - lwage - expersq - tenursq, data = data4)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.1517 -1.5457 -0.3359  0.9458 13.8261 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.97754    0.87525   1.117 0.264584    
+educ         0.36682    0.05809   6.315 5.92e-10 ***
+exper        0.01408    0.01165   1.208 0.227694    
+tenure       0.11606    0.02015   5.760 1.46e-08 ***
+nonwhite    -0.04895    0.40583  -0.121 0.904050    
+female      -1.57809    0.27914  -5.653 2.63e-08 ***
+married      0.41885    0.28106   1.490 0.136780    
+numdep       0.13448    0.10247   1.312 0.190003    
+smsa         0.72685    0.28826   2.522 0.011991 *  
+northcen    -0.56408    0.35007  -1.611 0.107731    
+south       -0.30788    0.33496  -0.919 0.358447    
+west         0.53713    0.38879   1.382 0.167721    
+construc    -0.61361    0.64812  -0.947 0.344216    
+ndurman     -0.92420    0.48068  -1.923 0.055080 .  
+trcommpu    -1.23631    0.67069  -1.843 0.065865 .  
+trade       -2.14463    0.40448  -5.302 1.71e-07 ***
+services    -1.82797    0.51376  -3.558 0.000409 ***
+profserv    -0.98352    0.44364  -2.217 0.027073 *  
+profocc      1.91972    0.36469   5.264 2.09e-07 ***
+clerocc      0.28232    0.43011   0.656 0.511865    
+servocc     -0.21895    0.42891  -0.510 0.609936    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.744 on 505 degrees of freedom
+Multiple R-squared:  0.469,	Adjusted R-squared:  0.448 
+F-statistic:  22.3 on 20 and 505 DF,  p-value: < 2.2e-16
