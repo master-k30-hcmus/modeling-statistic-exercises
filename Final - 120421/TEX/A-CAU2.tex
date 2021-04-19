@@ -17,7 +17,7 @@ Bộ dữ liệu: \textbf{Nhu cầu thuê xe đạp ở Seoul}\footnote{\url{htt
 	\item \texttt{Rainfall} - Lượng mưa ($mm$)
 	\item \texttt{Snowfall} - Độ dày của tuyết ($cm$)
 	\item \texttt{Seasons} - Mùa (Winter, Spring, Summer, Autumn)
-	\item \texttt{Holiday} - Ngày lễ (Holiday nếu là ngày lễ, No holiday nếu ngược lại)
+	\item \texttt{Holiday} - Ngày lễ (Holiday nếu là ngày lễ, NoHoliday nếu ngược lại)
 	\item \texttt{Functional Day} - Ngày làm việc (Yes nếu là ngày làm việc, No nếu ngược lại)
 \end{enumerate}
 
@@ -68,7 +68,7 @@ Quan sát các kết quả ở hình \ref{A2_visual1} và \ref{A2_visual2}, có 
 	\item \texttt{WorkingDay}: Vào những ngày không đi làm, số lượng xe đạp được thuê là cực ít.
 \end{itemize}
 
-Ma trận hệ số tương quan (hình \ref{A2_visual2}) cho thấy các yếu tố về giờ \texttt{Hour} và ghiệt độ \texttt{Temp} cũng có mối tương quan khá cao với số lượng xe đạp cho thuê \texttt{Count}; các biến nhiệt độ \texttt{Temp}, nhiệt độ điểm sương \texttt{Dew} và độ ẩm \texttt{Humidity} có mối tương quan cao với nhau, tồn tại hiện tượng đa cộng tuyến trong bộ dữ liệu. 
+Ma trận hệ số tương quan (hình \ref{A2_visual2}) cho thấy các yếu tố về giờ \texttt{Hour} và ghiệt độ \texttt{Temp} cũng có mối tương quan khá cao với số lượng xe đạp cho thuê \texttt{Count}; các biến nhiệt độ \texttt{Temp}, nhiệt độ điểm sương \texttt{Dew} và độ ẩm \texttt{Humidity} có mối tương quan cao với nhau, chứng tỏ có tồn tại hiện tượng đa cộng tuyến trong bộ dữ liệu. 
 
 \begin{figure}[H]
 	\centering
@@ -80,7 +80,7 @@ Ma trận hệ số tương quan (hình \ref{A2_visual2}) cho thấy các yếu 
 	\label{A2_visual3}
 \end{figure}
 
-Số lượng xe đạp cho thuê, \texttt{Count}, không tuân theo phân phối chuẩn, và bị lệch hẳn về một phía. Có thể thấy nhu cầu thuê xe đạp ở Seoul thông thường không quá 1000 chiếc vào mỗi giờ, và rất ít khi vượt quá 2500 chiếc (hình \ref{A2_visual3}). Ngoài ra, số lượng xe đạp được thuê ở các giờ cũng có sự chênh lệch đáng kể. Xe được thuê nhiều vào khoảng $7-8$ giờ sáng, khi mọi người đi học đi làm; và vào khoảng $18-20$ giờ, khoảng thời gian tan học, tan làm.
+Số lượng xe đạp cho thuê, \texttt{Count}, không tuân theo phân phối chuẩn, và bị lệch hẳn về một phía. Có thể thấy nhu cầu thuê xe đạp ở Seoul thông thường không quá 1000 chiếc vào mỗi giờ, và rất ít khi vượt quá 2500 chiếc (hình \ref{A2_visual3}). Ngoài ra, số lượng xe~đạp được thuê ở các giờ cũng có sự chênh lệch đáng kể. Xe được thuê nhiều vào khoảng $7-8$ giờ sáng, khi mọi người đi học đi làm; và vào khoảng $18-20$ giờ, khoảng thời gian tan học, tan làm.
 
 \bigskip
 Để giải quyết vấn đề của bộ dữ liệu có số lượng biến lớn và có mối tương quan mạnh giữa các biến độc lập với nhau, nhóm em dùng phương~pháp phân tích thành phần chính (PCA) để biến đổi dữ liệu về không gian có số chiều nhỏ hơn mà vẫn giữ được nhiều thông tin nhất có thể của bộ dữ liệu.
@@ -102,7 +102,7 @@ Số lượng xe đạp cho thuê, \texttt{Count}, không tuân theo phân phố
 	\label{A2_modPCA}
 \end{figure}
 
-Mô hình giải thích được khoảng $50\%$ cho sự thay đổi số lượng thuê xe đạp tại Seoul. Tuy nhiên, trong mô hình hồi quy vẫn chứa các biến \texttt{PC7}, \texttt{PC13}, và \texttt{PC14} không có ý~nghĩa thống kê do $\rho_{value} \ge 5\%$. Tiến hành loại bỏ những biến này ra khỏi mô hình và thực hiện hồi quy tuyến tính trên tập các biến còn lại, ta thu được $R^{2} \approx 49.5\% $, không thay đổi nhiều so với mô~hình trước đó (hình \ref{A2_modPCA}.b), và trong mô hình mới này tất cả những biến độc lập đều có ý nghĩa thống kê do $\rho_{value} \ge 5\%$.
+Mô hình giải thích được khoảng $50\%$ cho sự thay đổi số lượng thuê xe đạp tại Seoul. Tuy nhiên, trong mô hình hồi quy có chứa các biến \texttt{PC7}, \texttt{PC13}, và \texttt{PC14} không có ý~nghĩa thống kê do $\rho_{value} \ge 5\%$. Tiến hành loại bỏ những biến này ra khỏi mô hình và thực hiện hồi quy tuyến tính trên tập các biến còn lại, ta thu được $R^{2} \approx 49.5\% $, không thay đổi nhiều so với mô~hình trước đó (hình \ref{A2_modPCA}.b), và trong mô hình mới này tất cả những biến độc lập đều có ý nghĩa thống kê do $\rho_{value} \ge 5\%$.
 
 \begin{figure}[H]
 	\centering
@@ -130,7 +130,7 @@ $$\texttt{PC2} = 0.440 \times \texttt{Humidity} -0.348 \times \texttt{Wind} -0.5
 
 Thành phần chính thứ nhất có thể xem là yếu tố nhiệt độ, thành phần chính thứ hai có thể xem như yếu tố trạng thái thời tiết (xấu hay tốt, được giải thích bởi độ ẩm, gió, tầm nhìn và bức xạ mặt trời). Yếu tố thời gian, \texttt{Hour, WorkingDay, Holiday} cũng được biểu diễn thông qua thành phần chính thứ 2, nhưng độ đóng góp là không nhiều. 
 
-Số lượng xe đạp cho thuê trong mỗi giờ chủ yếu bị ảnh hưởng bởi các yếu tố nhiệt độ và trạng thái thời tiết, trong điều kiện thời tiết tốt thì số lượng thuê xe đạp sẽ tăng và ngược lại.
-Mặc dù mô hình phân tích thành phần chính có thể giải thích khoảng 50\% sự biến thiên của số lượng xe đạp cho thuê, nhưng đây chưa phải là một kết quả cao, nhóm cũng chưa sử dụng mô hình cho việc dự đoán kiểm tra (testing). Tiến hành phân tích thành phần chính đã làm triệt tiêu hiện tượng đa cộng tuyến trong mô hình. 
+Số lượng xe đạp cho thuê trong mỗi giờ chủ yếu bị ảnh hưởng bởi các yếu tố nhiệt~độ và trạng thái thời tiết, trong điều kiện thời tiết tốt thì số lượng thuê xe đạp sẽ tăng và ngược lại.
+Mặc dù mô hình phân tích thành phần chính có thể giải thích khoảng 50\% sự biến thiên của số lượng xe đạp cho thuê, nhưng đây chưa phải là một kết quả cao, nhóm cũng chưa sử dụng mô hình cho việc dự đoán kiểm tra (testing). Tiến hành phân~tích thành phần chính đã làm triệt tiêu hiện tượng đa cộng tuyến trong mô hình. 
 
-Tuy nhiên, sự tác động của biến \texttt{Hour} ở mô hình biến đổi không được thể hiện rõ như những phân tích ban đầu, vì biến này đã được chuyển thành những biến giả và độ đóng góp trong các thành phần chính là không đáng kể. Để phân tích và xây dựng mô hình dự đoán tốt hơn, cần tiến hành phân tích thêm để loại bỏ các điểm bất thường, cũng như tìm cách xây dựng/biến đổi những biến ban đầu một cách hợp lý hơn.
+Tuy nhiên, sự tác động của biến \texttt{Hour} ở mô hình biến đổi không được thể hiện rõ như những phân tích ban đầu, vì biến này đã được chuyển thành những biến giả và độ đóng góp trong các thành phần chính là không đáng kể. Để phân tích và xây dựng mô~hình dự đoán tốt hơn, cần tiến hành phân tích thêm để loại bỏ các điểm bất thường, cũng như tìm cách xây dựng/biến đổi những biến ban đầu một cách hợp lý hơn.
